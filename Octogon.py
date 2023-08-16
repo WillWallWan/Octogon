@@ -134,7 +134,7 @@ def fill_out_form(driver, court_number):
         time.sleep(0.2)
 
         # Click the button
-        # driver.execute_script("arguments[0].click();", submit_button)
+        driver.execute_script("arguments[0].click();", submit_button)
 
         print("submitted request for court", court_number)
 
@@ -143,15 +143,9 @@ def fill_out_form(driver, court_number):
 
     
 
-    
-    
-
-
-
 driver = log_in("jen")
 fill_out_form(driver, 5)
 
-time.sleep(5)
 
 driver = log_in("will")
 fill_out_form(driver, 6)
