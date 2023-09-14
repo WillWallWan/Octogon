@@ -19,6 +19,8 @@ def log_in(user):
 
     driver.get('https://rioc.civicpermits.com/')
 
+    time.sleep(5)
+
     if user == "jen":
         login = 'jenni-wan@hotmail.com'
     elif user =="will":
