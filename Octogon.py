@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 
 def log_in(user):
-    service = Service(executable_path=r'C:\Users\willy\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe')
+    service = Service()
     driver = webdriver.Chrome(service=service)
 
     
@@ -19,7 +19,7 @@ def log_in(user):
 
     driver.get('https://rioc.civicpermits.com/')
 
-    time.sleep(5)
+    #time.sleep(2)
 
     if user == "jen":
         login = 'jenni-wan@hotmail.com'
@@ -111,7 +111,7 @@ def fill_out_form(driver, court_number):
     wait.until(EC.element_to_be_clickable((By.ID, "af8966101be44676b4ee564b052e1e87"))).send_keys("2")
     wait.until(EC.element_to_be_clickable((By.ID, "f28f0dbea8b5438495778b0bb0ddcd93"))).send_keys("No")
     wait.until(EC.element_to_be_clickable((By.ID, "d46cb434558845fb9e0318ab6832e427"))).send_keys("No")
-    wait.until(EC.element_to_be_clickable((By.ID, "7ee8568916454adaa207e3888be54818"))).send_keys("No")
+    wait.until(EC.element_to_be_clickable((By.ID, "1221940f5cca4abdb5288cfcbe284820"))).send_keys("None")
     wait.until(EC.element_to_be_clickable((By.ID, "0ce54956c4b14746ae5d364507da1e85"))).send_keys("None")
     wait.until(EC.element_to_be_clickable((By.ID, "6b1dda4172f840c7879662bcab1819db"))).send_keys("None")
     wait.until(EC.element_to_be_clickable((By.ID, "a31f4297075e4dab8c0ef154f2b9b1c1"))).send_keys("None")

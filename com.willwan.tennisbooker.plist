@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.willwan.tennisbooker</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/willwallwan/tennis_booker.sh</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>8</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+        <key>Weekday</key>
+        <integer>2</integer>
+    </dict>
+    <key>StandardErrorPath</key>
+    <string>/Users/willwallwan/tennis_booker.err</string>
+    <key>StandardOutPath</key>
+    <string>/Users/willwallwan/tennis_booker.out</string>
+</dict>
+</plist> 
