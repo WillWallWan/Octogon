@@ -51,6 +51,15 @@ SAME_DAY_CUTOFF = "15:00"      # Cutoff for same-day bookings
 COURT_OPEN_TIME = "07:00"      # First available booking time
 COURT_CLOSE_TIME = "21:00"     # Last available booking time (for 1-hour slots)
 
+# Days ahead to book based on current weekday (0=Monday, 6=Sunday)
+BOOKING_RULES = {
+    0: [2],      # Monday: book Wednesday
+    1: [2],      # Tuesday: book Thursday
+    2: [2],      # Wednesday: book Friday
+    3: [2],      # Thursday: book Saturday
+    4: [2, 3, 4] # Friday: book Sunday, Monday, Tuesday
+}
+
 # Court IDs (don't change unless the website changes these values)
 COURT_IDS = {
     1: "036dfea4-c487-47b0-b7fe-c9cbe52b7c98",

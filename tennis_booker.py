@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException
-from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS
+from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES
 
 # Set up logging with more detailed format
 logging.basicConfig(
@@ -127,8 +127,9 @@ class TennisBooker:
             site_dropdown.select_by_visible_text(court_name)
             
             # Add a small wait like in Octogon.py
-            time.sleep(0.2)
+            time.sleep(1)
             
+            logging.debug("Clicking Add Facility button")
             # Click "Add Facility" button like in Octogon.py
             add_facility_button = self.wait.until(EC.element_to_be_clickable((By.ID, "addFacilitySet")))
             self.driver.execute_script("arguments[0].click();", add_facility_button)
@@ -159,9 +160,13 @@ class TennisBooker:
         # Click body to trigger date validation 
         self.driver.find_element(By.TAG_NAME, 'body').click()
 
-        # Check availability after setting date
-        if not self.check_availability():
-            raise CourtUnavailableError(f"Court is not available on {formatted_date}")
+        # Add a flat delay instead of checking availability
+        logging.debug("Waiting for date validation...")
+        # time.sleep(1)
+        
+        # Comment out availability check
+        # if not self.check_availability():
+        #     raise CourtUnavailableError(f"Court is not available on {formatted_date}")
             
         # Extract hour from time string (e.g., "18:00" → 18)
         start_hour = int(start_time.split(':')[0])
@@ -182,9 +187,9 @@ class TennisBooker:
             logging.error(f"Error setting time: {str(e)}")
             raise
 
-        # Check availability after setting time
-        if not self.check_availability():
-            raise CourtUnavailableError(f"Court is not available at {start_time}")
+        # Comment out second availability check
+        # if not self.check_availability():
+        #     raise CourtUnavailableError(f"Court is not available at {start_time}")
 
     def book_court(self, court_number, booking_date, start_time, success_delay=5):
         """Attempt to book a court for the given date and time."""
@@ -203,7 +208,7 @@ class TennisBooker:
             # Click Continue - exact same approach as Octogon.py
             continue_button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".controlArea button")))
             continue_button.click()
-            time.sleep(0.2)  # Match Octogon.py timing
+            time.sleep(2)  # Match Octogon.py timing
 
             # Fill in permit questions
             self._fill_permit_questions()
@@ -312,17 +317,22 @@ def main():
         logging.info("Not a valid booking time. Exiting.")
         return
 
-    booker = TennisBooker()
-    if not booker.setup_driver():
-        return
-
-    try:
-        booking_date = datetime.now() + timedelta(days=2)
+    # Get today's weekday (0=Monday, 6=Sunday)
+    today_weekday = datetime.now().weekday()
+    
+    # Get the days ahead to book based on today's weekday
+    days_ahead_to_book = BOOKING_RULES.get(today_weekday, [2])  # Default to 2 days if not specified
+    
+    # For each booking day (on Friday this would be days 2, 3, and 4)
+    for days_ahead in days_ahead_to_book:
+        booking_date = datetime.now() + timedelta(days=days_ahead)
+        logging.info(f"Attempting to book for {booking_date.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead)")
         
+        # For each user account
         for username, user_data in USERS.items():
-            logging.info(f"Processing user {username}")
+            logging.info(f"Processing user {username} for {booking_date.strftime('%m/%d/%Y')}")
             
-            # Get the highest priority court and time (first in each list)
+            # Skip users without preferences
             if not user_data['preferred_courts'] or not user_data['preferred_times']:
                 logging.warning(f"No preferred courts or times for {username}, skipping")
                 continue
@@ -330,22 +340,25 @@ def main():
             preferred_court = user_data['preferred_courts'][0]
             preferred_time = user_data['preferred_times'][0]
             
-            logging.info(f"Trying to book court {preferred_court} at {preferred_time} for {username}")
+            logging.info(f"Trying to book court {preferred_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
             
-            if booker.login(user_data['email'], user_data['password']):
-                # Only try the first preference
-                success = booker.book_court(
-                    preferred_court,
-                    booking_date,
-                    preferred_time
-                )
-                
-                if success:
-                    logging.info(f"Successfully booked court {preferred_court} at {preferred_time} for {username}")
-                else:
-                    logging.warning(f"Could not book court {preferred_court} at {preferred_time} for {username}")
-    finally:
-        booker.close()
+            # Create a new booking session for each attempt
+            booker = TennisBooker()
+            try:
+                if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
+                    success = booker.book_court(
+                        preferred_court,
+                        booking_date,
+                        preferred_time
+                    )
+                    
+                    if success:
+                        logging.info(f"Successfully booked court {preferred_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
+                    else:
+                        logging.warning(f"Could not book court {preferred_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
+            finally:
+                # Close each browser session
+                booker.close()
 
 if __name__ == "__main__":
     main() 
