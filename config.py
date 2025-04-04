@@ -7,38 +7,38 @@ USERS = {
     "alex": {
         "email": "nyuclubtennis+alexm@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [6],
-        "preferred_times": ["18:00"]
+        "preferred_courts": [6, 1],  # Primary: Court 6, Secondary: Court 1
+        "preferred_times": ["18:00", "18:00"]
     },
     "jamie": {
         "email": "nyuclubtennis+jamies@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [6],
-        "preferred_times": ["17:00"]
+        "preferred_courts": [6, 1],  # Primary: Court 6, Secondary: Court 2
+        "preferred_times": ["17:00", "17:00"]
     },
     "taylor": {
         "email": "nyuclubtennis+taylorw@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [3],
-        "preferred_times": ["18:00"]
+        "preferred_courts": [3, 4],  # Primary: Court 3, Secondary: Court 4
+        "preferred_times": ["18:00", "18:00"]
     },
     "morgan": {
         "email": "nyuclubtennis+morganb@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [3],
-        "preferred_times": ["17:00"]
+        "preferred_courts": [3, 4],  # Primary: Court 3, Secondary: Court 1
+        "preferred_times": ["17:00", "17:00"]
     },
     "jordan": {
         "email": "nyuclubtennis+jordanr@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [5],
-        "preferred_times": ["18:00"]
+        "preferred_courts": [5, 2],  # Primary: Court 5, Secondary: Court 4
+        "preferred_times": ["18:00", "18:00"]
     },
     "casey": {
         "email": "nyuclubtennis+caseyc@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [5],
-        "preferred_times": ["17:00"]
+        "preferred_courts": [5, 2],  # Primary: Court 5, Secondary: Court 2
+        "preferred_times": ["17:00", "17:00"]
     }
 }
 
