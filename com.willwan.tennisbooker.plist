@@ -6,8 +6,10 @@
     <string>com.willwan.tennisbooker</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/willwallwan/Documents/GitHub/Octogon/run_tennis_booker.sh</string>
+        <string>/Users/willwallwan/Documents/GitHub/Octogon/LaunchScript.sh</string>
     </array>
+    <key>RunAtLoad</key>
+    <true/>
     <key>StartCalendarInterval</key>
     <array>
         <dict>

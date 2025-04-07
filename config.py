@@ -7,39 +7,52 @@ USERS = {
     "alex": {
         "email": "nyuclubtennis+alexm@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [6, 1],  # Primary: Court 6, Secondary: Court 1
+        "preferred_courts": [6, 1],  # Primary: Court 6 at 18:00, Secondary: Court 1 at 18:00
         "preferred_times": ["18:00", "18:00"]
     },
     "jamie": {
         "email": "nyuclubtennis+jamies@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [6, 1],  # Primary: Court 6, Secondary: Court 2
+        "preferred_courts": [6, 1],  # Primary: Court 6 at 17:00, Secondary: Court 1 at 17:00
         "preferred_times": ["17:00", "17:00"]
     },
-    "taylor": {
-        "email": "nyuclubtennis+taylorw@gmail.com",
+    "arthur": {
+        "email": "nyuclubtennis+arthurw@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [3, 4],  # Primary: Court 3, Secondary: Court 4
+        "preferred_courts": [3, 4],  # Primary: Court 3 at 18:00, Secondary: Court 4 at 18:00
         "preferred_times": ["18:00", "18:00"]
     },
     "morgan": {
         "email": "nyuclubtennis+morganb@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [3, 4],  # Primary: Court 3, Secondary: Court 1
+        "preferred_courts": [3, 4],  # Primary: Court 3 at 17:00, Secondary: Court 4 at 17:00
         "preferred_times": ["17:00", "17:00"]
     },
     "jordan": {
         "email": "nyuclubtennis+jordanr@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [5, 2],  # Primary: Court 5, Secondary: Court 4
+        "preferred_courts": [5, 2],  # Primary: Court 5 at 18:00, Secondary: Court 2 at 18:00
         "preferred_times": ["18:00", "18:00"]
     },
-    "casey": {
-        "email": "nyuclubtennis+caseyc@gmail.com",
+    "brian": {
+        "email": "nyuclubtennis+brians@gmail.com",
         "password": "Tennis2025",
-        "preferred_courts": [5, 2],  # Primary: Court 5, Secondary: Court 2
+        "preferred_courts": [5, 2],  # Primary: Court 5 at 17:00, Secondary: Court 2 at 17:00
         "preferred_times": ["17:00", "17:00"]
+    },
+    "yitings": {
+        "email": "nyuclubtennis+yitings@gmail.com",
+        "password": "Tennis2025",
+        "preferred_courts": [6, 5],  # Primary: Court 6 at 19:00, Secondary: Court 5 at 19:00
+        "preferred_times": ["19:00", "19:00"]
+    },
+    "benk": {
+        "email": "nyuclubtennis+benk@gmail.com",
+        "password": "Tennis2025",
+        "preferred_courts": [3, 2],  # Primary: Court 3 at 19:00, Secondary: Court 2 at 19:00
+        "preferred_times": ["19:00", "19:00"]
     }
+    
 }
 
 # Time constraints
@@ -53,7 +66,7 @@ COURT_CLOSE_TIME = "21:00"     # Last available booking time (for 1-hour slots)
 
 # Days ahead to book based on current weekday (0=Monday, 6=Sunday)
 BOOKING_RULES = {
-    0: [2],      # Monday: book Wednesday
+    0: [1, 2],      # Monday: book Wednesday
     1: [2],      # Tuesday: book Thursday
     2: [2],      # Wednesday: book Friday
     3: [2],      # Thursday: book Saturday
