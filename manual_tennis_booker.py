@@ -6,10 +6,11 @@ the secondary court preferences (courts 1, 2, 4) instead of primary ones.
 """
 
 import logging
+import random
 from datetime import datetime, timedelta
 # Import everything we need from the original tennis_booker
 from tennis_booker import TennisBooker, is_valid_booking_time
-from config import USERS, BOOKING_RULES
+from config import USERS, BOOKING_RULES, SECONDARY_COURT_PRIORITIES
 
 # Set up logging with the same format
 logging.basicConfig(
@@ -23,7 +24,7 @@ logging.basicConfig(
 
 def main():
     """Main function to run the manual tennis court booking system.
-    This version uses the SECOND court preference for each user."""
+    This version uses randomized account assignments for secondary courts."""
     if not is_valid_booking_time():
         logging.info("Not a valid booking time. Exiting.")
         return
@@ -39,43 +40,53 @@ def main():
         booking_date = datetime.now() + timedelta(days=days_ahead)
         logging.info(f"[MANUAL] Attempting to book for {booking_date.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead)")
         
-        # For each user account
-        for username, user_data in USERS.items():
-            logging.info(f"[MANUAL] Processing user {username} for {booking_date.strftime('%m/%d/%Y')}")
+        # Get list of available accounts and shuffle them for random assignment
+        available_accounts = list(USERS.keys())
+        random.shuffle(available_accounts)
+        
+        # Track which accounts we've used for this booking day
+        used_accounts = set()
+        
+        # Go through secondary court priorities in order
+        for priority in SECONDARY_COURT_PRIORITIES:
+            court_number = priority["court"]
+            preferred_time = priority["time"]
             
-            # Skip users without multiple court preferences or times
-            if not user_data['preferred_courts'] or len(user_data['preferred_courts']) < 2 or not user_data['preferred_times']:
-                logging.warning(f"[MANUAL] User {username} doesn't have a secondary court preference, skipping")
-                continue
-                
-            # Use the SECOND court preference (index 1)
-            secondary_court = user_data['preferred_courts'][1] if len(user_data['preferred_courts']) > 1 else None
-            if not secondary_court:
-                logging.warning(f"[MANUAL] No secondary court preference for {username}, skipping")
-                continue
-                
-            # Use the first time preference
-            preferred_time = user_data['preferred_times'][0]
+            logging.info(f"[MANUAL] Attempting to book secondary court {court_number} at {preferred_time}")
             
-            logging.info(f"[MANUAL] Trying to book SECONDARY court {secondary_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
-            
-            # Create a new booking session for each attempt
-            booker = TennisBooker()
-            try:
-                if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
-                    success = booker.book_court(
-                        secondary_court,
-                        booking_date,
-                        preferred_time
-                    )
+            # Find an account that hasn't been used yet
+            for username in available_accounts:
+                if username not in used_accounts:
+                    user_data = USERS[username]
+                    logging.info(f"[MANUAL] Selected user {username} to attempt booking court {court_number}")
                     
-                    if success:
-                        logging.info(f"[MANUAL] Successfully booked SECONDARY court {secondary_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
-                    else:
-                        logging.warning(f"[MANUAL] Could not book SECONDARY court {secondary_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
-            finally:
-                # Close each browser session
-                booker.close()
+                    # Create a new booking session
+                    booker = TennisBooker()
+                    try:
+                        if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
+                            success = booker.book_court(
+                                court_number,
+                                booking_date,
+                                preferred_time
+                            )
+                            
+                            if success:
+                                # Add to used accounts so we don't reuse it
+                                used_accounts.add(username)
+                                logging.info(f"[MANUAL] Successfully booked court {court_number} at {preferred_time} with {username} for {booking_date.strftime('%m/%d/%Y')}")
+                                break  # Move to next priority
+                            else:
+                                logging.warning(f"[MANUAL] User {username} could not book court {court_number} at {preferred_time}")
+                    except Exception as e:
+                        logging.error(f"[MANUAL] Error with user {username}: {str(e)}")
+                    finally:
+                        booker.close()
+            else:
+                # If we tried all available accounts and none worked, log it
+                logging.warning(f"[MANUAL] Could not book court {court_number} at {preferred_time} with any available account")
+        
+        # Log summary
+        logging.info(f"[MANUAL] Booking complete for {booking_date.strftime('%m/%d/%Y')} - Used accounts: {used_accounts}")
 
 if __name__ == "__main__":
     main() 

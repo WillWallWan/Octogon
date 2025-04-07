@@ -6,54 +6,64 @@ Configuration file for the tennis court reservation system.
 USERS = {
     "alex": {
         "email": "nyuclubtennis+alexm@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [6, 1],  # Primary: Court 6 at 18:00, Secondary: Court 1 at 18:00
-        "preferred_times": ["18:00", "18:00"]
+        "password": "Tennis2025"
     },
     "jamie": {
         "email": "nyuclubtennis+jamies@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [6, 1],  # Primary: Court 6 at 17:00, Secondary: Court 1 at 17:00
-        "preferred_times": ["17:00", "17:00"]
+        "password": "Tennis2025"
     },
     "arthur": {
         "email": "nyuclubtennis+arthurw@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [3, 4],  # Primary: Court 3 at 18:00, Secondary: Court 4 at 18:00
-        "preferred_times": ["18:00", "18:00"]
+        "password": "Tennis2025"
     },
     "morgan": {
         "email": "nyuclubtennis+morganb@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [3, 4],  # Primary: Court 3 at 17:00, Secondary: Court 4 at 17:00
-        "preferred_times": ["17:00", "17:00"]
+        "password": "Tennis2025"
     },
     "jordan": {
         "email": "nyuclubtennis+jordanr@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [5, 2],  # Primary: Court 5 at 18:00, Secondary: Court 2 at 18:00
-        "preferred_times": ["18:00", "18:00"]
+        "password": "Tennis2025"
     },
     "brian": {
         "email": "nyuclubtennis+brians@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [5, 2],  # Primary: Court 5 at 17:00, Secondary: Court 2 at 17:00
-        "preferred_times": ["17:00", "17:00"]
+        "password": "Tennis2025"
     },
-    "yitings": {
+    "yiting": {
         "email": "nyuclubtennis+yitings@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [6, 5],  # Primary: Court 6 at 19:00, Secondary: Court 5 at 19:00
-        "preferred_times": ["19:00", "19:00"]
+        "password": "Tennis2025"
     },
-    "benk": {
+    "ben": {
         "email": "nyuclubtennis+benk@gmail.com",
-        "password": "Tennis2025",
-        "preferred_courts": [3, 2],  # Primary: Court 3 at 19:00, Secondary: Court 2 at 19:00
-        "preferred_times": ["19:00", "19:00"]
+        "password": "Tennis2025"
     }
     
 }
+
+# Court booking priorities (highest priority first)
+COURT_PRIORITIES = [
+    {"court": 6, "time": "18:00"},  # Highest priority 
+    {"court": 3, "time": "17:00"},
+    {"court": 5, "time": "18:00"},
+    {"court": 6, "time": "17:00"},
+    {"court": 3, "time": "18:00"},
+    {"court": 5, "time": "17:00"},
+    {"court": 6, "time": "19:00"},
+    {"court": 3, "time": "19:00"},
+    {"court": 5, "time": "19:00"}
+]
+
+# Secondary court priorities (for manual booker)
+SECONDARY_COURT_PRIORITIES = [
+    {"court": 1, "time": "17:00"},
+    {"court": 2, "time": "18:00"},
+    {"court": 4, "time": "17:00"},
+    {"court": 1, "time": "18:00"},
+    {"court": 2, "time": "17:00"},
+    {"court": 4, "time": "18:00"},
+    {"court": 1, "time": "19:00"},
+    {"court": 2, "time": "19:00"},
+    {"court": 4, "time": "19:00"}
+]
 
 # Time constraints
 BOOKING_WINDOW_START = "08:00"  # Earliest time to submit booking requests

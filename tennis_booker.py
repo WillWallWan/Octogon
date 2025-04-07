@@ -1,5 +1,7 @@
 import time
 import logging
+import random
+import os
 from datetime import datetime, timedelta
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -7,8 +9,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException
-from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES
+from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, ElementNotInteractableException
+from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES, COURT_PRIORITIES
 
 # Set up logging with more detailed format
 logging.basicConfig(
@@ -19,6 +21,16 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+# Set to True for debugging with longer pauses
+DEBUG_MODE = False
+success_delay = 5 if DEBUG_MODE else 2
+
+# WebDriver paths
+CHROME_DRIVER_PATH = "/Users/willwallwan/chromedriver"  # Update with actual path
+
+# Tennis court booking URL
+TENNIS_URL = "https://roosevelt.perfectmind.com/24063/Menu/BookMe4LandingPages?widgetId=15f6af07-39c5-473e-b053-96653f77a406&redirectedFromEmbededMode=False&categoryId=4e7bbe4a-07a7-474f-a6f8-2f46eaa14631"
 
 class CourtUnavailableError(Exception):
     """Custom exception for when a court is unavailable."""
@@ -312,7 +324,7 @@ def is_valid_booking_time():
     return True
 
 def main():
-    """Main function to run the tennis court booking system."""
+    """Main function to run the tennis court booking system with randomized court-account assignments."""
     if not is_valid_booking_time():
         logging.info("Not a valid booking time. Exiting.")
         return
@@ -328,37 +340,54 @@ def main():
         booking_date = datetime.now() + timedelta(days=days_ahead)
         logging.info(f"Attempting to book for {booking_date.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead)")
         
-        # For each user account
-        for username, user_data in USERS.items():
-            logging.info(f"Processing user {username} for {booking_date.strftime('%m/%d/%Y')}")
+        # Get list of available accounts and shuffle them for random assignment
+        available_accounts = list(USERS.keys())
+        random.shuffle(available_accounts)
+        
+        # Track which accounts we've used for this booking day
+        used_accounts = set()
+        
+        # Go through court priorities in order
+        for priority in COURT_PRIORITIES:
+            court_number = priority["court"]
+            preferred_time = priority["time"]
             
-            # Skip users without preferences
-            if not user_data['preferred_courts'] or not user_data['preferred_times']:
-                logging.warning(f"No preferred courts or times for {username}, skipping")
-                continue
-                
-            preferred_court = user_data['preferred_courts'][0]
-            preferred_time = user_data['preferred_times'][0]
+            logging.info(f"Attempting to book priority court {court_number} at {preferred_time}")
             
-            logging.info(f"Trying to book court {preferred_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
-            
-            # Create a new booking session for each attempt
-            booker = TennisBooker()
-            try:
-                if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
-                    success = booker.book_court(
-                        preferred_court,
-                        booking_date,
-                        preferred_time
-                    )
+            # Find an account that hasn't been used yet
+            for username in available_accounts:
+                if username not in used_accounts:
+                    user_data = USERS[username]
+                    logging.info(f"Selected user {username} to attempt booking court {court_number}")
                     
-                    if success:
-                        logging.info(f"Successfully booked court {preferred_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
-                    else:
-                        logging.warning(f"Could not book court {preferred_court} at {preferred_time} for {username} on {booking_date.strftime('%m/%d/%Y')}")
-            finally:
-                # Close each browser session
-                booker.close()
+                    # Create a new booking session
+                    booker = TennisBooker()
+                    try:
+                        if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
+                            success = booker.book_court(
+                                court_number,
+                                booking_date,
+                                preferred_time
+                            )
+                            
+                            if success:
+                                # Add to used accounts so we don't reuse it
+                                used_accounts.add(username)
+                                logging.info(f"Successfully booked court {court_number} at {preferred_time} with {username} for {booking_date.strftime('%m/%d/%Y')}")
+                                break  # Move to next priority
+                            else:
+                                logging.warning(f"User {username} could not book court {court_number} at {preferred_time}")
+                    except Exception as e:
+                        logging.error(f"Error with user {username}: {str(e)}")
+                    finally:
+                        booker.close()
+            else:
+                # If we tried all available accounts and none worked, log it
+                logging.warning(f"Could not book court {court_number} at {preferred_time} with any available account")
+        
+        # Log summary
+        logging.info(f"Booking complete for {booking_date.strftime('%m/%d/%Y')} - Used accounts: {used_accounts}")
+        
 
 if __name__ == "__main__":
     main() 
