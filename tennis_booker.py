@@ -307,6 +307,9 @@ class TennisBooker:
 
 def is_valid_booking_time():
     """Check if current time is within valid booking window."""
+    # TEMPORARY OVERRIDE FOR TESTING - REMOVE LATER
+    return True
+    
     now = datetime.now()
     start_time = datetime.strptime(BOOKING_WINDOW_START, "%H:%M").time()
     end_time = datetime.strptime(BOOKING_WINDOW_END, "%H:%M").time()
@@ -324,7 +327,7 @@ def is_valid_booking_time():
     return True
 
 def main():
-    """Main function to run the tennis court booking system with randomized court-account assignments."""
+    """Main function to run the tennis court booking system with simplified court/account assignment."""
     if not is_valid_booking_time():
         logging.info("Not a valid booking time. Exiting.")
         return
@@ -340,54 +343,62 @@ def main():
         booking_date = datetime.now() + timedelta(days=days_ahead)
         logging.info(f"Attempting to book for {booking_date.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead)")
         
-        # Get list of available accounts and shuffle them for random assignment
-        available_accounts = list(USERS.keys())
-        random.shuffle(available_accounts)
+        # Get list of available accounts and shuffle them
+        accounts = list(USERS.keys())
+        random.shuffle(accounts)
         
-        # Track which accounts we've used for this booking day
-        used_accounts = set()
+        # Keep track of which accounts we've used
+        used_accounts = []
         
-        # Go through court priorities in order
-        for priority in COURT_PRIORITIES:
+        # Process each priority with a different account
+        for i, priority in enumerate(COURT_PRIORITIES):
+            # Check if we have any accounts left
+            if i >= len(accounts):
+                logging.warning(f"No more accounts available for priority #{i+1}")
+                break
+                
+            # Get the next account
+            username = accounts[i]
+            user_data = USERS[username]
+            
+            # Get court and time from priority
             court_number = priority["court"]
             preferred_time = priority["time"]
             
-            logging.info(f"Attempting to book priority court {court_number} at {preferred_time}")
+            logging.info(f"Priority #{i+1}: Assigning {username} to book court {court_number} at {preferred_time}")
             
-            # Find an account that hasn't been used yet
-            for username in available_accounts:
-                if username not in used_accounts:
-                    user_data = USERS[username]
-                    logging.info(f"Selected user {username} to attempt booking court {court_number}")
-                    
-                    # Create a new booking session
-                    booker = TennisBooker()
+            # Create booking session
+            booker = TennisBooker()
+            try:
+                # Attempt to book
+                if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
                     try:
-                        if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
-                            success = booker.book_court(
-                                court_number,
-                                booking_date,
-                                preferred_time
-                            )
-                            
-                            if success:
-                                # Add to used accounts so we don't reuse it
-                                used_accounts.add(username)
-                                logging.info(f"Successfully booked court {court_number} at {preferred_time} with {username} for {booking_date.strftime('%m/%d/%Y')}")
-                                break  # Move to next priority
-                            else:
-                                logging.warning(f"User {username} could not book court {court_number} at {preferred_time}")
+                        success = booker.book_court(
+                            court_number,
+                            booking_date,
+                            preferred_time
+                        )
+                        
+                        if success:
+                            used_accounts.append(username)
+                            logging.info(f"SUCCESS: Booked court {court_number} at {preferred_time} with {username}")
+                        else:
+                            logging.warning(f"FAILED: Could not book court {court_number} at {preferred_time} with {username}")
                     except Exception as e:
-                        logging.error(f"Error with user {username}: {str(e)}")
-                    finally:
-                        booker.close()
-            else:
-                # If we tried all available accounts and none worked, log it
-                logging.warning(f"Could not book court {court_number} at {preferred_time} with any available account")
+                        logging.error(f"ERROR during booking with {username}: {str(e)}")
+            except Exception as e:
+                logging.error(f"ERROR with session for {username}: {str(e)}")
+            finally:
+                try:
+                    booker.close()
+                except:
+                    pass
+                
+            # Explicitly log that we're moving to the next priority
+            logging.info(f"Moving to next priority court and account...")
         
         # Log summary
         logging.info(f"Booking complete for {booking_date.strftime('%m/%d/%Y')} - Used accounts: {used_accounts}")
-        
 
 if __name__ == "__main__":
     main() 

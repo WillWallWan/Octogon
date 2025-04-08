@@ -24,7 +24,7 @@ logging.basicConfig(
 
 def main():
     """Main function to run the manual tennis court booking system.
-    This version uses randomized account assignments for secondary courts."""
+    This version uses a simplified linear account/court assignment approach."""
     if not is_valid_booking_time():
         logging.info("Not a valid booking time. Exiting.")
         return
@@ -40,50 +40,59 @@ def main():
         booking_date = datetime.now() + timedelta(days=days_ahead)
         logging.info(f"[MANUAL] Attempting to book for {booking_date.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead)")
         
-        # Get list of available accounts and shuffle them for random assignment
-        available_accounts = list(USERS.keys())
-        random.shuffle(available_accounts)
+        # Get list of available accounts and shuffle them
+        accounts = list(USERS.keys())
+        random.shuffle(accounts)
         
-        # Track which accounts we've used for this booking day
-        used_accounts = set()
+        # Keep track of which accounts we've used
+        used_accounts = []
         
-        # Go through secondary court priorities in order
-        for priority in SECONDARY_COURT_PRIORITIES:
+        # Process each priority with a different account
+        for i, priority in enumerate(SECONDARY_COURT_PRIORITIES):
+            # Check if we have any accounts left
+            if i >= len(accounts):
+                logging.warning(f"[MANUAL] No more accounts available for priority #{i+1}")
+                break
+                
+            # Get the next account
+            username = accounts[i]
+            user_data = USERS[username]
+            
+            # Get court and time from priority
             court_number = priority["court"]
             preferred_time = priority["time"]
             
-            logging.info(f"[MANUAL] Attempting to book secondary court {court_number} at {preferred_time}")
+            logging.info(f"[MANUAL] Priority #{i+1}: Assigning {username} to book court {court_number} at {preferred_time}")
             
-            # Find an account that hasn't been used yet
-            for username in available_accounts:
-                if username not in used_accounts:
-                    user_data = USERS[username]
-                    logging.info(f"[MANUAL] Selected user {username} to attempt booking court {court_number}")
-                    
-                    # Create a new booking session
-                    booker = TennisBooker()
+            # Create booking session
+            booker = TennisBooker()
+            try:
+                # Attempt to book
+                if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
                     try:
-                        if booker.setup_driver() and booker.login(user_data['email'], user_data['password']):
-                            success = booker.book_court(
-                                court_number,
-                                booking_date,
-                                preferred_time
-                            )
-                            
-                            if success:
-                                # Add to used accounts so we don't reuse it
-                                used_accounts.add(username)
-                                logging.info(f"[MANUAL] Successfully booked court {court_number} at {preferred_time} with {username} for {booking_date.strftime('%m/%d/%Y')}")
-                                break  # Move to next priority
-                            else:
-                                logging.warning(f"[MANUAL] User {username} could not book court {court_number} at {preferred_time}")
+                        success = booker.book_court(
+                            court_number,
+                            booking_date,
+                            preferred_time
+                        )
+                        
+                        if success:
+                            used_accounts.append(username)
+                            logging.info(f"[MANUAL] SUCCESS: Booked court {court_number} at {preferred_time} with {username}")
+                        else:
+                            logging.warning(f"[MANUAL] FAILED: Could not book court {court_number} at {preferred_time} with {username}")
                     except Exception as e:
-                        logging.error(f"[MANUAL] Error with user {username}: {str(e)}")
-                    finally:
-                        booker.close()
-            else:
-                # If we tried all available accounts and none worked, log it
-                logging.warning(f"[MANUAL] Could not book court {court_number} at {preferred_time} with any available account")
+                        logging.error(f"[MANUAL] ERROR during booking with {username}: {str(e)}")
+            except Exception as e:
+                logging.error(f"[MANUAL] ERROR with session for {username}: {str(e)}")
+            finally:
+                try:
+                    booker.close()
+                except:
+                    pass
+                
+            # Explicitly log that we're moving to the next priority
+            logging.info(f"[MANUAL] Moving to next priority court and account...")
         
         # Log summary
         logging.info(f"[MANUAL] Booking complete for {booking_date.strftime('%m/%d/%Y')} - Used accounts: {used_accounts}")
