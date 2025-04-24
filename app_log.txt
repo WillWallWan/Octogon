@@ -1,0 +1,73 @@
+==================================
+Tennis Booker App started at Wednesday, April 23, 2025 at 23:23:09
+Launching tennis booking script...
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 02:49:37
+Launching tennis booking script...
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 02:51:51
+Launching tennis booking script...
+Tennis booking script completed successfully
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 6	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 02:52:39
+==================================
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 02:52:55
+Launching tennis booking script...
+Error running tennis booking script: sh: python: command not found
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 7	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 02:52:56
+==================================
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 02:53:59
+Launching tennis booking script...
+Error running tennis booking script: Traceback (most recent call last):  File /Users/willwallwan/Documents/GitHub/Octogon/tennis_booker.py, line 6, in <module>    from selenium import webdriverModuleNotFoundError: No module named 'selenium'
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 8	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 02:54:14
+==================================
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 02:54:53
+Launching tennis booking script...
+Error running tennis booking script: Traceback (most recent call last):  File /Users/willwallwan/Documents/GitHub/Octogon/tennis_booker.py, line 6, in <module>    from selenium import webdriverModuleNotFoundError: No module named 'selenium'
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 9	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 02:54:54
+==================================
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 02:54:58
+Launching tennis booking script...
+Error running tennis booking script: Traceback (most recent call last):  File /Users/willwallwan/Documents/GitHub/Octogon/tennis_booker.py, line 6, in <module>    from selenium import webdriverModuleNotFoundError: No module named 'selenium'
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 10	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 02:54:59
+==================================
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 13:18:14
+Launching tennis booking script...
+Tennis booking script completed successfully
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 13	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 13:18:41
+==================================
+==================================
+Tennis Booker App started at Thursday, April 24, 2025 at 13:19:15
+Launching tennis booking script...
+Tennis booking script completed successfully
+Scheduling tomorrow's booking...
+Scheduled for tomorrow at 8:00AM
+Current jobs: 14	Fri Apr 25 08:00:00 2025
+Tennis Booker App completed at Thursday, April 24, 2025 at 13:19:38
+==================================
