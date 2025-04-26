@@ -35,21 +35,25 @@ USERS = {
     "ben": {
         "email": "nyuclubtennis+benk@gmail.com",
         "password": "Tennis2025"
+    },
+    "dennis": {
+        "email": "nyuclubtennis+dennisw@gmail.com",
+        "password": "Tennis2025"
     }
     
 }
 
 # Court booking priorities (highest priority first)
 COURT_PRIORITIES = [
-    {"court": 6, "time": "18:00"},  # Highest priority 
-    {"court": 3, "time": "17:00"},
-    {"court": 5, "time": "18:00"},
-    {"court": 6, "time": "17:00"},
-    {"court": 3, "time": "18:00"},
     {"court": 5, "time": "17:00"},
-    {"court": 6, "time": "19:00"},
+    {"court": 5, "time": "18:00"},
+    {"court": 5, "time": "19:00"},
+    {"court": 3, "time": "17:00"},
+    {"court": 3, "time": "18:00"},
     {"court": 3, "time": "19:00"},
-    {"court": 5, "time": "19:00"}
+    {"court": 6, "time": "17:00"},
+    {"court": 6, "time": "18:00"},
+    {"court": 6, "time": "19:00"} # 9th priority - may not run if only 8 accounts
 ]
 
 # Secondary court priorities (for manual booker)
