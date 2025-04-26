@@ -80,7 +80,7 @@ BOOKING_RULES = {
     1: [2],      # Tuesday: book Thursday
     2: [2],      # Wednesday: book Friday
     3: [2],      # Thursday: book Saturday
-    4: [3, 4] # Friday: book Sunday, Monday, Tuesday
+    4: [3, 4] # Friday: book Monday, Tuesday
 }
 
 # Court IDs (don't change unless the website changes these values)
