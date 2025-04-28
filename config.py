@@ -80,7 +80,7 @@ COURT_CLOSE_TIME = "21:00"     # Last available booking time (for 1-hour slots)
 
 # Days ahead to book based on current weekday (0=Monday, 6=Sunday)
 BOOKING_RULES = {
-    0: [1, 2],      # Monday: book Wednesday
+    0: [2],      # Monday: book Wednesday
     1: [2],      # Tuesday: book Thursday
     2: [2],      # Wednesday: book Friday
     3: [2],      # Thursday: book Saturday
