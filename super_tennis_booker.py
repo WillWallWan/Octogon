@@ -12,15 +12,22 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, ElementNotInteractableException
 from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES, COURT_PRIORITIES
 
-# Set up logging with more detailed format
-logging.basicConfig(
-    level=logging.DEBUG,  # Changed to DEBUG level for more information
-    format='%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
-    handlers=[
-        logging.FileHandler('tennis_booker.log'),
-        logging.StreamHandler()
-    ]
-)
+# Set up logging with more detailed format and separate levels for handlers
+log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s')
+root_logger = logging.getLogger()
+root_logger.setLevel(logging.DEBUG)  # Set root logger to lowest level
+
+# File Handler - logs everything DEBUG and above
+file_handler = logging.FileHandler('tennis_booker.log')
+file_handler.setFormatter(log_formatter)
+file_handler.setLevel(logging.DEBUG)
+root_logger.addHandler(file_handler)
+
+# Console Handler - logs only INFO and above
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(log_formatter)
+console_handler.setLevel(logging.INFO) # Only show INFO, WARNING, ERROR, CRITICAL on console
+root_logger.addHandler(console_handler)
 
 # Set to True for debugging with longer pauses
 DEBUG_MODE = False
