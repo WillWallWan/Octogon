@@ -251,62 +251,30 @@ class TennisBooker:
             return False
 
     def submit_prepared_booking(self):
-        """Finds and clicks the final submit button and checks the result."""
-        # Ensure driver exists before attempting submission
+        """Finds and clicks the final submit button. No result checking."""
         if not self.driver:
-            logging.error(f"Attempted to submit booking for {self.court_info_for_logging}, but driver was already closed.")
-            return False
+            logging.warning(f"Attempted to click submit for {self.court_info_for_logging}, but driver was already closed.")
+            return # Cannot proceed
             
-        logging.info(f"Attempting final submission for {self.court_info_for_logging}")
+        logging.info(f"Clicking final submit button for {self.court_info_for_logging}")
         try:
-            # Use WebDriverWait for finding the button, more robust than just find_element
+            # Find the button
             submit_button = self.wait.until(
                 EC.element_to_be_clickable((By.XPATH, "//button[@id='cancelNewPermitRequest']/preceding-sibling::button"))
             )
-
-            # Optional: Re-scroll just in case - uncomment if needed
-            # self.driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
-            # time.sleep(0.1)
-
             # Click using JavaScript
             self.driver.execute_script("arguments[0].click();", submit_button)
-            logging.info(f"Submit button clicked for {self.court_info_for_logging}")
-
-            # Wait for result page to load - consider waiting for a specific element if possible
-            time.sleep(2) # Adjust if needed based on site responsiveness
-
-            # Check for success or errors
-            # Use find_elements to avoid NoSuchElementException if message isn't present
-            success_elements = self.driver.find_elements(By.CSS_SELECTOR, ".alert-success")
-            error_elements = self.driver.find_elements(By.CSS_SELECTOR, ".alert-danger, .alert-error, .validation-summary-errors")
-
-            if success_elements:
-                success_message = success_elements[0].text if success_elements else "Success message found but empty."
-                logging.info(f"SUCCESS for {self.court_info_for_logging}: {success_message.strip()}")
-                return True
-            elif error_elements:
-                error_message = error_elements[0].text if error_elements else "Error message found but empty."
-                logging.error(f"SUBMISSION FAILED for {self.court_info_for_logging}: {error_message.strip()}")
-                return False
-            else:
-                # It's possible neither message appears immediately or the URL changes
-                current_url = self.driver.current_url
-                logging.warning(f"No definitive success or error message found after submission for {self.court_info_for_logging}. Current URL: {current_url}")
-                # Heuristic: If URL changed back to dashboard/permits, assume failure? Or check differently?
-                # For now, treat lack of success message as potential failure.
-                return False
+            logging.info(f"Submit button clicked via JS for {self.court_info_for_logging}. No result check performed.")
+            # NO time.sleep() here
+            # NO result checking here
 
         except TimeoutException:
-             logging.error(f"Error submitting {self.court_info_for_logging}: Submit button not found or clickable in time.")
-             return False
+             # Log error if button wasn't clickable in time
+             logging.error(f"Error clicking submit for {self.court_info_for_logging}: Submit button not found or clickable in time.")
         except Exception as e:
-            # Catch broader exceptions during submission attempt
-            logging.error(f"Error during submission click/check for {self.court_info_for_logging}: {str(e)}")
-            try:
-                logging.debug(f"Current URL during submission error: {self.driver.current_url}")
-            except Exception as url_err:
-                 logging.debug(f"Could not get URL during submission error: {url_err}")
-            return False
+            # Log any other errors during the find/click process
+            logging.error(f"Error clicking submit for {self.court_info_for_logging}: {str(e)}")
+            # Note: We don't return True/False as we aren't checking success
 
     def close(self):
         """Close the browser."""
@@ -321,8 +289,8 @@ class TennisBooker:
 def main():
     """Main function to prepare and automatically submit tennis court bookings at 8 AM."""
     # --- Configuration --- 
-    SUBMIT_HOUR = 8
-    SUBMIT_MINUTE = 0
+    SUBMIT_HOUR = 18
+    SUBMIT_MINUTE = 8
     SUBMIT_SECOND = 0 # Aim slightly before if needed? e.g., 59
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
@@ -422,55 +390,29 @@ def main():
         # This case should ideally not happen if run before 8 AM, but handles running it after.
          logging.info("Target submission time is now or in the past. Proceeding immediately.")
 
-    # --- Submission Phase --- 
-    logging.info(f"--- Target time reached! Starting Submission Phase at {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')} ---")
-    submission_results = {} # Track success/failure per instance
-
-    # Consider threading/multiprocessing here for near-simultaneous clicks if needed
-    # from concurrent.futures import ThreadPoolExecutor
-    # def submit_task(booker):
-    #     return booker.submit_prepared_booking()
-    # with ThreadPoolExecutor(max_workers=len(prepared_instances)) as executor:
-    #     results = list(executor.map(submit_task, prepared_instances))
-    # for i, success in enumerate(results):
-    #     submission_results[prepared_instances[i].court_info_for_logging] = success
+    # --- Submission & Cleanup Phase --- 
+    logging.info(f"--- Target time reached! Starting RAPID Submission Phase at {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')} ---")
+    submitted_count = 0
     
-    # Sequential submission (simpler, less load)
+    # Loop through instances, click submit, and immediately close
     for idx, booker_instance in enumerate(prepared_instances):
-        logging.info(f"Submitting instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging}) ")
-        # Optional small random delay before click?
-        # if SUBMIT_DELAY_MAX_SECONDS > 0:
-        #      delay = random.uniform(0, SUBMIT_DELAY_MAX_SECONDS)
-        #      logging.debug(f"Adding random delay: {delay:.3f}s")
-        #      time.sleep(delay)
-        success = booker_instance.submit_prepared_booking()
-        submission_results[booker_instance.court_info_for_logging] = success
-        # Optional: Add a small *fixed* delay between submissions if needed to avoid rate limiting?
-        # time.sleep(0.5)
-
-    logging.info("--- Submission Phase Complete ---")
-
-    # --- Cleanup Phase --- 
-    logging.info(f"Closing {len(prepared_instances)} browser windows...")
-    closed_count = 0
-    for booker_instance in prepared_instances:
+        logging.info(f"Attempting submit & close for instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging}) ")
         try:
-            booker_instance.close() # close() now sets self.driver to None
-            closed_count += 1
-        except Exception as e:
-            # Log error but continue closing others
-            logging.error(f"Error closing browser window ({booker_instance.court_info_for_logging}): {str(e)}")
+            booker_instance.submit_prepared_booking() # Click submit
+            submitted_count += 1
+        except Exception as submit_err:
+             # Log if the submit method itself had an unexpected error (should be caught internally, but as a safeguard)
+             logging.error(f"Unexpected error during submit call for {booker_instance.court_info_for_logging}: {submit_err}")
+        finally:
+            # Always attempt to close the browser instance immediately after trying to click submit
+            try:
+                booker_instance.close() 
+            except Exception as close_err:
+                 logging.error(f"Error closing browser window after submit attempt ({booker_instance.court_info_for_logging}): {close_err}")
 
-    logging.info(f"--- {closed_count}/{len(prepared_instances)} browser windows closed. Script finished. ---")
-    
-    # Log final summary of results
-    successful_bookings = {k: v for k, v in submission_results.items() if v}
-    failed_bookings = {k: v for k, v in submission_results.items() if not v}
-    logging.info(f"Submission Summary: {len(successful_bookings)} Successful, {len(failed_bookings)} Failed/Unknown.")
-    if successful_bookings:
-        logging.info(f"Successful: {list(successful_bookings.keys())}")
-    if failed_bookings:
-         logging.warning(f"Failed/Unknown: {list(failed_bookings.keys())}")
+    logging.info(f"--- Rapid Submission Phase Complete: {submitted_count}/{len(prepared_instances)} submit clicks attempted. --- ")
+    logging.info("--- All browser windows should be closed. Script finished. ---")
+    # No final summary of success/failure, as results were not checked.
 
 if __name__ == "__main__":
     main() 
