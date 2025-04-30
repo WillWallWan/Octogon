@@ -289,8 +289,8 @@ class TennisBooker:
 def main():
     """Main function to prepare and automatically submit tennis court bookings at 8 AM."""
     # --- Configuration --- 
-    SUBMIT_HOUR = 18
-    SUBMIT_MINUTE = 8
+    SUBMIT_HOUR = 8
+    SUBMIT_MINUTE = 0
     SUBMIT_SECOND = 0 # Aim slightly before if needed? e.g., 59
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
@@ -310,6 +310,15 @@ def main():
         return
 
     logging.info(f"Today is {datetime.now():%A}. Booking rules active: {days_ahead_to_book} days ahead.")
+
+    # Log the planned court bookings based on priorities
+    priority_log = "Planning to prepare bookings based on COURT_PRIORITIES:\n"
+    for i, p in enumerate(COURT_PRIORITIES):
+        priority_log += f"  Priority {i+1}: Court {p['court']} at {p['time']}\n"
+    logging.info(priority_log.strip()) # Use strip() to remove trailing newline
+
+    # Log the configured submission time
+    logging.info(f"Configured target submission time: {SUBMIT_HOUR:02d}:{SUBMIT_MINUTE:02d}:{SUBMIT_SECOND:02d}")
 
     # --- Preparation Phase --- 
     logging.info("--- Starting Preparation Phase ---")
