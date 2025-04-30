@@ -399,28 +399,50 @@ def main():
         # This case should ideally not happen if run before 8 AM, but handles running it after.
          logging.info("Target submission time is now or in the past. Proceeding immediately.")
 
-    # --- Submission & Cleanup Phase --- 
+    # --- Submission Phase --- 
     logging.info(f"--- Target time reached! Starting RAPID Submission Phase at {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')} ---")
-    submitted_count = 0
+    submit_attempts = 0
+    submit_errors = 0
     
-    # Loop through instances, click submit, and immediately close
+    # Loop 1: Click Submit on all prepared instances rapidly
+    logging.info("--- Clicking Submit on all instances (Phase 1) ---")
     for idx, booker_instance in enumerate(prepared_instances):
-        logging.info(f"Attempting submit & close for instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging}) ")
+        logging.info(f"Clicking submit for instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging})")
         try:
+            # Optional: Add tiny random sleep *before* clicking if desired, but keeping it fast for now
+            # time.sleep(random.uniform(0, 0.1)) 
             booker_instance.submit_prepared_booking() # Click submit
-            submitted_count += 1
+            submit_attempts += 1
+            # NO close() here
         except Exception as submit_err:
-             # Log if the submit method itself had an unexpected error (should be caught internally, but as a safeguard)
-             logging.error(f"Unexpected error during submit call for {booker_instance.court_info_for_logging}: {submit_err}")
-        finally:
-            # Always attempt to close the browser instance immediately after trying to click submit
-            try:
-                booker_instance.close() 
-            except Exception as close_err:
-                 logging.error(f"Error closing browser window after submit attempt ({booker_instance.court_info_for_logging}): {close_err}")
+            # Log if the submit method itself had an unexpected error
+            logging.error(f"Unexpected error during submit click for {booker_instance.court_info_for_logging}: {submit_err}")
+            submit_errors += 1
 
-    logging.info(f"--- Rapid Submission Phase Complete: {submitted_count}/{len(prepared_instances)} submit clicks attempted. --- ")
-    logging.info("--- All browser windows should be closed. Script finished. ---")
+    logging.info(f"--- Submit Clicking Phase Complete: {submit_attempts}/{len(prepared_instances)} submit clicks attempted. Submit errors: {submit_errors} ---")
+
+    # Add a pause AFTER all clicks before closing, to allow submissions to register
+    # Adjust the sleep duration as needed
+    close_delay_seconds = 5 
+    logging.info(f"Waiting {close_delay_seconds} seconds before closing browser windows...")
+    time.sleep(close_delay_seconds) 
+
+    # --- Cleanup Phase ---
+    logging.info("--- Starting Cleanup Phase (Closing all browser windows - Phase 2) ---")
+    closed_count = 0
+    close_errors = 0
+    # Loop 2: Close all instances
+    for idx, booker_instance in enumerate(prepared_instances):
+        logging.info(f"Closing instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging})")
+        try:
+            booker_instance.close()
+            closed_count += 1
+        except Exception as close_err:
+            logging.error(f"Error closing browser window ({booker_instance.court_info_for_logging}): {close_err}")
+            close_errors += 1
+
+    logging.info(f"--- Cleanup Phase Complete: {closed_count}/{len(prepared_instances)} windows closed. Close errors: {close_errors} ---")
+    logging.info("--- Script finished. ---")
     # No final summary of success/failure, as results were not checked.
 
 if __name__ == "__main__":
