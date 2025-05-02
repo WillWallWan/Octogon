@@ -1,3 +1,5 @@
+--- OLD RULES (from rioc_tennis_rules.txt as of 2025-04-29) ---
+
 RIOC has implemented an updated tennis reservation and usage system. Please see the below information and links to additional details:
 Reservations can be made online by visiting Civic Permits and are only available in one (1) hour increments. 
 For a step-by-step guide to how to use the site, please click here. 
@@ -18,3 +20,45 @@ Players under 16 must be accompanied by a parent or adult 21 or over.
 All permit holders and their guests must adhere to NYC Health and Safety guidelines.
 Tennis Permits do not include or authorize parking for any vehicles.  Metered parking is available on Main Street or you may inquire about parking in the Motorgate garage.
 If you need assistance or if you see anyone not obeying the rules of the court, please contact PSD immediately at 212-832-4545 or report via the Tikkit system specifying the time and date here: Tikkit System. 
+
+--- NEW RULES (Provided by user on 2025-04-29) ---
+
+UPDATED TENNIS RULES AND REGULATIONS
+Court Hours from 7AM to 9PM
+Please Adhere to the Following Guidelines for the Health and Safety of All
+1.         Reservations required in advance. Only one reservation, per player, per day. NO two-hour or half-hour reservations allowed.
+2.         Reservations can ONLY be made two days in advance.
+3.         Same day reservations must be submitted no later than 3PM on weekdays ONLY.
+**** Same day requests are NOT available on Saturday and Sundays ****
+4.         Reservations are open to residents and non – residents. All reservations are first come, first serve.
+5.         All players must check-in with the attendant before playing. Masks are required at check-in, entering and exiting the court, but not during play.
+6.         Photo ID's are required at check-in. All participants' names must be added in the permit request.
+7. Charging participants is prohibited.
+9. Private and/or group instruction / lessons, unless sponsored by NYJTL or RI Racquet Club, are strictly prohibited. Violators, instructors, and student(s) will lose court privileges.
+10. Continued disregard for the rules governing the use of the tennis courts may result in tennis privileges being revoked.
+11.         Game play is limited to 55 minutes (on the hour); please arrive no earlier than 5 minutes before your reserved time to check in and wait in designated areas.
+12.         Social distancing of at least 6 feet must be maintained at all times while on the courts, including in the parking lot. Immediately leave the courts after your visit.
+13.         Children will not be allowed to roam the courts at any time. Players 16 and under must be accompanied by an adult.
+14.         For the safety of staff, in-person reservations will not be accepted at any time.
+15.         All permit holders and their guests must adhere to NYC Health and Safety guidelines.
+16.         When not actively playing, please adhere to all proper personal protective equipment (PPE), social distancing and facemask protocols.
+17.         Permits can be submitted from Monday through Friday from 8am to 4pm
+18.         Weekend and Monday requests must be submitted by Friday at 4pm.
+19.         After 3 No-Shows we reserve the right to deny future permits.
+20.         Cancellations must be made 24hrs in advance to re-book a reservation.
+21.         Only the 2 or 4 permitted players are allowed on the courts. No coaches.
+          Singles and Doubles play permitted on all courts. A maximum of four (4) people permitted on any court at any time.
+22.         Anyone found on the courts once they are closed is subject to be summonsed for Trespassing.
+23.         REMINDER: First reservation slot is at 7AM / Last reservation slot is at 9PM
+
+24.         Do not play if any of the following apply to you:
+•         Are exhibiting any symptoms of the COVID (19).
+•         According to the CDC, people with COVID (19) have had a wide range of symptoms reported—ranging from mild symptoms to severe illness. These symptoms may appear 2-14 days after exposure to the virus: fever, cough, shortness of breath or difficulty breathing, chills, repeated shaking with chills, muscle pain, headache, sore throat, new loss of taste or smell.
+•         Have been in contact with someone with COVID (19) in the last 14 days.
+Are you a vulnerable individual and your state and region is in Phase One or Phase Two. A vulnerable individual is an elderly individual and/or an individual with serious underlying health conditions, including high blood pressure, chronic lung disease, diabetes, obesity, asthma and those whose immune system is compromised such as by chemotherapy for cancer and other conditions requiring such therapy. (For states and regions in Phase Three, a vulnerable individual can resume public interactions, including playing tennis, but should practice physical distancing.)
+25. Tennis Permits do not include or authorize parking for any vehicles. Metered parking is available on Main St or you may inquire about parking in the Motorgate garage.
+26.          Inclement Weather Policy: The on-duty attendant will determine whether or not the courts are playable before, during and/or after wet weather conditions as deemed necessary. In the event of
+Inclement weather, we reserve the right to close the courts for the day and cancel all existing reservations. In the event that this occurs, players are required to submit new reservations. Cancelled reservations will be voided for future play.
+To make reservations and learn more about the RIOC tennis courts, please visit: rioc.ny.gov/399/Tennis-Information
+Be safe, play responsibly, and enjoy the courts!
+For real time updates on court closures due to inclement weather, please log onto our website at rioc.ny.gov and subscribe to our RIOC Advisories system. Select the icon on the main page for advisories and choose the "Island Facility & Park Updates" subscription once you are in the advisory portal. 
