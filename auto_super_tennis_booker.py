@@ -119,6 +119,16 @@ class TennisBooker:
     def start_new_permit_form(self):
         """Start a new permit form."""
         logging.debug("Navigating to new permit form")
+        try:
+            # Wait for the overlay to disappear if it's present
+            WebDriverWait(self.driver, 10).until(
+                EC.invisibility_of_element_located((By.CSS_SELECTOR, "div.blockUI.blockOverlay"))
+            )
+        except TimeoutException:
+            # If the overlay doesn't disappear in 10s, log it but proceed.
+            # It might not always be present, so a timeout here isn't necessarily a failure of this step.
+            logging.debug("Overlay (blockUI blockOverlay) not present or did not disappear in 10s.")
+        
         WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, '//a[@href="/Permits/New" and @class="button"]'))
         ).click()
@@ -192,7 +202,7 @@ class TennisBooker:
         logging.debug("Filling permit questions")
         try:
             # Using IDs directly
-            self.wait.until(EC.element_to_be_clickable((By.ID, "11e79e5d3daf4712b9e6418d2691b976"))).send_keys("PLaying tennis")
+            self.wait.until(EC.element_to_be_clickable((By.ID, "11e79e5d3daf4712b9e6418d2691b976"))).send_keys("Playing tennis")
             self.wait.until(EC.element_to_be_clickable((By.ID, "af8966101be44676b4ee564b052e1e87"))).send_keys("2")
             self.wait.until(EC.element_to_be_clickable((By.ID, "f28f0dbea8b5438495778b0bb0ddcd93"))).send_keys("No")
             self.wait.until(EC.element_to_be_clickable((By.ID, "d46cb434558845fb9e0318ab6832e427"))).send_keys("No")
@@ -291,7 +301,7 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    SUBMIT_SECOND = 3 # Aim slightly before if needed? e.g., 59
+    SUBMIT_SECOND = 5 # Aim slightly before if needed? e.g., 59
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
 
