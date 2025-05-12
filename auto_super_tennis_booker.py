@@ -301,7 +301,7 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    SUBMIT_SECOND = 5 # Aim slightly before if needed? e.g., 59
+    SUBMIT_SECOND = 4 # Aim slightly before if needed? e.g., 59
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
 
