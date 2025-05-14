@@ -119,19 +119,40 @@ class TennisBooker:
     def start_new_permit_form(self):
         """Start a new permit form."""
         logging.debug("Navigating to new permit form")
-        try:
-            # Wait for the overlay to disappear if it's present
-            WebDriverWait(self.driver, 10).until(
-                EC.invisibility_of_element_located((By.CSS_SELECTOR, "div.blockUI.blockOverlay"))
-            )
-        except TimeoutException:
-            # If the overlay doesn't disappear in 10s, log it but proceed.
-            # It might not always be present, so a timeout here isn't necessarily a failure of this step.
-            logging.debug("Overlay (blockUI blockOverlay) not present or did not disappear in 10s.")
         
-        WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, '//a[@href="/Permits/New" and @class="button"]'))
-        ).click()
+        # More robust approach to handle the overlay issue
+        max_attempts = 3
+        for attempt in range(max_attempts):
+            try:
+                # First wait for any existing overlay to disappear
+                try:
+                    WebDriverWait(self.driver, 10).until(
+                        EC.invisibility_of_element_located((By.CSS_SELECTOR, "div.blockUI.blockOverlay"))
+                    )
+                except TimeoutException:
+                    logging.debug(f"Attempt {attempt+1}/{max_attempts}: Overlay not present or did not disappear in 10s.")
+                
+                # Then wait until the button is clickable
+                new_permit_button = WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, '//a[@href="/Permits/New" and @class="button"]'))
+                )
+                
+                # Try JavaScript click which can sometimes bypass overlay issues
+                self.driver.execute_script("arguments[0].click();", new_permit_button)
+                
+                # If we reach here without exception, break the loop
+                logging.debug("Successfully clicked New Permit button")
+                break
+                
+            except Exception as e:
+                if attempt < max_attempts - 1:  # If not the last attempt
+                    logging.warning(f"Attempt {attempt+1}/{max_attempts} to click New Permit button failed: {str(e)}. Retrying...")
+                    time.sleep(2)  # Add a short delay before retrying
+                else:
+                    # On last attempt, re-raise the exception
+                    logging.error(f"All {max_attempts} attempts to click New Permit button failed.")
+                    raise
+        
         logging.debug("Filling activity field")
         self.wait.until(EC.element_to_be_clickable((By.ID, "activity"))).send_keys("Tennis Match")
 
@@ -301,7 +322,7 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    SUBMIT_SECOND = 4 # Aim slightly before if needed? e.g., 59
+    SUBMIT_SECOND = 5 # Aim slightly before if needed? e.g., 59
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
 
