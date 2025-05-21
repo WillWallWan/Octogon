@@ -54,14 +54,18 @@ class TennisBooker:
     def setup_driver(self):
         """Initialize the Chrome WebDriver."""
         try:
+            logging.debug("Attempting to initialize Chrome Service...")
             service = Service()
+            logging.debug("Chrome Service initialized. Attempting to launch Chrome browser...")
             # Consider adding options to run headless or manage logs
             # options = webdriver.ChromeOptions()
             # options.add_argument("--headless")
             self.driver = webdriver.Chrome(service=service)
+            logging.debug("Chrome browser launched. Setting up WebDriverWait...")
             self.wait = WebDriverWait(self.driver, 10)
+            logging.debug("WebDriverWait set. Setting implicit wait...")
             self.driver.implicitly_wait(3)  # Reduced wait time
-            logging.debug("Chrome WebDriver initialized successfully")
+            logging.info("Chrome WebDriver initialized successfully") # Changed to info for more visibility
             return True
         except WebDriverException as e:
             logging.error(f"Failed to initialize WebDriver: {str(e)}")
@@ -322,7 +326,7 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    SUBMIT_SECOND = 5 # Aim slightly before if needed? e.g., 59
+    SUBMIT_SECOND = 6 # Aim slightly before if needed? e.g., 59
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
 
