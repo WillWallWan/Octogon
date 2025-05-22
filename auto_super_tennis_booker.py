@@ -439,15 +439,21 @@ def main():
     submit_attempts = 0
     submit_errors = 0
     
-    # Loop 1: Click Submit on all prepared instances rapidly
-    logging.info("--- Clicking Submit on all instances (Phase 1) ---")
+    # Loop 1: Click Submit on all prepared instances with staggering
+    logging.info("--- Clicking Submit on all instances (Phase 1) with staggering ---")
     for idx, booker_instance in enumerate(prepared_instances):
         logging.info(f"Clicking submit for instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging})")
         try:
-            # Optional: Add tiny random sleep *before* clicking if desired, but keeping it fast for now
+            # Optional: Add tiny random sleep *before* clicking if desired
             # time.sleep(random.uniform(0, 0.1)) 
             booker_instance.submit_prepared_booking() # Click submit
             submit_attempts += 1
+
+            # Staggering logic: Pause for 1 second after every 3rd submission, 
+            # but not after the very last one.
+            if (idx + 1) % 3 == 0 and (idx + 1) < len(prepared_instances):
+                logging.info(f"Pausing for 1 second after submitting batch ending with instance {idx+1}...")
+                time.sleep(1) 
             # NO close() here
         except Exception as submit_err:
             # Log if the submit method itself had an unexpected error
