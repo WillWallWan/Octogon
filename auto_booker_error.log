@@ -2407,3 +2407,215 @@ Stacktrace:
 2025-05-23 08:00:15,650 - INFO - [auto_super_tennis_booker.py:477] - Closing instance 9/9 (Court 2 on 05/27/2025 at 17:00)
 2025-05-23 08:00:15,867 - INFO - [auto_super_tennis_booker.py:485] - --- Cleanup Phase Complete: 9/9 windows closed. Close errors: 0 ---
 2025-05-23 08:00:15,868 - INFO - [auto_super_tennis_booker.py:486] - --- Script finished. ---
+2025-05-24 08:09:40,701 - INFO - [auto_super_tennis_booker.py:344] - No booking rules defined for today (weekday 5). Exiting.
+2025-05-25 07:59:35,687 - INFO - [auto_super_tennis_booker.py:344] - No booking rules defined for today (weekday 6). Exiting.
+2025-05-26 07:55:01,640 - INFO - [auto_super_tennis_booker.py:347] - Today is Monday. Booking rules active: [2] days ahead.
+2025-05-26 07:55:01,642 - INFO - [auto_super_tennis_booker.py:353] - Planning to prepare bookings based on COURT_PRIORITIES:
+  Priority 1: Court 2 at 17:00
+  Priority 2: Court 5 at 18:00
+  Priority 3: Court 5 at 19:00
+  Priority 4: Court 3 at 17:00
+  Priority 5: Court 6 at 18:00
+  Priority 6: Court 6 at 19:00
+  Priority 7: Court 1 at 17:00
+  Priority 8: Court 2 at 18:00
+  Priority 9: Court 2 at 19:00
+2025-05-26 07:55:01,642 - INFO - [auto_super_tennis_booker.py:356] - Configured target submission time: 08:00:09
+2025-05-26 07:55:01,642 - INFO - [auto_super_tennis_booker.py:359] - --- Starting Preparation Phase ---
+2025-05-26 07:55:01,642 - INFO - [auto_super_tennis_booker.py:363] - == Preparing bookings for Wednesday, 05/28/2025 (2 days ahead) ==
+2025-05-26 07:55:01,642 - INFO - [auto_super_tennis_booker.py:376] - Priority #1: Assigning yiting to prepare Court 2 at 17:00 for 05/28/2025
+2025-05-26 07:55:04,148 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 07:55:06,206 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-05-26 07:55:09,939 - INFO - [auto_super_tennis_booker.py:213] - Setting time to 17:00-18:00
+2025-05-26 08:12:25,903 - INFO - [auto_super_tennis_booker.py:261] - Continuing to permit questions page for Court 2 on 05/28/2025 at 17:00
+2025-05-26 08:12:29,739 - ERROR - [auto_super_tennis_booker.py:249] - Failed to fill permit questions: Message: element click intercepted: Element <input type="checkbox" id="acceptTerms"> is not clickable at point (125, 889). Other element would receive the click: <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: fixed;"></div>
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+0   chromedriver                        0x0000000102eb83e0 cxxbridge1$str$ptr + 2829900
+1   chromedriver                        0x0000000102eb06a8 cxxbridge1$str$ptr + 2797844
+2   chromedriver                        0x00000001029edfbc cxxbridge1$string$len + 90140
+3   chromedriver                        0x0000000102a3ad20 cxxbridge1$string$len + 404864
+4   chromedriver                        0x0000000102a3928c cxxbridge1$string$len + 398060
+5   chromedriver                        0x0000000102a370a0 cxxbridge1$string$len + 389376
+6   chromedriver                        0x0000000102a3649c cxxbridge1$string$len + 386300
+7   chromedriver                        0x0000000102a2af14 cxxbridge1$string$len + 339828
+8   chromedriver                        0x0000000102a2a9a0 cxxbridge1$string$len + 338432
+9   chromedriver                        0x0000000102a76044 cxxbridge1$string$len + 647332
+10  chromedriver                        0x0000000102a293f8 cxxbridge1$string$len + 332888
+11  chromedriver                        0x0000000102e7c804 cxxbridge1$str$ptr + 2585200
+12  chromedriver                        0x0000000102e7fad4 cxxbridge1$str$ptr + 2598208
+13  chromedriver                        0x0000000102e5ddd8 cxxbridge1$str$ptr + 2459716
+14  chromedriver                        0x0000000102e8034c cxxbridge1$str$ptr + 2600376
+15  chromedriver                        0x0000000102e4f664 cxxbridge1$str$ptr + 2400464
+16  chromedriver                        0x0000000102ea02b0 cxxbridge1$str$ptr + 2731292
+17  chromedriver                        0x0000000102ea043c cxxbridge1$str$ptr + 2731688
+18  chromedriver                        0x0000000102eb02f4 cxxbridge1$str$ptr + 2796896
+19  libsystem_pthread.dylib             0x0000000181f782e4 _pthread_start + 136
+20  libsystem_pthread.dylib             0x0000000181f730fc thread_start + 8
+
+2025-05-26 08:12:29,739 - ERROR - [auto_super_tennis_booker.py:281] - Failed to prepare booking for Court 2 on 05/28/2025 at 17:00: Message: element click intercepted: Element <input type="checkbox" id="acceptTerms"> is not clickable at point (125, 889). Other element would receive the click: <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: fixed;"></div>
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+0   chromedriver                        0x0000000102eb83e0 cxxbridge1$str$ptr + 2829900
+1   chromedriver                        0x0000000102eb06a8 cxxbridge1$str$ptr + 2797844
+2   chromedriver                        0x00000001029edfbc cxxbridge1$string$len + 90140
+3   chromedriver                        0x0000000102a3ad20 cxxbridge1$string$len + 404864
+4   chromedriver                        0x0000000102a3928c cxxbridge1$string$len + 398060
+5   chromedriver                        0x0000000102a370a0 cxxbridge1$string$len + 389376
+6   chromedriver                        0x0000000102a3649c cxxbridge1$string$len + 386300
+7   chromedriver                        0x0000000102a2af14 cxxbridge1$string$len + 339828
+8   chromedriver                        0x0000000102a2a9a0 cxxbridge1$string$len + 338432
+9   chromedriver                        0x0000000102a76044 cxxbridge1$string$len + 647332
+10  chromedriver                        0x0000000102a293f8 cxxbridge1$string$len + 332888
+11  chromedriver                        0x0000000102e7c804 cxxbridge1$str$ptr + 2585200
+12  chromedriver                        0x0000000102e7fad4 cxxbridge1$str$ptr + 2598208
+13  chromedriver                        0x0000000102e5ddd8 cxxbridge1$str$ptr + 2459716
+14  chromedriver                        0x0000000102e8034c cxxbridge1$str$ptr + 2600376
+15  chromedriver                        0x0000000102e4f664 cxxbridge1$str$ptr + 2400464
+16  chromedriver                        0x0000000102ea02b0 cxxbridge1$str$ptr + 2731292
+17  chromedriver                        0x0000000102ea043c cxxbridge1$str$ptr + 2731688
+18  chromedriver                        0x0000000102eb02f4 cxxbridge1$str$ptr + 2796896
+19  libsystem_pthread.dylib             0x0000000181f782e4 _pthread_start + 136
+20  libsystem_pthread.dylib             0x0000000181f730fc thread_start + 8
+
+2025-05-26 08:12:29,743 - WARNING - [auto_super_tennis_booker.py:393] - Closing browser for yiting due to failed preparation for Court 2 on 05/28/2025 at 17:00.
+2025-05-26 08:12:29,843 - INFO - [auto_super_tennis_booker.py:376] - Priority #2: Assigning yiting to prepare Court 5 at 18:00 for 05/28/2025
+2025-05-26 08:12:30,862 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 08:12:32,434 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-05-26 08:12:35,167 - INFO - [auto_super_tennis_booker.py:213] - Setting time to 18:00-19:00
+2025-05-26 08:12:35,493 - INFO - [auto_super_tennis_booker.py:261] - Continuing to permit questions page for Court 5 on 05/28/2025 at 18:00
+2025-05-26 08:28:49,753 - ERROR - [auto_super_tennis_booker.py:249] - Failed to fill permit questions: Message: element click intercepted: Element <input type="checkbox" id="acceptTerms"> is not clickable at point (125, 889). Other element would receive the click: <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: fixed;"></div>
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+0   chromedriver                        0x00000001046bc3e0 cxxbridge1$str$ptr + 2829900
+1   chromedriver                        0x00000001046b46a8 cxxbridge1$str$ptr + 2797844
+2   chromedriver                        0x00000001041f1fbc cxxbridge1$string$len + 90140
+3   chromedriver                        0x000000010423ed20 cxxbridge1$string$len + 404864
+4   chromedriver                        0x000000010423d28c cxxbridge1$string$len + 398060
+5   chromedriver                        0x000000010423b0a0 cxxbridge1$string$len + 389376
+6   chromedriver                        0x000000010423a49c cxxbridge1$string$len + 386300
+7   chromedriver                        0x000000010422ef14 cxxbridge1$string$len + 339828
+8   chromedriver                        0x000000010422e9a0 cxxbridge1$string$len + 338432
+9   chromedriver                        0x000000010427a044 cxxbridge1$string$len + 647332
+10  chromedriver                        0x000000010422d3f8 cxxbridge1$string$len + 332888
+11  chromedriver                        0x0000000104680804 cxxbridge1$str$ptr + 2585200
+12  chromedriver                        0x0000000104683ad4 cxxbridge1$str$ptr + 2598208
+13  chromedriver                        0x0000000104661dd8 cxxbridge1$str$ptr + 2459716
+14  chromedriver                        0x000000010468434c cxxbridge1$str$ptr + 2600376
+15  chromedriver                        0x0000000104653664 cxxbridge1$str$ptr + 2400464
+16  chromedriver                        0x00000001046a42b0 cxxbridge1$str$ptr + 2731292
+17  chromedriver                        0x00000001046a443c cxxbridge1$str$ptr + 2731688
+18  chromedriver                        0x00000001046b42f4 cxxbridge1$str$ptr + 2796896
+19  libsystem_pthread.dylib             0x0000000181f782e4 _pthread_start + 136
+20  libsystem_pthread.dylib             0x0000000181f730fc thread_start + 8
+
+2025-05-26 08:28:49,754 - ERROR - [auto_super_tennis_booker.py:281] - Failed to prepare booking for Court 5 on 05/28/2025 at 18:00: Message: element click intercepted: Element <input type="checkbox" id="acceptTerms"> is not clickable at point (125, 889). Other element would receive the click: <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: fixed;"></div>
+  (Session info: chrome=136.0.7103.114)
+Stacktrace:
+0   chromedriver                        0x00000001046bc3e0 cxxbridge1$str$ptr + 2829900
+1   chromedriver                        0x00000001046b46a8 cxxbridge1$str$ptr + 2797844
+2   chromedriver                        0x00000001041f1fbc cxxbridge1$string$len + 90140
+3   chromedriver                        0x000000010423ed20 cxxbridge1$string$len + 404864
+4   chromedriver                        0x000000010423d28c cxxbridge1$string$len + 398060
+5   chromedriver                        0x000000010423b0a0 cxxbridge1$string$len + 389376
+6   chromedriver                        0x000000010423a49c cxxbridge1$string$len + 386300
+7   chromedriver                        0x000000010422ef14 cxxbridge1$string$len + 339828
+8   chromedriver                        0x000000010422e9a0 cxxbridge1$string$len + 338432
+9   chromedriver                        0x000000010427a044 cxxbridge1$string$len + 647332
+10  chromedriver                        0x000000010422d3f8 cxxbridge1$string$len + 332888
+11  chromedriver                        0x0000000104680804 cxxbridge1$str$ptr + 2585200
+12  chromedriver                        0x0000000104683ad4 cxxbridge1$str$ptr + 2598208
+13  chromedriver                        0x0000000104661dd8 cxxbridge1$str$ptr + 2459716
+14  chromedriver                        0x000000010468434c cxxbridge1$str$ptr + 2600376
+15  chromedriver                        0x0000000104653664 cxxbridge1$str$ptr + 2400464
+16  chromedriver                        0x00000001046a42b0 cxxbridge1$str$ptr + 2731292
+17  chromedriver                        0x00000001046a443c cxxbridge1$str$ptr + 2731688
+18  chromedriver                        0x00000001046b42f4 cxxbridge1$str$ptr + 2796896
+19  libsystem_pthread.dylib             0x0000000181f782e4 _pthread_start + 136
+20  libsystem_pthread.dylib             0x0000000181f730fc thread_start + 8
+
+2025-05-26 08:28:49,759 - WARNING - [auto_super_tennis_booker.py:393] - Closing browser for yiting due to failed preparation for Court 5 on 05/28/2025 at 18:00.
+2025-05-26 08:28:50,005 - INFO - [auto_super_tennis_booker.py:376] - Priority #3: Assigning yiting to prepare Court 5 at 19:00 for 05/28/2025
+2025-05-26 08:28:50,865 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 08:55:03,912 - ERROR - [auto_super_tennis_booker.py:106] - Login failed for nyuclubtennis+yitings@gmail.com: Message: 
+Stacktrace:
+0   chromedriver                        0x00000001010883e0 cxxbridge1$str$ptr + 2829900
+1   chromedriver                        0x00000001010806a8 cxxbridge1$str$ptr + 2797844
+2   chromedriver                        0x0000000100bbdfbc cxxbridge1$string$len + 90140
+3   chromedriver                        0x0000000100c051bc cxxbridge1$string$len + 381468
+4   chromedriver                        0x0000000100c46044 cxxbridge1$string$len + 647332
+5   chromedriver                        0x0000000100bf93f8 cxxbridge1$string$len + 332888
+6   chromedriver                        0x000000010104c804 cxxbridge1$str$ptr + 2585200
+7   chromedriver                        0x000000010104fad4 cxxbridge1$str$ptr + 2598208
+8   chromedriver                        0x000000010102ddd8 cxxbridge1$str$ptr + 2459716
+9   chromedriver                        0x000000010105034c cxxbridge1$str$ptr + 2600376
+10  chromedriver                        0x000000010101f664 cxxbridge1$str$ptr + 2400464
+11  chromedriver                        0x00000001010702b0 cxxbridge1$str$ptr + 2731292
+12  chromedriver                        0x000000010107043c cxxbridge1$str$ptr + 2731688
+13  chromedriver                        0x00000001010802f4 cxxbridge1$str$ptr + 2796896
+14  libsystem_pthread.dylib             0x0000000181f782e4 _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000181f730fc thread_start + 8
+
+2025-05-26 08:55:03,912 - WARNING - [auto_super_tennis_booker.py:397] - Skipping preparation for yiting due to setup/login failure. Closing browser.
+2025-05-26 08:55:04,066 - INFO - [auto_super_tennis_booker.py:376] - Priority #4: Assigning yiting to prepare Court 3 at 17:00 for 05/28/2025
+2025-05-26 08:55:05,282 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 08:55:06,858 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-05-26 09:31:52,023 - ERROR - [auto_super_tennis_booker.py:281] - Failed to prepare booking for Court 3 on 05/28/2025 at 17:00: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000102b103e0 cxxbridge1$str$ptr + 2829900
+1   chromedriver                        0x0000000102b086a8 cxxbridge1$str$ptr + 2797844
+2   chromedriver                        0x0000000102645fbc cxxbridge1$string$len + 90140
+3   chromedriver                        0x000000010268d1bc cxxbridge1$string$len + 381468
+4   chromedriver                        0x00000001026ce044 cxxbridge1$string$len + 647332
+5   chromedriver                        0x00000001026813f8 cxxbridge1$string$len + 332888
+6   chromedriver                        0x0000000102ad4804 cxxbridge1$str$ptr + 2585200
+7   chromedriver                        0x0000000102ad7ad4 cxxbridge1$str$ptr + 2598208
+8   chromedriver                        0x0000000102ab5dd8 cxxbridge1$str$ptr + 2459716
+9   chromedriver                        0x0000000102ad834c cxxbridge1$str$ptr + 2600376
+10  chromedriver                        0x0000000102aa7664 cxxbridge1$str$ptr + 2400464
+11  chromedriver                        0x0000000102af82b0 cxxbridge1$str$ptr + 2731292
+12  chromedriver                        0x0000000102af843c cxxbridge1$str$ptr + 2731688
+13  chromedriver                        0x0000000102b082f4 cxxbridge1$str$ptr + 2796896
+14  libsystem_pthread.dylib             0x0000000181f782e4 _pthread_start + 136
+15  libsystem_pthread.dylib             0x0000000181f730fc thread_start + 8
+
+2025-05-26 09:31:52,060 - WARNING - [auto_super_tennis_booker.py:393] - Closing browser for yiting due to failed preparation for Court 3 on 05/28/2025 at 17:00.
+2025-05-26 09:31:52,696 - INFO - [auto_super_tennis_booker.py:376] - Priority #5: Assigning yiting to prepare Court 6 at 18:00 for 05/28/2025
+2025-05-26 09:31:53,688 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 09:31:55,457 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-05-26 09:50:42,360 - ERROR - [auto_super_tennis_booker.py:281] - Failed to prepare booking for Court 6 on 05/28/2025 at 18:00: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-05-26 09:50:42,370 - WARNING - [connectionpool.py:868] - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x105f8b9b0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/cadc730c35fcc1a117ff04d9226cf6a8/url
+2025-05-26 09:50:42,380 - WARNING - [connectionpool.py:868] - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107c29480>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/cadc730c35fcc1a117ff04d9226cf6a8/url
+2025-05-26 09:50:42,382 - WARNING - [connectionpool.py:868] - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107c29ae0>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/cadc730c35fcc1a117ff04d9226cf6a8/url
+2025-05-26 09:50:42,383 - WARNING - [auto_super_tennis_booker.py:393] - Closing browser for yiting due to failed preparation for Court 6 on 05/28/2025 at 18:00.
+2025-05-26 09:50:42,386 - WARNING - [connectionpool.py:868] - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107c2a140>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/cadc730c35fcc1a117ff04d9226cf6a8
+2025-05-26 09:50:42,386 - WARNING - [connectionpool.py:868] - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107c2a360>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/cadc730c35fcc1a117ff04d9226cf6a8
+2025-05-26 09:50:42,387 - WARNING - [connectionpool.py:868] - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x107c2a690>: Failed to establish a new connection: [Errno 61] Connection refused')': /session/cadc730c35fcc1a117ff04d9226cf6a8
+2025-05-26 09:50:42,389 - INFO - [auto_super_tennis_booker.py:376] - Priority #6: Assigning yiting to prepare Court 6 at 19:00 for 05/28/2025
+2025-05-26 09:50:44,704 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 09:50:47,170 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-05-26 09:50:53,736 - INFO - [auto_super_tennis_booker.py:213] - Setting time to 19:00-20:00
+2025-05-26 09:50:54,087 - INFO - [auto_super_tennis_booker.py:261] - Continuing to permit questions page for Court 6 on 05/28/2025 at 19:00
+2025-05-26 09:50:57,218 - INFO - [auto_super_tennis_booker.py:272] - Booking preparation complete for Court 6 on 05/28/2025 at 19:00. Ready for timed submission.
+2025-05-26 09:50:57,218 - INFO - [auto_super_tennis_booker.py:376] - Priority #7: Assigning dennis to prepare Court 1 at 17:00 for 05/28/2025
+2025-05-26 09:50:58,267 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 09:51:00,192 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+dennisw@gmail.com
+2025-05-26 09:51:06,516 - INFO - [auto_super_tennis_booker.py:213] - Setting time to 17:00-18:00
+2025-05-26 09:51:06,847 - INFO - [auto_super_tennis_booker.py:261] - Continuing to permit questions page for Court 1 on 05/28/2025 at 17:00
+2025-05-26 09:51:10,589 - INFO - [auto_super_tennis_booker.py:272] - Booking preparation complete for Court 1 on 05/28/2025 at 17:00. Ready for timed submission.
+2025-05-26 09:51:10,589 - INFO - [auto_super_tennis_booker.py:376] - Priority #8: Assigning jordan to prepare Court 2 at 18:00 for 05/28/2025
+2025-05-26 09:51:12,082 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 09:51:14,788 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+jordanr@gmail.com
+2025-05-26 09:51:20,990 - INFO - [auto_super_tennis_booker.py:213] - Setting time to 18:00-19:00
+2025-05-26 09:51:21,276 - INFO - [auto_super_tennis_booker.py:261] - Continuing to permit questions page for Court 2 on 05/28/2025 at 18:00
+2025-05-26 09:51:24,315 - INFO - [auto_super_tennis_booker.py:272] - Booking preparation complete for Court 2 on 05/28/2025 at 18:00. Ready for timed submission.
+2025-05-26 09:51:24,316 - INFO - [auto_super_tennis_booker.py:376] - Priority #9: Assigning ben to prepare Court 2 at 19:00 for 05/28/2025
+2025-05-26 09:51:26,391 - INFO - [auto_super_tennis_booker.py:68] - Chrome WebDriver initialized successfully
+2025-05-26 09:51:28,339 - INFO - [auto_super_tennis_booker.py:99] - Successfully logged in as nyuclubtennis+benk@gmail.com
+2025-05-26 09:51:34,744 - INFO - [auto_super_tennis_booker.py:213] - Setting time to 19:00-20:00
+2025-05-26 09:51:35,058 - INFO - [auto_super_tennis_booker.py:261] - Continuing to permit questions page for Court 2 on 05/28/2025 at 19:00
+2025-05-26 09:51:38,142 - INFO - [auto_super_tennis_booker.py:272] - Booking preparation complete for Court 2 on 05/28/2025 at 19:00. Ready for timed submission.
+2025-05-26 09:51:38,142 - INFO - [auto_super_tennis_booker.py:408] - == Finished preparation attempts for 05/28/2025 ==
+2025-05-26 09:51:38,142 - INFO - [auto_super_tennis_booker.py:416] - --- Preparation Complete: 4 instances ready for submission ---
+2025-05-26 09:51:38,143 - INFO - [auto_super_tennis_booker.py:425] - Target submit time 08:00:09 has passed for today. Setting target for tomorrow.
+2025-05-26 09:51:38,143 - INFO - [auto_super_tennis_booker.py:431] - Waiting for 79710.86 seconds until target submission time: 2025-05-27 08:00:09
