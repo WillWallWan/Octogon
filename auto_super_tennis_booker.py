@@ -240,8 +240,27 @@ class TennisBooker:
             Select(self.wait.until(EC.element_to_be_clickable((By.ID, "3754dcef7216446b9cc4bf1cd0f12a2e")))).select_by_visible_text("No")
             Select(self.wait.until(EC.element_to_be_clickable((By.ID, "06b3f73192a84fd6b88758e56a64c3ad")))).select_by_visible_text("No")
 
-            # Terms checkbox
-            self.wait.until(EC.element_to_be_clickable((By.ID, "acceptTerms"))).click()
+            # Wait for any blocking overlay to disappear, then click the terms checkbox via JS
+            max_attempts_terms = 3
+            for attempt in range(max_attempts_terms):
+                try:
+                    # Wait up to 10s for the overlay to be gone
+                    WebDriverWait(self.driver, 10).until(
+                        EC.invisibility_of_element_located((By.CSS_SELECTOR, "div.blockUI.blockOverlay"))
+                    )
+
+                    terms_checkbox = self.wait.until(EC.element_to_be_clickable((By.ID, "acceptTerms")))
+                    # Use JavaScript click to minimise interception issues
+                    self.driver.execute_script("arguments[0].click();", terms_checkbox)
+                    break  # success
+                except Exception as e:
+                    if attempt < max_attempts_terms - 1:
+                        logging.warning(f"Attempt {attempt+1}/{max_attempts_terms} to click acceptTerms failed: {e}. Retrying after short wait...")
+                        time.sleep(1)
+                    else:
+                        logging.error("All attempts to click acceptTerms checkbox failed.")
+                        raise
+
             time.sleep(0.2)
             logging.debug("Successfully filled permit questions")
 
