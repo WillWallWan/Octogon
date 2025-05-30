@@ -345,7 +345,7 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    SUBMIT_SECOND = 9 # Aim slightly before if needed? e.g., 59
+    # SUBMIT_SECOND will be set based on the day of the week below
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
 
@@ -357,6 +357,13 @@ def main():
 
     # --- Determine Target Booking Dates --- 
     today_weekday = datetime.now().weekday()
+
+    # Set SUBMIT_SECOND based on the day of the week
+    if today_weekday == 3 or today_weekday == 4:  # Thursday or Friday
+        SUBMIT_SECOND = 14
+    else:  # Monday, Tuesday, Wednesday
+        SUBMIT_SECOND = 9
+
     days_ahead_to_book = BOOKING_RULES.get(today_weekday, [])
 
     if not days_ahead_to_book:
