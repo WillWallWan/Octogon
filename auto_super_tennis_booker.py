@@ -377,7 +377,9 @@ def main():
     # --- Preparation Phase --- 
     logging.info("--- Starting Preparation Phase ---")
     for days_ahead in days_ahead_to_book:
-        # Ensure booking_date is a date object first, then format where needed
+        # Reset account pointer and reshuffle accounts so that each user can be used once *per booking date*
+        account_index = 0
+        random.shuffle(accounts)  # fresh random ordering for this date
         booking_date_obj = datetime.now().date() + timedelta(days=days_ahead)
         logging.info(f"== Preparing bookings for {booking_date_obj.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead) ==")
 
