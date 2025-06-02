@@ -63,6 +63,8 @@ class TennisBooker:
             self.driver = webdriver.Chrome(service=service)
             logging.debug("Chrome browser launched. Setting up WebDriverWait...")
             self.wait = WebDriverWait(self.driver, 10)
+            # Set page load timeout to prevent indefinite waiting
+            self.driver.set_page_load_timeout(60)  # Increased to 60 seconds for more tolerance
             logging.debug("WebDriverWait set. Setting implicit wait...")
             self.driver.implicitly_wait(3)  # Reduced wait time
             logging.info("Chrome WebDriver initialized successfully") # Changed to info for more visibility
@@ -227,18 +229,49 @@ class TennisBooker:
         logging.debug("Filling permit questions")
         try:
             # Using IDs directly
-            self.wait.until(EC.element_to_be_clickable((By.ID, "11e79e5d3daf4712b9e6418d2691b976"))).send_keys("Playing tennis")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "af8966101be44676b4ee564b052e1e87"))).send_keys("2")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "f28f0dbea8b5438495778b0bb0ddcd93"))).send_keys("No")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "d46cb434558845fb9e0318ab6832e427"))).send_keys("No")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "1221940f5cca4abdb5288cfcbe284820"))).send_keys("None")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "0ce54956c4b14746ae5d364507da1e85"))).send_keys("None")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "6b1dda4172f840c7879662bcab1819db"))).send_keys("None")
-            self.wait.until(EC.element_to_be_clickable((By.ID, "a31f4297075e4dab8c0ef154f2b9b1c1"))).send_keys("None")
+            time.sleep(0.2) # Extra small pause before interacting with the first field
+            activity_field = self.wait.until(EC.element_to_be_clickable((By.ID, "11e79e5d3daf4712b9e6418d2691b976")))
+            activity_field.clear()
+            activity_field.send_keys("Playing tennis")
+            time.sleep(0.1) # Short pause for stability
+
+            num_people_field = self.wait.until(EC.element_to_be_clickable((By.ID, "af8966101be44676b4ee564b052e1e87")))
+            num_people_field.clear()
+            num_people_field.send_keys("2")
+            time.sleep(0.1) # Short pause for stability
+
+            participants_charged_field = self.wait.until(EC.element_to_be_clickable((By.ID, "f28f0dbea8b5438495778b0bb0ddcd93")))
+            participants_charged_field.send_keys("No") # Assuming clear() is not needed if default is different or if send_keys overwrites
+            time.sleep(0.1)
+
+            spectators_charged_field = self.wait.until(EC.element_to_be_clickable((By.ID, "d46cb434558845fb9e0318ab6832e427")))
+            spectators_charged_field.send_keys("No")
+            time.sleep(0.1)
+
+            table_chair_field = self.wait.until(EC.element_to_be_clickable((By.ID, "1221940f5cca4abdb5288cfcbe284820")))
+            table_chair_field.send_keys("None")
+            time.sleep(0.1)
+
+            live_entertainment_field = self.wait.until(EC.element_to_be_clickable((By.ID, "0ce54956c4b14746ae5d364507da1e85")))
+            live_entertainment_field.send_keys("None")
+            time.sleep(0.1)
+
+            advertised_field = self.wait.until(EC.element_to_be_clickable((By.ID, "6b1dda4172f840c7879662bcab1819db")))
+            advertised_field.send_keys("None")
+            time.sleep(0.1)
+
+            parking_needs_field = self.wait.until(EC.element_to_be_clickable((By.ID, "a31f4297075e4dab8c0ef154f2b9b1c1")))
+            parking_needs_field.send_keys("None")
+            time.sleep(0.1)
 
             # Dropdowns
-            Select(self.wait.until(EC.element_to_be_clickable((By.ID, "3754dcef7216446b9cc4bf1cd0f12a2e")))).select_by_visible_text("No")
-            Select(self.wait.until(EC.element_to_be_clickable((By.ID, "06b3f73192a84fd6b88758e56a64c3ad")))).select_by_visible_text("No")
+            prev_permit_dropdown = Select(self.wait.until(EC.element_to_be_clickable((By.ID, "3754dcef7216446b9cc4bf1cd0f12a2e"))))
+            prev_permit_dropdown.select_by_visible_text("No")
+            time.sleep(0.1)
+
+            on_site_security_dropdown = Select(self.wait.until(EC.element_to_be_clickable((By.ID, "06b3f73192a84fd6b88758e56a64c3ad"))))
+            on_site_security_dropdown.select_by_visible_text("No")
+            time.sleep(0.1)
 
             # Wait for any blocking overlay to disappear, then click the terms checkbox via JS
             max_attempts_terms = 3
@@ -279,8 +312,20 @@ class TennisBooker:
 
             logging.info(f"Continuing to permit questions page for {self.court_info_for_logging}")
             continue_button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".controlArea button")))
-            continue_button.click()
-            time.sleep(2) # Wait for questions page to load
+            # Click with timeout protection
+            try:
+                continue_button.click()
+                # Wait for the page to actually load by checking for a known element on the questions page
+                WebDriverWait(self.driver, 30).until( # Increased to 30s
+                    EC.presence_of_element_located((By.ID, "11e79e5d3daf4712b9e6418d2691b976"))  # First question field ID
+                )
+            except TimeoutException:
+                logging.error(f"Timeout: Questions page did not load or first element not found within 30s for {self.court_info_for_logging}")
+                # self.driver.save_screenshot(f"error_questions_page_load_{self.court_info_for_logging.replace(' ', '_').replace('/', '-')}.png") # Optional: save screenshot
+                raise Exception("Questions page failed to load within 30 seconds") # Re-raise to be caught by the main loop
+            except Exception as e:
+                logging.error(f"Error navigating to questions page for {self.court_info_for_logging}: {str(e)}")
+                raise # Re-raise to be caught by the main loop
 
             self._fill_permit_questions()
 
@@ -346,6 +391,9 @@ def main():
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
     # SUBMIT_SECOND will be set based on the day of the week below
+    PREPARATION_CUTOFF_SECONDS = 15  # Stop preparing this many seconds before submission
+    MAX_PREP_TIME_PER_INSTANCE_SECONDS = 30 # Max 30 seconds for any single prep attempt
+
     # Optional: Add a small random delay before each submission click to reduce load?
     # SUBMIT_DELAY_MAX_SECONDS = 0.5 
 
@@ -355,14 +403,26 @@ def main():
     random.shuffle(accounts)
     account_index = 0
 
-    # --- Determine Target Booking Dates --- 
-    today_weekday = datetime.now().weekday()
+    # --- Determine Target Booking Dates & Actual Submission Time --- 
+    now = datetime.now()
+    today_weekday = now.weekday()
 
     # Set SUBMIT_SECOND based on the day of the week
     if today_weekday == 3 or today_weekday == 4:  # Thursday or Friday
         SUBMIT_SECOND = 14
     else:  # Monday, Tuesday, Wednesday
         SUBMIT_SECOND = 9
+
+    # Calculate the target_submit_time for today or tomorrow
+    target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)
+    if now >= target_submit_time:
+        logging.info(f"Configured submit time {target_submit_time.strftime('%H:%M:%S')} has passed for today. Setting target for tomorrow.")
+        target_submit_time += timedelta(days=1)
+    logging.info(f"Actual target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')}")
+
+    # Define the absolute cutoff time for preparations
+    preparation_hard_stop_time = target_submit_time - timedelta(seconds=PREPARATION_CUTOFF_SECONDS)
+    logging.info(f"Preparation hard stop time: {preparation_hard_stop_time.strftime('%Y-%m-%d %H:%M:%S')} ({PREPARATION_CUTOFF_SECONDS}s before actual submission)")
 
     days_ahead_to_book = BOOKING_RULES.get(today_weekday, [])
 
@@ -378,12 +438,14 @@ def main():
         priority_log += f"  Priority {i+1}: Court {p['court']} at {p['time']}\n"
     logging.info(priority_log.strip()) # Use strip() to remove trailing newline
 
-    # Log the configured submission time
-    logging.info(f"Configured target submission time: {SUBMIT_HOUR:02d}:{SUBMIT_MINUTE:02d}:{SUBMIT_SECOND:02d}")
+    # Log the originally configured submission time for today for clarity, even if actual is tomorrow
+    logging.info(f"Original configured target submission time for today's rules: {SUBMIT_HOUR:02d}:{SUBMIT_MINUTE:02d}:{SUBMIT_SECOND:02d}")
 
     # --- Preparation Phase --- 
     logging.info("--- Starting Preparation Phase ---")
-    for days_ahead in days_ahead_to_book:
+    
+    preparation_halted = False
+    for days_ahead in days_ahead_to_book:        
         # Reset account pointer and reshuffle accounts so that each user can be used once *per booking date*
         account_index = 0
         random.shuffle(accounts)  # fresh random ordering for this date
@@ -392,6 +454,13 @@ def main():
 
         # Process each priority for this date
         for i, priority in enumerate(COURT_PRIORITIES):
+            if datetime.now() >= preparation_hard_stop_time:
+                logging.warning(f"Approaching submission deadline ({PREPARATION_CUTOFF_SECONDS}s buffer). Halting further preparations.")
+                preparation_halted = True
+                break # Break from priorities loop
+            
+            prep_attempt_start_time = datetime.now() # Start timer for this instance
+            
             if account_index >= len(accounts):
                 logging.warning(f"No more accounts available. Stopping preparation for {booking_date_obj.strftime('%m/%d/%Y')}.")
                 break # Stop processing priorities for this date if out of accounts
@@ -406,6 +475,7 @@ def main():
             booker = TennisBooker()
             try:
                 if booker.driver and booker.login(user_data['email'], user_data['password']):
+                    logging.debug(f"Attempting to prepare instance for {username} - {court_number} at {preferred_time} on {booking_date_obj.strftime('%m/%d/%Y')}")
                     # Pass the date object to prepare_booking
                     preparation_success = booker.prepare_booking(
                         court_number,
@@ -417,8 +487,8 @@ def main():
                         prepared_instances.append(booker) # Keep instance open
                         account_index += 1 # Only increment if successfully prepared
                     else:
-                        # If preparation failed (e.g., court unavailable), close this browser
-                        logging.warning(f"Closing browser for {username} due to failed preparation for {booker.court_info_for_logging}.")
+                        # If prepare_booking returned False (e.g. CourtUnavailableError, or other handled error within prepare_booking)
+                        logging.warning(f"Closing browser for {username} due to FAILED PREPARATION for {booker.court_info_for_logging} (prepare_booking returned False).")
                         booker.close()
                 else:
                     # Handle setup_driver failure or login failure
@@ -427,13 +497,32 @@ def main():
 
             except Exception as e:
                 # Catch unexpected errors during the whole prep attempt for one user
-                logging.error(f"UNEXPECTED ERROR during preparation attempt for {username}: {str(e)}. Closing browser.")
+                logging.error(f"UNEXPECTED EXCEPTION during preparation attempt for {username} - {booker.court_info_for_logging if booker else 'N/A'}: {str(e)}. Closing browser.")
                 try:
                     booker.close()
                 except Exception as close_err:
                     logging.error(f"Error closing browser after unexpected error for {username}: {close_err}")
+            
+            # Check duration for this specific attempt
+            prep_attempt_duration_seconds = (datetime.now() - prep_attempt_start_time).total_seconds()
+            logging.debug(f"Preparation attempt for {username} - {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s.")
+            if prep_attempt_duration_seconds > MAX_PREP_TIME_PER_INSTANCE_SECONDS and not preparation_success:
+                 # Only log as over time if it also failed. Successful preps, even if slow, are kept unless overall deadline hits.
+                logging.warning(f"SLOW PREPARATION TIMEOUT: {username}'s attempt for {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s (max {MAX_PREP_TIME_PER_INSTANCE_SECONDS}s) and failed. Moving to next.")
+                # Booker should have been closed already if preparation_success is False or an exception occurred.
+                # If it got here due to taking too long BUT somehow being marked success (unlikely with current flow), ensure close.
+                if preparation_success: # This case should be rare
+                    logging.warning(f"Odd case: Prep for {username} was slow but marked success. Removing from prepared_instances and closing.")
+                    if booker in prepared_instances:
+                        prepared_instances.remove(booker)
+                    booker.close()
+                    account_index -=1 # Decrement as it wasn't a truly successful preparation
 
         logging.info(f"== Finished preparation attempts for {booking_date_obj.strftime('%m/%d/%Y')} ==")
+
+        if preparation_halted:
+            logging.info("Preparation was halted due to approaching deadline. Moving to waiting/submission phase.")
+            break # Break from days_ahead loop
 
     # --- End Preparation Phase ---
 
@@ -444,16 +533,9 @@ def main():
     logging.info(f"--- Preparation Complete: {len(prepared_instances)} instances ready for submission ---")
 
     # --- Waiting Phase --- 
-    now = datetime.now()
-    # Calculate target time based on today's date
-    target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)
-
-    # If target time is in the past for today, set it for tomorrow
-    if now >= target_submit_time:
-        logging.info(f"Target submit time {target_submit_time.strftime('%H:%M:%S')} has passed for today. Setting target for tomorrow.")
-        target_submit_time += timedelta(days=1)
-
-    wait_seconds = (target_submit_time - now).total_seconds()
+    # 'now' at this point would be when preparation finished, or when it was halted.
+    # We need to calculate wait_seconds based on the current time right before sleeping.
+    wait_seconds = (target_submit_time - datetime.now()).total_seconds()
 
     if wait_seconds > 0:
         logging.info(f"Waiting for {wait_seconds:.2f} seconds until target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')}")
