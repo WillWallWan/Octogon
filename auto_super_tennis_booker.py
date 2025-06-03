@@ -17,17 +17,27 @@ log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [%(filename)s:%
 root_logger = logging.getLogger()
 root_logger.setLevel(logging.DEBUG)  # Set root logger to lowest level
 
-# File Handler - logs everything DEBUG and above
-file_handler = logging.FileHandler('tennis_booker.log') # Consider changing log file name
-file_handler.setFormatter(log_formatter)
-file_handler.setLevel(logging.DEBUG)
-root_logger.addHandler(file_handler)
+# Action Log Handler (INFO from script, INFO+ from Selenium)
+action_log_handler = logging.FileHandler('auto_booker_action.log')
+action_log_handler.setFormatter(log_formatter)
+action_log_handler.setLevel(logging.INFO) # This handler will primarily show INFO and above
+# We will add a custom filter to it later to refine what it shows from Selenium vs. our script
+root_logger.addHandler(action_log_handler)
+
+# Detailed Debug Log Handler (DEBUG from everything)
+debug_log_handler = logging.FileHandler('auto_booker_detailed_debug.log')
+debug_log_handler.setFormatter(log_formatter)
+debug_log_handler.setLevel(logging.DEBUG) # This handler gets all DEBUG messages
+root_logger.addHandler(debug_log_handler)
 
 # Console Handler - logs only INFO and above
 console_handler = logging.StreamHandler()
 console_handler.setFormatter(log_formatter)
 console_handler.setLevel(logging.INFO) # Only show INFO, WARNING, ERROR, CRITICAL on console
 root_logger.addHandler(console_handler)
+
+# Reduce verbosity of Selenium loggers to make the log file cleaner
+# The global Selenium logger level changes are removed; filtering will be per-handler.
 
 # Set to True for debugging with longer pauses
 DEBUG_MODE = False

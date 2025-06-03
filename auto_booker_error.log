@@ -3094,3 +3094,528 @@ Stacktrace:
 2025-06-02 09:45:31,131 - INFO - [auto_super_tennis_booker.py:444] - --- Preparation Complete: 6 instances ready for submission ---
 2025-06-02 09:45:31,132 - INFO - [auto_super_tennis_booker.py:453] - Target submit time 08:00:09 has passed for today. Setting target for tomorrow.
 2025-06-02 09:45:31,133 - INFO - [auto_super_tennis_booker.py:459] - Waiting for 80077.87 seconds until target submission time: 2025-06-03 08:00:09
+2025-06-03 09:16:50,883 - INFO - [auto_super_tennis_booker.py:425] - Configured submit time 08:00:09 has passed for today. Setting target for tomorrow.
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:427] - Actual target submission time: 2025-06-04 08:00:09
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:431] - Preparation hard stop time: 2025-06-04 07:59:54 (15s before actual submission)
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:439] - Today is Tuesday. Booking rules active: [2] days ahead.
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:445] - Planning to prepare bookings based on COURT_PRIORITIES:
+  Priority 1: Court 2 at 17:00
+  Priority 2: Court 5 at 18:00
+  Priority 3: Court 5 at 19:00
+  Priority 4: Court 3 at 17:00
+  Priority 5: Court 6 at 18:00
+  Priority 6: Court 6 at 19:00
+  Priority 7: Court 1 at 17:00
+  Priority 8: Court 2 at 18:00
+  Priority 9: Court 2 at 19:00
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:448] - Original configured target submission time for today's rules: 08:00:09
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:451] - --- Starting Preparation Phase ---
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:459] - == Preparing bookings for Thursday, 06/05/2025 (2 days ahead) ==
+2025-06-03 09:16:50,884 - INFO - [auto_super_tennis_booker.py:479] - Priority #1: Assigning morgan to prepare Court 2 at 17:00 for 06/05/2025
+2025-06-03 09:16:50,884 - DEBUG - [auto_super_tennis_booker.py:63] - Attempting to initialize Chrome Service...
+2025-06-03 09:16:50,884 - DEBUG - [auto_super_tennis_booker.py:65] - Chrome Service initialized. Attempting to launch Chrome browser...
+2025-06-03 09:16:50,886 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-06-03 09:16:50,886 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-06-03 09:16:51,071 - DEBUG - [selenium_manager.py:140] - Found chromedriver 136.0.7103.49 in PATH: /opt/homebrew/bin/chromedriver
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 137.0.7151.56 "
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 137.0.7151.56
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 137.0.7151.68
+2025-06-03 09:16:51,072 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-06-03 09:16:51,072 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-06-03 09:16:51,159 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:50001
+2025-06-03 09:16:52,989 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session HTTP/1.1" 200 0
+2025-06-03 09:16:52,990 - DEBUG - [auto_super_tennis_booker.py:70] - Chrome browser launched. Setting up WebDriverWait...
+2025-06-03 09:16:52,991 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/timeouts HTTP/1.1" 200 0
+2025-06-03 09:16:52,991 - DEBUG - [auto_super_tennis_booker.py:74] - WebDriverWait set. Setting implicit wait...
+2025-06-03 09:16:52,992 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/timeouts HTTP/1.1" 200 0
+2025-06-03 09:16:52,992 - INFO - [auto_super_tennis_booker.py:76] - Chrome WebDriver initialized successfully
+2025-06-03 09:16:52,992 - DEBUG - [auto_super_tennis_booker.py:90] - [nyuclubtennis+morganb@gmail.com] Attempting to navigate to login page
+2025-06-03 09:16:54,149 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/url HTTP/1.1" 200 0
+2025-06-03 09:16:54,156 - DEBUG - [auto_super_tennis_booker.py:94] - [nyuclubtennis+morganb@gmail.com] Filling login credentials
+2025-06-03 09:16:54,170 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:54,188 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:54,195 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.CAA203C35034E6CC1EA962A89E60A6EB.e.34/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:54,408 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.CAA203C35034E6CC1EA962A89E60A6EB.e.34/value HTTP/1.1" 200 0
+2025-06-03 09:16:54,417 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:54,421 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:54,425 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.CAA203C35034E6CC1EA962A89E60A6EB.e.35/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:54,505 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.CAA203C35034E6CC1EA962A89E60A6EB.e.35/value HTTP/1.1" 200 0
+2025-06-03 09:16:54,508 - DEBUG - [auto_super_tennis_booker.py:99] - [nyuclubtennis+morganb@gmail.com] Clicking login button
+2025-06-03 09:16:54,528 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:54,533 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:54,537 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.CAA203C35034E6CC1EA962A89E60A6EB.e.44/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:54,972 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.CAA203C35034E6CC1EA962A89E60A6EB.e.44/click HTTP/1.1" 200 0
+2025-06-03 09:16:54,985 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:54,985 - INFO - [auto_super_tennis_booker.py:107] - Successfully logged in as nyuclubtennis+morganb@gmail.com
+2025-06-03 09:16:54,985 - DEBUG - [auto_super_tennis_booker.py:484] - Attempting to prepare instance for morgan - 2 at 17:00 on 06/05/2025
+2025-06-03 09:16:54,985 - DEBUG - [auto_super_tennis_booker.py:133] - Navigating to new permit form
+2025-06-03 09:16:55,020 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:55,026 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:58,535 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 404 0
+2025-06-03 09:16:58,541 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:58,545 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:58,550 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.4645C6940F954DC3DF5D6B6A3BAAD6CF.e.861/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:58,798 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:58,798 - DEBUG - [auto_super_tennis_booker.py:156] - Successfully clicked New Permit button
+2025-06-03 09:16:58,798 - DEBUG - [auto_super_tennis_booker.py:168] - Filling activity field
+2025-06-03 09:16:58,810 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:58,816 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:58,819 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3241/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:58,841 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3241/value HTTP/1.1" 200 0
+2025-06-03 09:16:58,841 - DEBUG - [auto_super_tennis_booker.py:173] - Selecting court 2
+2025-06-03 09:16:58,847 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:58,850 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:58,854 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3242/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:58,857 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3242/name HTTP/1.1" 200 0
+2025-06-03 09:16:58,860 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3242/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:16:58,868 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3242/elements HTTP/1.1" 200 0
+2025-06-03 09:16:58,873 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3349/selected HTTP/1.1" 200 0
+2025-06-03 09:16:58,876 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3349/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:58,896 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3349/click HTTP/1.1" 200 0
+2025-06-03 09:16:59,901 - DEBUG - [auto_super_tennis_booker.py:192] - Clicking Add Facility button
+2025-06-03 09:16:59,912 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:59,917 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:59,922 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3243/enabled HTTP/1.1" 200 0
+2025-06-03 09:16:59,934 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:16:59,943 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:16:59,950 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:00,978 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:01,022 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:01,042 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4194/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:01,077 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4194/selected HTTP/1.1" 200 0
+2025-06-03 09:17:01,443 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4194/click HTTP/1.1" 200 0
+2025-06-03 09:17:01,443 - DEBUG - [auto_super_tennis_booker.py:212] - Setting date to 06/05/2025
+2025-06-03 09:17:01,456 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:01,464 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:01,482 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4204/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:01,714 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4204/value HTTP/1.1" 200 0
+2025-06-03 09:17:01,730 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:01,791 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3278/click HTTP/1.1" 200 0
+2025-06-03 09:17:01,791 - DEBUG - [auto_super_tennis_booker.py:216] - Waiting briefly after setting date...
+2025-06-03 09:17:02,296 - INFO - [auto_super_tennis_booker.py:221] - Setting time to 17:00-18:00
+2025-06-03 09:17:02,308 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:02,328 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:02,334 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4212/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:02,339 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4212/name HTTP/1.1" 200 0
+2025-06-03 09:17:02,344 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4212/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:02,353 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4212/elements HTTP/1.1" 200 0
+2025-06-03 09:17:02,359 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4266/selected HTTP/1.1" 200 0
+2025-06-03 09:17:02,366 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4266/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:02,392 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4266/click HTTP/1.1" 200 0
+2025-06-03 09:17:02,404 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:02,431 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:02,440 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4335/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:02,448 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4335/name HTTP/1.1" 200 0
+2025-06-03 09:17:02,453 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4335/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:02,461 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4335/elements HTTP/1.1" 200 0
+2025-06-03 09:17:02,466 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4392/selected HTTP/1.1" 200 0
+2025-06-03 09:17:02,672 - INFO - [auto_super_tennis_booker.py:319] - Continuing to permit questions page for Court 2 on 06/05/2025 at 17:00
+2025-06-03 09:17:02,680 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:02,685 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:02,689 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3245/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:02,722 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3245/click HTTP/1.1" 200 0
+2025-06-03 09:17:02,729 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:02,729 - DEBUG - [auto_super_tennis_booker.py:235] - Filling permit questions
+2025-06-03 09:17:02,935 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:02,938 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:02,943 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4022/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:02,959 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4022/clear HTTP/1.1" 200 0
+2025-06-03 09:17:02,984 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4022/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,095 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,099 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,102 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4026/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,114 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4026/clear HTTP/1.1" 200 0
+2025-06-03 09:17:03,136 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4026/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,248 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,252 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,256 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4030/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,282 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4030/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,390 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,394 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,397 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4034/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,419 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4034/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,530 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,534 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,536 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4039/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,557 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4039/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,668 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,671 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,674 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4090/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,692 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4090/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,803 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,807 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,811 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4094/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,835 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4094/value HTTP/1.1" 200 0
+2025-06-03 09:17:03,944 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:03,948 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:03,952 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4145/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:03,975 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4145/value HTTP/1.1" 200 0
+2025-06-03 09:17:04,087 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:04,091 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:04,094 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4074/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:04,096 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4074/name HTTP/1.1" 200 0
+2025-06-03 09:17:04,099 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4074/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:04,105 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4074/elements HTTP/1.1" 200 0
+2025-06-03 09:17:04,109 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4085/selected HTTP/1.1" 200 0
+2025-06-03 09:17:04,112 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4085/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:04,122 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4085/click HTTP/1.1" 200 0
+2025-06-03 09:17:04,235 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:04,239 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:04,243 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4129/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:04,246 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4129/name HTTP/1.1" 200 0
+2025-06-03 09:17:04,249 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4129/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:04,253 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4129/elements HTTP/1.1" 200 0
+2025-06-03 09:17:04,258 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4140/selected HTTP/1.1" 200 0
+2025-06-03 09:17:04,260 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4140/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:04,269 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.4140/click HTTP/1.1" 200 0
+2025-06-03 09:17:07,389 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 404 0
+2025-06-03 09:17:07,398 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/element HTTP/1.1" 200 0
+2025-06-03 09:17:07,403 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:07,407 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "GET /session/480738938aeb79f8a757199242bc55e9/element/f.BF0D4C33BADA13F4174C8D20BA97D8B6.d.B2C0C002C3F95F32458C990C62E34D94.e.3406/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:07,420 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:07,626 - DEBUG - [auto_super_tennis_booker.py:304] - Successfully filled permit questions
+2025-06-03 09:17:07,626 - DEBUG - [auto_super_tennis_booker.py:338] - Scrolling to bottom of the page.
+2025-06-03 09:17:07,637 - DEBUG - [connectionpool.py:544] - http://localhost:50001 "POST /session/480738938aeb79f8a757199242bc55e9/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:07,842 - INFO - [auto_super_tennis_booker.py:342] - Booking preparation complete for Court 2 on 06/05/2025 at 17:00. Ready for timed submission.
+2025-06-03 09:17:07,842 - DEBUG - [auto_super_tennis_booker.py:514] - Preparation attempt for morgan - 2 at 17:00 took 17.0s.
+2025-06-03 09:17:07,842 - INFO - [auto_super_tennis_booker.py:479] - Priority #2: Assigning brian to prepare Court 5 at 18:00 for 06/05/2025
+2025-06-03 09:17:07,843 - DEBUG - [auto_super_tennis_booker.py:63] - Attempting to initialize Chrome Service...
+2025-06-03 09:17:07,845 - DEBUG - [auto_super_tennis_booker.py:65] - Chrome Service initialized. Attempting to launch Chrome browser...
+2025-06-03 09:17:07,846 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-06-03 09:17:07,846 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-06-03 09:17:07,926 - DEBUG - [selenium_manager.py:140] - Found chromedriver 136.0.7103.49 in PATH: /opt/homebrew/bin/chromedriver
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 137.0.7151.56 "
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 137.0.7151.56
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 137.0.7151.68
+2025-06-03 09:17:07,927 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-06-03 09:17:07,927 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-06-03 09:17:07,943 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:50050
+2025-06-03 09:17:08,905 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session HTTP/1.1" 200 0
+2025-06-03 09:17:08,906 - DEBUG - [auto_super_tennis_booker.py:70] - Chrome browser launched. Setting up WebDriverWait...
+2025-06-03 09:17:08,907 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/timeouts HTTP/1.1" 200 0
+2025-06-03 09:17:08,907 - DEBUG - [auto_super_tennis_booker.py:74] - WebDriverWait set. Setting implicit wait...
+2025-06-03 09:17:08,908 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/timeouts HTTP/1.1" 200 0
+2025-06-03 09:17:08,908 - INFO - [auto_super_tennis_booker.py:76] - Chrome WebDriver initialized successfully
+2025-06-03 09:17:08,908 - DEBUG - [auto_super_tennis_booker.py:90] - [nyuclubtennis+brians@gmail.com] Attempting to navigate to login page
+2025-06-03 09:17:09,915 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/url HTTP/1.1" 200 0
+2025-06-03 09:17:09,916 - DEBUG - [auto_super_tennis_booker.py:94] - [nyuclubtennis+brians@gmail.com] Filling login credentials
+2025-06-03 09:17:09,922 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:09,928 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:09,933 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.F624C3C73ACDC2A3F6F4F870DA3CDDB3.e.199/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:10,020 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.F624C3C73ACDC2A3F6F4F870DA3CDDB3.e.199/value HTTP/1.1" 200 0
+2025-06-03 09:17:10,026 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:10,030 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:10,034 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.F624C3C73ACDC2A3F6F4F870DA3CDDB3.e.204/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:10,064 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.F624C3C73ACDC2A3F6F4F870DA3CDDB3.e.204/value HTTP/1.1" 200 0
+2025-06-03 09:17:10,064 - DEBUG - [auto_super_tennis_booker.py:99] - [nyuclubtennis+brians@gmail.com] Clicking login button
+2025-06-03 09:17:10,071 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:10,075 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:10,080 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.F624C3C73ACDC2A3F6F4F870DA3CDDB3.e.207/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:10,112 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.F624C3C73ACDC2A3F6F4F870DA3CDDB3.e.207/click HTTP/1.1" 200 0
+2025-06-03 09:17:10,547 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:10,551 - INFO - [auto_super_tennis_booker.py:107] - Successfully logged in as nyuclubtennis+brians@gmail.com
+2025-06-03 09:17:10,551 - DEBUG - [auto_super_tennis_booker.py:484] - Attempting to prepare instance for brian - 5 at 18:00 on 06/05/2025
+2025-06-03 09:17:10,552 - DEBUG - [auto_super_tennis_booker.py:133] - Navigating to new permit form
+2025-06-03 09:17:10,567 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:10,574 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:14,124 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 404 0
+2025-06-03 09:17:14,129 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:14,133 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:14,137 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.116FA576D16ED29F052CC27C78DF1FDB.e.918/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:14,370 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:14,370 - DEBUG - [auto_super_tennis_booker.py:156] - Successfully clicked New Permit button
+2025-06-03 09:17:14,370 - DEBUG - [auto_super_tennis_booker.py:168] - Filling activity field
+2025-06-03 09:17:14,377 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:14,386 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:14,390 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3252/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:14,414 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3252/value HTTP/1.1" 200 0
+2025-06-03 09:17:14,414 - DEBUG - [auto_super_tennis_booker.py:173] - Selecting court 5
+2025-06-03 09:17:14,420 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:14,424 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:14,427 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3253/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:14,430 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3253/name HTTP/1.1" 200 0
+2025-06-03 09:17:14,433 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3253/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:14,440 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3253/elements HTTP/1.1" 200 0
+2025-06-03 09:17:14,445 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3370/selected HTTP/1.1" 200 0
+2025-06-03 09:17:14,449 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3370/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:14,470 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3370/click HTTP/1.1" 200 0
+2025-06-03 09:17:15,474 - DEBUG - [auto_super_tennis_booker.py:192] - Clicking Add Facility button
+2025-06-03 09:17:15,480 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:15,483 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:15,487 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3254/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:15,497 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:15,504 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:15,508 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:16,018 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:16,022 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:16,026 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4205/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:16,030 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4205/selected HTTP/1.1" 200 0
+2025-06-03 09:17:16,066 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4205/click HTTP/1.1" 200 0
+2025-06-03 09:17:16,066 - DEBUG - [auto_super_tennis_booker.py:212] - Setting date to 06/05/2025
+2025-06-03 09:17:16,073 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:16,078 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:16,082 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4215/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:16,131 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4215/value HTTP/1.1" 200 0
+2025-06-03 09:17:16,144 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:16,173 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3290/click HTTP/1.1" 200 0
+2025-06-03 09:17:16,174 - DEBUG - [auto_super_tennis_booker.py:216] - Waiting briefly after setting date...
+2025-06-03 09:17:16,679 - INFO - [auto_super_tennis_booker.py:221] - Setting time to 18:00-19:00
+2025-06-03 09:17:16,684 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:16,688 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:16,691 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4223/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:16,694 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4223/name HTTP/1.1" 200 0
+2025-06-03 09:17:16,697 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4223/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:16,703 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4223/elements HTTP/1.1" 200 0
+2025-06-03 09:17:16,707 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4280/selected HTTP/1.1" 200 0
+2025-06-03 09:17:16,710 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4280/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:16,721 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4280/click HTTP/1.1" 200 0
+2025-06-03 09:17:16,726 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:16,730 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:16,734 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4346/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:16,737 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4346/name HTTP/1.1" 200 0
+2025-06-03 09:17:16,744 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4346/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:16,752 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4346/elements HTTP/1.1" 200 0
+2025-06-03 09:17:16,756 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4406/selected HTTP/1.1" 200 0
+2025-06-03 09:17:16,964 - INFO - [auto_super_tennis_booker.py:319] - Continuing to permit questions page for Court 5 on 06/05/2025 at 18:00
+2025-06-03 09:17:16,970 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:16,974 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:16,977 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3257/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,009 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3257/click HTTP/1.1" 200 0
+2025-06-03 09:17:17,014 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,014 - DEBUG - [auto_super_tennis_booker.py:235] - Filling permit questions
+2025-06-03 09:17:17,222 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,226 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:17,229 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4033/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,243 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4033/clear HTTP/1.1" 200 0
+2025-06-03 09:17:17,270 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4033/value HTTP/1.1" 200 0
+2025-06-03 09:17:17,382 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,386 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:17,391 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4037/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,402 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4037/clear HTTP/1.1" 200 0
+2025-06-03 09:17:17,426 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4037/value HTTP/1.1" 200 0
+2025-06-03 09:17:17,536 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,540 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:17,544 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4041/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,566 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4041/value HTTP/1.1" 200 0
+2025-06-03 09:17:17,677 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,681 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:17,684 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4045/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,708 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4045/value HTTP/1.1" 200 0
+2025-06-03 09:17:17,819 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,822 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:17,825 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4050/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,847 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4050/value HTTP/1.1" 200 0
+2025-06-03 09:17:17,956 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:17,960 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:17,964 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4101/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:17,989 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4101/value HTTP/1.1" 200 0
+2025-06-03 09:17:18,100 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:18,103 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:18,106 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4105/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:18,126 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4105/value HTTP/1.1" 200 0
+2025-06-03 09:17:18,237 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:18,241 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:18,244 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4156/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:18,268 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4156/value HTTP/1.1" 200 0
+2025-06-03 09:17:18,380 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:18,389 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:18,393 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4085/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:18,396 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4085/name HTTP/1.1" 200 0
+2025-06-03 09:17:18,399 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4085/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:18,405 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4085/elements HTTP/1.1" 200 0
+2025-06-03 09:17:18,415 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4096/selected HTTP/1.1" 200 0
+2025-06-03 09:17:18,420 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4096/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:18,430 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4096/click HTTP/1.1" 200 0
+2025-06-03 09:17:18,541 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:18,544 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:18,548 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4140/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:18,551 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4140/name HTTP/1.1" 200 0
+2025-06-03 09:17:18,562 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4140/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:18,587 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4140/elements HTTP/1.1" 200 0
+2025-06-03 09:17:18,642 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4151/selected HTTP/1.1" 200 0
+2025-06-03 09:17:18,656 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4151/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:18,691 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.4151/click HTTP/1.1" 200 0
+2025-06-03 09:17:21,823 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 404 0
+2025-06-03 09:17:21,831 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/element HTTP/1.1" 200 0
+2025-06-03 09:17:21,835 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:21,839 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "GET /session/66d897e4743165a03723d94f0e92e10b/element/f.77C2A90B930C06E137E6AD9DDEFD77F1.d.080D50E72AC898C2A5DA532AC20FC53F.e.3418/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:21,843 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:22,047 - DEBUG - [auto_super_tennis_booker.py:304] - Successfully filled permit questions
+2025-06-03 09:17:22,047 - DEBUG - [auto_super_tennis_booker.py:338] - Scrolling to bottom of the page.
+2025-06-03 09:17:22,051 - DEBUG - [connectionpool.py:544] - http://localhost:50050 "POST /session/66d897e4743165a03723d94f0e92e10b/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:22,254 - INFO - [auto_super_tennis_booker.py:342] - Booking preparation complete for Court 5 on 06/05/2025 at 18:00. Ready for timed submission.
+2025-06-03 09:17:22,256 - DEBUG - [auto_super_tennis_booker.py:514] - Preparation attempt for brian - 5 at 18:00 took 14.4s.
+2025-06-03 09:17:22,256 - INFO - [auto_super_tennis_booker.py:479] - Priority #3: Assigning yiting to prepare Court 5 at 19:00 for 06/05/2025
+2025-06-03 09:17:22,256 - DEBUG - [auto_super_tennis_booker.py:63] - Attempting to initialize Chrome Service...
+2025-06-03 09:17:22,261 - DEBUG - [auto_super_tennis_booker.py:65] - Chrome Service initialized. Attempting to launch Chrome browser...
+2025-06-03 09:17:22,267 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-06-03 09:17:22,268 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-06-03 09:17:22,438 - DEBUG - [selenium_manager.py:140] - Found chromedriver 136.0.7103.49 in PATH: /opt/homebrew/bin/chromedriver
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 137.0.7151.56 "
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 137.0.7151.56
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 137.0.7151.68
+2025-06-03 09:17:22,439 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-06-03 09:17:22,439 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-06-03 09:17:22,457 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:50087
+2025-06-03 09:17:23,395 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session HTTP/1.1" 200 0
+2025-06-03 09:17:23,396 - DEBUG - [auto_super_tennis_booker.py:70] - Chrome browser launched. Setting up WebDriverWait...
+2025-06-03 09:17:23,396 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/timeouts HTTP/1.1" 200 0
+2025-06-03 09:17:23,397 - DEBUG - [auto_super_tennis_booker.py:74] - WebDriverWait set. Setting implicit wait...
+2025-06-03 09:17:23,397 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/timeouts HTTP/1.1" 200 0
+2025-06-03 09:17:23,397 - INFO - [auto_super_tennis_booker.py:76] - Chrome WebDriver initialized successfully
+2025-06-03 09:17:23,397 - DEBUG - [auto_super_tennis_booker.py:90] - [nyuclubtennis+yitings@gmail.com] Attempting to navigate to login page
+2025-06-03 09:17:24,242 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/url HTTP/1.1" 200 0
+2025-06-03 09:17:24,242 - DEBUG - [auto_super_tennis_booker.py:94] - [nyuclubtennis+yitings@gmail.com] Filling login credentials
+2025-06-03 09:17:24,250 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:24,263 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:24,272 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.5CF11929D8A84CBDDE9FC3C3CC42A56A.e.199/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:24,496 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.5CF11929D8A84CBDDE9FC3C3CC42A56A.e.199/value HTTP/1.1" 200 0
+2025-06-03 09:17:24,506 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:24,512 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:24,521 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.5CF11929D8A84CBDDE9FC3C3CC42A56A.e.204/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:24,550 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.5CF11929D8A84CBDDE9FC3C3CC42A56A.e.204/value HTTP/1.1" 200 0
+2025-06-03 09:17:24,550 - DEBUG - [auto_super_tennis_booker.py:99] - [nyuclubtennis+yitings@gmail.com] Clicking login button
+2025-06-03 09:17:24,558 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:24,562 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:24,567 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.5CF11929D8A84CBDDE9FC3C3CC42A56A.e.207/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:24,961 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.5CF11929D8A84CBDDE9FC3C3CC42A56A.e.207/click HTTP/1.1" 200 0
+2025-06-03 09:17:24,968 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:24,968 - INFO - [auto_super_tennis_booker.py:107] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-06-03 09:17:24,968 - DEBUG - [auto_super_tennis_booker.py:484] - Attempting to prepare instance for yiting - 5 at 19:00 on 06/05/2025
+2025-06-03 09:17:24,968 - DEBUG - [auto_super_tennis_booker.py:133] - Navigating to new permit form
+2025-06-03 09:17:24,975 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:24,978 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:28,517 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 404 0
+2025-06-03 09:17:28,523 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:28,528 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:28,532 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.FF55AFC452C616C39F8C6EF51A662054.e.918/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:28,769 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:28,770 - DEBUG - [auto_super_tennis_booker.py:156] - Successfully clicked New Permit button
+2025-06-03 09:17:28,770 - DEBUG - [auto_super_tennis_booker.py:168] - Filling activity field
+2025-06-03 09:17:28,788 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:28,792 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:28,795 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3255/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:28,818 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3255/value HTTP/1.1" 200 0
+2025-06-03 09:17:28,818 - DEBUG - [auto_super_tennis_booker.py:173] - Selecting court 5
+2025-06-03 09:17:28,823 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:28,826 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:28,830 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3256/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:28,832 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3256/name HTTP/1.1" 200 0
+2025-06-03 09:17:28,835 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3256/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:28,841 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3256/elements HTTP/1.1" 200 0
+2025-06-03 09:17:28,846 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3372/selected HTTP/1.1" 200 0
+2025-06-03 09:17:28,850 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3372/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:28,871 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3372/click HTTP/1.1" 200 0
+2025-06-03 09:17:29,874 - DEBUG - [auto_super_tennis_booker.py:192] - Clicking Add Facility button
+2025-06-03 09:17:29,881 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:29,885 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:29,889 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3257/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:29,901 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:29,909 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:29,914 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:30,420 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:30,425 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:30,428 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4208/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:30,432 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4208/selected HTTP/1.1" 200 0
+2025-06-03 09:17:30,466 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4208/click HTTP/1.1" 200 0
+2025-06-03 09:17:30,466 - DEBUG - [auto_super_tennis_booker.py:212] - Setting date to 06/05/2025
+2025-06-03 09:17:30,472 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:30,476 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:30,479 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4218/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:30,535 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4218/value HTTP/1.1" 200 0
+2025-06-03 09:17:30,544 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:30,578 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3292/click HTTP/1.1" 200 0
+2025-06-03 09:17:30,578 - DEBUG - [auto_super_tennis_booker.py:216] - Waiting briefly after setting date...
+2025-06-03 09:17:31,082 - INFO - [auto_super_tennis_booker.py:221] - Setting time to 19:00-20:00
+2025-06-03 09:17:31,102 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,107 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:31,111 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4226/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,114 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4226/name HTTP/1.1" 200 0
+2025-06-03 09:17:31,117 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4226/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:31,125 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4226/elements HTTP/1.1" 200 0
+2025-06-03 09:17:31,128 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4286/selected HTTP/1.1" 200 0
+2025-06-03 09:17:31,132 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4286/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,143 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4286/click HTTP/1.1" 200 0
+2025-06-03 09:17:31,149 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,152 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:31,156 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4349/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,158 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4349/name HTTP/1.1" 200 0
+2025-06-03 09:17:31,160 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4349/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:31,165 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4349/elements HTTP/1.1" 200 0
+2025-06-03 09:17:31,169 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4412/selected HTTP/1.1" 200 0
+2025-06-03 09:17:31,373 - INFO - [auto_super_tennis_booker.py:319] - Continuing to permit questions page for Court 5 on 06/05/2025 at 19:00
+2025-06-03 09:17:31,380 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,384 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:31,388 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3259/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,418 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3259/click HTTP/1.1" 200 0
+2025-06-03 09:17:31,423 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,423 - DEBUG - [auto_super_tennis_booker.py:235] - Filling permit questions
+2025-06-03 09:17:31,631 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,636 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:31,640 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4035/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,658 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4035/clear HTTP/1.1" 200 0
+2025-06-03 09:17:31,681 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4035/value HTTP/1.1" 200 0
+2025-06-03 09:17:31,792 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,796 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:31,800 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4039/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,811 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4039/clear HTTP/1.1" 200 0
+2025-06-03 09:17:31,835 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4039/value HTTP/1.1" 200 0
+2025-06-03 09:17:31,947 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:31,951 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:31,955 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4043/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:31,978 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4043/value HTTP/1.1" 200 0
+2025-06-03 09:17:32,086 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,090 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,095 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4047/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,118 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4047/value HTTP/1.1" 200 0
+2025-06-03 09:17:32,230 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,236 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,241 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4052/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,276 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4052/value HTTP/1.1" 200 0
+2025-06-03 09:17:32,388 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,391 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,395 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4103/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,414 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4103/value HTTP/1.1" 200 0
+2025-06-03 09:17:32,525 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,529 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,533 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4107/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,554 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4107/value HTTP/1.1" 200 0
+2025-06-03 09:17:32,663 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,666 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,669 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4158/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,692 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4158/value HTTP/1.1" 200 0
+2025-06-03 09:17:32,804 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,808 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,812 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4087/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,814 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4087/name HTTP/1.1" 200 0
+2025-06-03 09:17:32,817 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4087/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:32,828 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4087/elements HTTP/1.1" 200 0
+2025-06-03 09:17:32,834 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4098/selected HTTP/1.1" 200 0
+2025-06-03 09:17:32,837 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4098/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,847 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4098/click HTTP/1.1" 200 0
+2025-06-03 09:17:32,956 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:32,960 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:32,963 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4142/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,965 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4142/name HTTP/1.1" 200 0
+2025-06-03 09:17:32,967 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4142/attribute/multiple HTTP/1.1" 200 0
+2025-06-03 09:17:32,972 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4142/elements HTTP/1.1" 200 0
+2025-06-03 09:17:32,975 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4153/selected HTTP/1.1" 200 0
+2025-06-03 09:17:32,979 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4153/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:32,989 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.4153/click HTTP/1.1" 200 0
+2025-06-03 09:17:36,149 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 404 0
+2025-06-03 09:17:36,161 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/element HTTP/1.1" 200 0
+2025-06-03 09:17:36,168 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:36,176 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "GET /session/ed557e6517dd2ff649513432d1937207/element/f.60B618257419546DAB9C3F5A11978CC9.d.620012270D2354FD68C51BA4C6DC84D0.e.3420/enabled HTTP/1.1" 200 0
+2025-06-03 09:17:36,184 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0
+2025-06-03 09:17:36,387 - DEBUG - [auto_super_tennis_booker.py:304] - Successfully filled permit questions
+2025-06-03 09:17:36,388 - DEBUG - [auto_super_tennis_booker.py:338] - Scrolling to bottom of the page.
+2025-06-03 09:17:36,394 - DEBUG - [connectionpool.py:544] - http://localhost:50087 "POST /session/ed557e6517dd2ff649513432d1937207/execute/sync HTTP/1.1" 200 0

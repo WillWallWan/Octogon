@@ -1,0 +1,41 @@
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:429] - Configured submit time 08:00:09 has passed for today. Setting target for tomorrow.
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:431] - Actual target submission time: 2025-06-04 08:00:09
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:435] - Preparation hard stop time: 2025-06-04 07:59:54 (15s before actual submission)
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:443] - Today is Tuesday. Booking rules active: [2] days ahead.
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:449] - Planning to prepare bookings based on COURT_PRIORITIES:
+  Priority 1: Court 2 at 17:00
+  Priority 2: Court 5 at 18:00
+  Priority 3: Court 5 at 19:00
+  Priority 4: Court 3 at 17:00
+  Priority 5: Court 6 at 18:00
+  Priority 6: Court 6 at 19:00
+  Priority 7: Court 1 at 17:00
+  Priority 8: Court 2 at 18:00
+  Priority 9: Court 2 at 19:00
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:452] - Original configured target submission time for today's rules: 08:00:09
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:455] - --- Starting Preparation Phase ---
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:463] - == Preparing bookings for Thursday, 06/05/2025 (2 days ahead) ==
+2025-06-03 09:19:30,725 - INFO - [auto_super_tennis_booker.py:483] - Priority #1: Assigning alex to prepare Court 2 at 17:00 for 06/05/2025
+2025-06-03 09:19:30,916 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:19:32,510 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-03 09:19:34,050 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+alexm@gmail.com
+2025-06-03 09:19:40,288 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 17:00-18:00
+2025-06-03 09:19:40,584 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 2 on 06/05/2025 at 17:00
+2025-06-03 09:19:45,820 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 2 on 06/05/2025 at 17:00. Ready for timed submission.
+2025-06-03 09:19:45,822 - INFO - [auto_super_tennis_booker.py:483] - Priority #2: Assigning yiting to prepare Court 5 at 18:00 for 06/05/2025
+2025-06-03 09:19:45,941 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:19:46,731 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-03 09:19:48,521 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-06-03 09:19:55,006 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 18:00-19:00
+2025-06-03 09:19:55,290 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 5 on 06/05/2025 at 18:00
+2025-06-03 09:20:00,582 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 5 on 06/05/2025 at 18:00. Ready for timed submission.
+2025-06-03 09:20:00,586 - INFO - [auto_super_tennis_booker.py:483] - Priority #3: Assigning ben to prepare Court 5 at 19:00 for 06/05/2025
+2025-06-03 09:20:00,864 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:20:01,816 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-03 09:20:03,476 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+benk@gmail.com
+2025-06-03 09:20:09,613 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 19:00-20:00
+2025-06-03 09:20:09,899 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 5 on 06/05/2025 at 19:00
+2025-06-03 09:20:15,160 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 5 on 06/05/2025 at 19:00. Ready for timed submission.
+2025-06-03 09:20:15,162 - INFO - [auto_super_tennis_booker.py:483] - Priority #4: Assigning jamie to prepare Court 3 at 17:00 for 06/05/2025
+2025-06-03 09:20:15,286 - WARNING - [selenium_manager.py:138] - The chromedriver version (136.0.7103.49) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.56); currently, chromedriver 137.0.7151.68 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-03 09:20:16,563 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
