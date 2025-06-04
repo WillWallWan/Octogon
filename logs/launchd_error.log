@@ -1,0 +1,46 @@
+2025-06-04 10:09:05,409 - INFO - [auto_super_tennis_booker.py:429] - Configured submit time 08:00:09 has passed for today. Setting target for tomorrow.
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:431] - Actual target submission time: 2025-06-05 08:00:09
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:435] - Preparation hard stop time: 2025-06-05 07:59:54 (15s before actual submission)
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:443] - Today is Wednesday. Booking rules active: [2] days ahead.
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:449] - Planning to prepare bookings based on COURT_PRIORITIES:
+  Priority 1: Court 2 at 17:00
+  Priority 2: Court 5 at 18:00
+  Priority 3: Court 5 at 19:00
+  Priority 4: Court 3 at 17:00
+  Priority 5: Court 6 at 18:00
+  Priority 6: Court 6 at 19:00
+  Priority 7: Court 1 at 17:00
+  Priority 8: Court 2 at 18:00
+  Priority 9: Court 2 at 19:00
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:452] - Original configured target submission time for today's rules: 08:00:09
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:455] - --- Starting Preparation Phase ---
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:463] - == Preparing bookings for Friday, 06/06/2025 (2 days ahead) ==
+2025-06-04 10:09:05,418 - INFO - [auto_super_tennis_booker.py:483] - Priority #1: Assigning morgan to prepare Court 2 at 17:00 for 06/06/2025
+2025-06-04 10:09:10,888 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-04 10:09:12,989 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+morganb@gmail.com
+2025-06-04 10:09:19,962 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 17:00-18:00
+2025-06-04 10:09:20,297 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 2 on 06/06/2025 at 17:00
+2025-06-04 10:09:26,981 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 2 on 06/06/2025 at 17:00. Ready for timed submission.
+2025-06-04 10:09:27,286 - INFO - [auto_super_tennis_booker.py:483] - Priority #2: Assigning ben to prepare Court 5 at 18:00 for 06/06/2025
+2025-06-04 10:09:30,595 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-04 10:09:33,317 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+benk@gmail.com
+2025-06-04 10:09:40,978 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 18:00-19:00
+2025-06-04 10:09:41,301 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 5 on 06/06/2025 at 18:00
+2025-06-04 10:09:49,093 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 5 on 06/06/2025 at 18:00. Ready for timed submission.
+2025-06-04 10:09:49,094 - INFO - [auto_super_tennis_booker.py:483] - Priority #3: Assigning jordan to prepare Court 5 at 19:00 for 06/06/2025
+2025-06-04 10:09:53,068 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-04 10:09:55,356 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+jordanr@gmail.com
+2025-06-04 10:10:01,960 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 19:00-20:00
+2025-06-04 10:10:02,376 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 5 on 06/06/2025 at 19:00
+2025-06-04 10:10:09,796 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 5 on 06/06/2025 at 19:00. Ready for timed submission.
+2025-06-04 10:10:09,796 - INFO - [auto_super_tennis_booker.py:483] - Priority #4: Assigning brian to prepare Court 3 at 17:00 for 06/06/2025
+2025-06-04 10:10:12,871 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-04 10:10:15,022 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+brians@gmail.com
+2025-06-04 10:10:21,677 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 17:00-18:00
+2025-06-04 10:10:22,056 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 3 on 06/06/2025 at 17:00
+2025-06-04 10:10:28,629 - INFO - [auto_super_tennis_booker.py:346] - Booking preparation complete for Court 3 on 06/06/2025 at 17:00. Ready for timed submission.
+2025-06-04 10:10:28,631 - INFO - [auto_super_tennis_booker.py:483] - Priority #5: Assigning yiting to prepare Court 6 at 18:00 for 06/06/2025
+2025-06-04 10:10:31,279 - INFO - [auto_super_tennis_booker.py:80] - Chrome WebDriver initialized successfully
+2025-06-04 10:10:33,177 - INFO - [auto_super_tennis_booker.py:111] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-06-04 10:10:41,747 - INFO - [auto_super_tennis_booker.py:225] - Setting time to 18:00-19:00
+2025-06-04 10:10:42,402 - INFO - [auto_super_tennis_booker.py:323] - Continuing to permit questions page for Court 6 on 06/06/2025 at 18:00

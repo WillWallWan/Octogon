@@ -239,7 +239,7 @@ class TennisBooker:
         logging.debug("Filling permit questions")
         try:
             # Using IDs directly
-            time.sleep(0.2) # Extra small pause before interacting with the first field
+            time.sleep(1) # Extra small pause before interacting with the first field
             activity_field = self.wait.until(EC.element_to_be_clickable((By.ID, "11e79e5d3daf4712b9e6418d2691b976")))
             activity_field.clear()
             activity_field.send_keys("Playing tennis")
