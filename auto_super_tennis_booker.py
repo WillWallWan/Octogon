@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, ElementNotInteractableException
+from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, ElementNotInteractableException, ElementClickInterceptedException
 from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES, COURT_PRIORITIES
 
 # Set up logging with more detailed format and separate levels for handlers
@@ -321,20 +321,24 @@ class TennisBooker:
             self.set_date_and_time(booking_date, start_time)
 
             logging.info(f"Continuing to permit questions page for {self.court_info_for_logging}")
-            continue_button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".controlArea button")))
-            # Click with timeout protection
             try:
-                continue_button.click()
+                continue_button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".controlArea button")))
+                # Click with timeout protection using robust JS click
+                logging.debug("Scrolling to and clicking continue button...")
+                self.driver.execute_script("arguments[0].scrollIntoView(true);", continue_button)
+                time.sleep(0.3) # Brief pause for UI to settle
+                self.driver.execute_script("arguments[0].click();", continue_button)
+
                 # Wait for the page to actually load by checking for a known element on the questions page
-                WebDriverWait(self.driver, 30).until( # Increased to 30s
+                WebDriverWait(self.driver, 30).until(
                     EC.presence_of_element_located((By.ID, "11e79e5d3daf4712b9e6418d2691b976"))  # First question field ID
                 )
-            except TimeoutException:
-                logging.error(f"Timeout: Questions page did not load or first element not found within 30s for {self.court_info_for_logging}")
-                # self.driver.save_screenshot(f"error_questions_page_load_{self.court_info_for_logging.replace(' ', '_').replace('/', '-')}.png") # Optional: save screenshot
-                raise Exception("Questions page failed to load within 30 seconds") # Re-raise to be caught by the main loop
+            except (TimeoutException, ElementClickInterceptedException) as e:
+                logging.error(f"Failed to navigate to questions page for {self.court_info_for_logging}: {type(e).__name__} - {e}")
+                # Optional: self.driver.save_screenshot(f"error_questions_page_{self.court_info_for_logging.replace(' ', '_')}.png")
+                raise
             except Exception as e:
-                logging.error(f"Error navigating to questions page for {self.court_info_for_logging}: {str(e)}")
+                logging.error(f"Unexpected error navigating to questions page for {self.court_info_for_logging}: {str(e)}")
                 raise # Re-raise to be caught by the main loop
 
             self._fill_permit_questions()
@@ -357,6 +361,22 @@ class TennisBooker:
                 logging.debug(f"Current URL during preparation error: {self.driver.current_url}")
             except Exception: # Handle cases where driver might be dead
                 pass 
+            return False
+
+    def keep_alive(self):
+        """Perform a simple action to keep the webdriver session alive."""
+        if not self.driver:
+            return False
+        try:
+            _ = self.driver.title # Getting title is a lightweight operation
+            logging.debug(f"Keep-alive ping successful for {self.court_info_for_logging}")
+            return True
+        except WebDriverException as e:
+            # This is expected if the browser has been closed manually or crashed
+            if "invalid session id" in str(e).lower():
+                logging.warning(f"Keep-alive ping FAILED for {self.court_info_for_logging}: Session is invalid or browser closed.")
+            else:
+                logging.warning(f"Keep-alive ping FAILED for {self.court_info_for_logging} with unexpected error: {e}")
             return False
 
     def submit_prepared_booking(self):
@@ -419,9 +439,9 @@ def main():
 
     # Set SUBMIT_SECOND based on the day of the week
     if today_weekday == 3 or today_weekday == 4:  # Thursday or Friday
-        SUBMIT_SECOND = 14
+        SUBMIT_SECOND = 12
     else:  # Monday, Tuesday, Wednesday
-        SUBMIT_SECOND = 9
+        SUBMIT_SECOND = 7
 
     # Calculate the target_submit_time for today or tomorrow
     target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)
@@ -542,16 +562,40 @@ def main():
 
     logging.info(f"--- Preparation Complete: {len(prepared_instances)} instances ready for submission ---")
 
-    # --- Waiting Phase --- 
-    # 'now' at this point would be when preparation finished, or when it was halted.
-    # We need to calculate wait_seconds based on the current time right before sleeping.
+    # --- Waiting Phase ---
+    # Replace simple sleep with an active wait loop that pings browsers
     wait_seconds = (target_submit_time - datetime.now()).total_seconds()
-
     if wait_seconds > 0:
-        logging.info(f"Waiting for {wait_seconds:.2f} seconds until target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')}")
-        time.sleep(wait_seconds)
+        logging.info(f"Entering waiting phase. Target: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')} ({wait_seconds:.2f}s from now).")
+        
+        # Loop until the target time is reached
+        while datetime.now() < target_submit_time:
+            # Calculate how long to sleep in the next interval
+            # We sleep for up to 60 seconds, or less if the target is closer
+            remaining_time = (target_submit_time - datetime.now()).total_seconds()
+            sleep_duration = min(60, remaining_time)
+
+            if sleep_duration <= 0: # Should not be negative, but as a safeguard
+                break
+
+            # Check if we are very close to submission time, to avoid oversleeping
+            if remaining_time < 1 and sleep_duration > remaining_time:
+                 time.sleep(remaining_time)
+                 break
+            
+            logging.debug(f"Waiting for {sleep_duration:.2f} seconds...")
+            time.sleep(sleep_duration)
+
+            # After sleeping, if we are not yet at the submission time, ping instances
+            if datetime.now() < target_submit_time:
+                logging.info("Pinging prepared instances to keep sessions alive...")
+                alive_count = 0
+                for booker_instance in prepared_instances:
+                    if booker_instance.keep_alive():
+                        alive_count += 1
+                logging.info(f"{alive_count}/{len(prepared_instances)} instances responded to keep-alive ping.")
+
     else:
-        # This case should ideally not happen if run before 8 AM, but handles running it after.
          logging.info("Target submission time is now or in the past. Proceeding immediately.")
 
     # --- Submission Phase --- 
