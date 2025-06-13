@@ -2,6 +2,8 @@ import time
 import logging
 import random
 import os
+import socket
+import threading
 from datetime import datetime, timedelta
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -11,6 +13,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, ElementNotInteractableException, ElementClickInterceptedException
 from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES, COURT_PRIORITIES
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Set up logging with more detailed format and separate levels for handlers
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s')
@@ -43,8 +46,8 @@ root_logger.addHandler(console_handler)
 DEBUG_MODE = False
 success_delay = 5 if DEBUG_MODE else 2
 
-# WebDriver paths
-CHROME_DRIVER_PATH = "/Users/willwallwan/chromedriver"  # Update with actual path
+# WebDriver paths are now managed automatically by webdriver-manager
+# CHROME_DRIVER_PATH = "/Users/willwallwan/chromedriver"  # No longer needed
 
 # Tennis court booking URL
 TENNIS_URL = "https://roosevelt.perfectmind.com/24063/Menu/BookMe4LandingPages?widgetId=15f6af07-39c5-473e-b053-96653f77a406&redirectedFromEmbededMode=False&categoryId=4e7bbe4a-07a7-474f-a6f8-2f46eaa14631"
@@ -64,8 +67,9 @@ class TennisBooker:
     def setup_driver(self):
         """Initialize the Chrome WebDriver."""
         try:
-            logging.debug("Attempting to initialize Chrome Service...")
-            service = Service()
+            logging.debug("Attempting to initialize Chrome Service with webdriver-manager...")
+            # Use webdriver-manager to handle driver installation and service creation
+            service = Service(ChromeDriverManager().install())
             logging.debug("Chrome Service initialized. Attempting to launch Chrome browser...")
             # Consider adding options to run headless or manage logs
             # options = webdriver.ChromeOptions()
@@ -74,7 +78,7 @@ class TennisBooker:
             logging.debug("Chrome browser launched. Setting up WebDriverWait...")
             self.wait = WebDriverWait(self.driver, 10)
             # Set page load timeout to prevent indefinite waiting
-            self.driver.set_page_load_timeout(60)  # Increased to 60 seconds for more tolerance
+            self.driver.set_page_load_timeout(30)  # Set to 30 seconds
             logging.debug("WebDriverWait set. Setting implicit wait...")
             self.driver.implicitly_wait(3)  # Reduced wait time
             logging.info("Chrome WebDriver initialized successfully") # Changed to info for more visibility
@@ -359,9 +363,34 @@ class TennisBooker:
             logging.error(f"Failed to prepare booking for {self.court_info_for_logging}: {str(e)}")
             try:
                 logging.debug(f"Current URL during preparation error: {self.driver.current_url}")
+                self.save_screenshot_on_error() # Save screenshot
             except Exception: # Handle cases where driver might be dead
                 pass 
             return False
+
+    def save_screenshot_on_error(self):
+        """Saves a screenshot of the current browser window to a 'screenshots' directory."""
+        if not self.driver:
+            return # Can't take screenshot if driver is dead
+
+        try:
+            # Create screenshots directory if it doesn't exist
+            screenshots_dir = os.path.join(os.getcwd(), "screenshots")
+            if not os.path.exists(screenshots_dir):
+                os.makedirs(screenshots_dir)
+            
+            # Generate a unique filename
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            # Sanitize the court info for a valid filename
+            sanitized_info = self.court_info_for_logging.replace(' ', '_').replace('/', '-').replace(':', '')
+            filename = f"error_{timestamp}_{sanitized_info}.png"
+            filepath = os.path.join(screenshots_dir, filename)
+
+            self.driver.save_screenshot(filepath)
+            logging.info(f"Saved screenshot of error to: {filepath}")
+
+        except Exception as e:
+            logging.error(f"Failed to save screenshot: {e}")
 
     def keep_alive(self):
         """Perform a simple action to keep the webdriver session alive."""
@@ -415,6 +444,46 @@ class TennisBooker:
                  logging.error(f"Error quitting driver ({self.court_info_for_logging}): {e}")
             self.driver = None # Prevent reuse
 
+def check_internet_connection(host="8.8.8.8", port=53, timeout=3, retries=5, delay=15):
+    """
+    Checks for a live internet connection by attempting to connect to Google's DNS.
+    Retries a few times before giving up.
+    """
+    for i in range(retries):
+        try:
+            socket.setdefaulttimeout(timeout)
+            socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+            logging.info("Internet connection check successful.")
+            return True
+        except socket.error as ex:
+            if i < retries - 1:
+                logging.warning(f"Internet connection check failed (Attempt {i+1}/{retries}): {ex}. Retrying in {delay}s...")
+                time.sleep(delay)
+            else:
+                logging.error(f"Internet connection failed after {retries} attempts. Cannot proceed.")
+                return False
+
+def keep_alive_pinger(instances_list, stop_event):
+    """
+    A background thread function that periodically pings all browser instances
+    to keep them from timing out.
+    """
+    while not stop_event.is_set():
+        # Wait for 20 seconds, but check the stop event every second
+        for _ in range(20):
+            if stop_event.is_set():
+                break
+            time.sleep(1)
+        
+        if not stop_event.is_set():
+            logging.info(f"HEARTBEAT: Pinging {len(instances_list)} prepared instance(s)...")
+            alive_count = 0
+            # Iterate over a copy of the list in case it's modified by the main thread
+            for inst in list(instances_list):
+                if inst.keep_alive():
+                    alive_count += 1
+            logging.info(f"HEARTBEAT: {alive_count}/{len(instances_list)} instances responded.")
+
 def main():
     """Main function to prepare and automatically submit tennis court bookings at 8 AM."""
     # --- Configuration --- 
@@ -432,6 +501,10 @@ def main():
     accounts = list(USERS.keys())
     random.shuffle(accounts)
     account_index = 0
+    
+    # --- Heartbeat Thread Setup ---
+    stop_pinger_event = threading.Event()
+    pinger_thread = None
 
     # --- Determine Target Booking Dates & Actual Submission Time --- 
     now = datetime.now()
@@ -482,31 +555,34 @@ def main():
         booking_date_obj = datetime.now().date() + timedelta(days=days_ahead)
         logging.info(f"== Preparing bookings for {booking_date_obj.strftime('%A, %m/%d/%Y')} ({days_ahead} days ahead) ==")
 
-        # Process each priority for this date
-        for i, priority in enumerate(COURT_PRIORITIES):
+        # Use a while loop to aggressively retry priorities instead of skipping them on failure
+        priority_index = 0
+        while priority_index < len(COURT_PRIORITIES):
+            # Check for deadline before every single attempt
             if datetime.now() >= preparation_hard_stop_time:
                 logging.warning(f"Approaching submission deadline ({PREPARATION_CUTOFF_SECONDS}s buffer). Halting further preparations.")
                 preparation_halted = True
-                break # Break from priorities loop
-            
-            prep_attempt_start_time = datetime.now() # Start timer for this instance
-            
+                break # Break from the while loop over priorities
+
+            # Check for available accounts before every attempt
             if account_index >= len(accounts):
                 logging.warning(f"No more accounts available. Stopping preparation for {booking_date_obj.strftime('%m/%d/%Y')}.")
                 break # Stop processing priorities for this date if out of accounts
 
+            priority = COURT_PRIORITIES[priority_index]
+            prep_attempt_start_time = datetime.now() # Start timer for this instance
+            
             # Get the next account
             username = accounts[account_index]
             user_data = USERS[username]
             court_number = priority["court"]
             preferred_time = priority["time"]
-            logging.info(f"Priority #{i+1}: Assigning {username} to prepare Court {court_number} at {preferred_time} for {booking_date_obj.strftime('%m/%d/%Y')}")
+            logging.info(f"Priority #{priority_index+1}: Assigning {username} to prepare Court {court_number} at {preferred_time} for {booking_date_obj.strftime('%m/%d/%Y')}")
 
             booker = TennisBooker()
             try:
                 if booker.driver and booker.login(user_data['email'], user_data['password']):
                     logging.debug(f"Attempting to prepare instance for {username} - {court_number} at {preferred_time} on {booking_date_obj.strftime('%m/%d/%Y')}")
-                    # Pass the date object to prepare_booking
                     preparation_success = booker.prepare_booking(
                         court_number,
                         booking_date_obj, 
@@ -515,15 +591,25 @@ def main():
 
                     if preparation_success:
                         prepared_instances.append(booker) # Keep instance open
-                        account_index += 1 # Only increment if successfully prepared
+                        account_index += 1 # Consume this account
+                        priority_index += 1 # SUCCESS: Move to the next priority
+
+                        # If this is the first successful prep, start the heartbeat thread
+                        if pinger_thread is None:
+                            logging.info("First instance prepared. Starting background keep-alive heartbeat thread.")
+                            pinger_thread = threading.Thread(target=keep_alive_pinger, args=(prepared_instances, stop_pinger_event))
+                            pinger_thread.start()
+                            
                     else:
-                        # If prepare_booking returned False (e.g. CourtUnavailableError, or other handled error within prepare_booking)
-                        logging.warning(f"Closing browser for {username} due to FAILED PREPARATION for {booker.court_info_for_logging} (prepare_booking returned False).")
+                        # FAILURE: Don't advance priority_index, just consume the account and retry this priority.
+                        logging.warning(f"Closing browser for {username} due to FAILED PREPARATION for {booker.court_info_for_logging} (prepare_booking returned False). Retrying same priority with next account.")
                         booker.close()
+                        account_index += 1 # Consume this account and try again
                 else:
                     # Handle setup_driver failure or login failure
-                    logging.warning(f"Skipping preparation for {username} due to setup/login failure. Closing browser.")
+                    logging.warning(f"Skipping preparation for {username} due to setup/login failure. Closing browser and using next account for same priority.")
                     booker.close()
+                    account_index += 1 # Consume this account
 
             except Exception as e:
                 # Catch unexpected errors during the whole prep attempt for one user
@@ -532,22 +618,14 @@ def main():
                     booker.close()
                 except Exception as close_err:
                     logging.error(f"Error closing browser after unexpected error for {username}: {close_err}")
-            
+                account_index += 1 # Consume account so we don't retry with a failed user
+
             # Check duration for this specific attempt
             prep_attempt_duration_seconds = (datetime.now() - prep_attempt_start_time).total_seconds()
             logging.debug(f"Preparation attempt for {username} - {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s.")
             if prep_attempt_duration_seconds > MAX_PREP_TIME_PER_INSTANCE_SECONDS and not preparation_success:
-                 # Only log as over time if it also failed. Successful preps, even if slow, are kept unless overall deadline hits.
-                logging.warning(f"SLOW PREPARATION TIMEOUT: {username}'s attempt for {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s (max {MAX_PREP_TIME_PER_INSTANCE_SECONDS}s) and failed. Moving to next.")
-                # Booker should have been closed already if preparation_success is False or an exception occurred.
-                # If it got here due to taking too long BUT somehow being marked success (unlikely with current flow), ensure close.
-                if preparation_success: # This case should be rare
-                    logging.warning(f"Odd case: Prep for {username} was slow but marked success. Removing from prepared_instances and closing.")
-                    if booker in prepared_instances:
-                        prepared_instances.remove(booker)
-                    booker.close()
-                    account_index -=1 # Decrement as it wasn't a truly successful preparation
-
+                logging.warning(f"SLOW PREPARATION TIMEOUT: {username}'s attempt for {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s (max {MAX_PREP_TIME_PER_INSTANCE_SECONDS}s) and failed. Retrying same priority with next account.")
+        
         logging.info(f"== Finished preparation attempts for {booking_date_obj.strftime('%m/%d/%Y')} ==")
 
         if preparation_halted:
@@ -555,6 +633,11 @@ def main():
             break # Break from days_ahead loop
 
     # --- End Preparation Phase ---
+    # Stop the keep-alive pinger thread as we are moving to the final wait/submission
+    if pinger_thread:
+        logging.info("Preparation phase complete. Stopping heartbeat thread.")
+        stop_pinger_event.set()
+        pinger_thread.join() # Wait for the thread to finish
 
     if not prepared_instances:
         logging.info("No bookings were successfully prepared. Exiting.")
@@ -566,35 +649,10 @@ def main():
     # Replace simple sleep with an active wait loop that pings browsers
     wait_seconds = (target_submit_time - datetime.now()).total_seconds()
     if wait_seconds > 0:
-        logging.info(f"Entering waiting phase. Target: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')} ({wait_seconds:.2f}s from now).")
-        
-        # Loop until the target time is reached
-        while datetime.now() < target_submit_time:
-            # Calculate how long to sleep in the next interval
-            # We sleep for up to 60 seconds, or less if the target is closer
-            remaining_time = (target_submit_time - datetime.now()).total_seconds()
-            sleep_duration = min(60, remaining_time)
-
-            if sleep_duration <= 0: # Should not be negative, but as a safeguard
-                break
-
-            # Check if we are very close to submission time, to avoid oversleeping
-            if remaining_time < 1 and sleep_duration > remaining_time:
-                 time.sleep(remaining_time)
-                 break
-            
-            logging.debug(f"Waiting for {sleep_duration:.2f} seconds...")
-            time.sleep(sleep_duration)
-
-            # After sleeping, if we are not yet at the submission time, ping instances
-            if datetime.now() < target_submit_time:
-                logging.info("Pinging prepared instances to keep sessions alive...")
-                alive_count = 0
-                for booker_instance in prepared_instances:
-                    if booker_instance.keep_alive():
-                        alive_count += 1
-                logging.info(f"{alive_count}/{len(prepared_instances)} instances responded to keep-alive ping.")
-
+        logging.info(f"Entering final waiting phase. Target: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')} ({wait_seconds:.2f}s from now).")
+        # The heartbeat thread handled keep-alives during prep.
+        # This final sleep is passive since it should be short.
+        time.sleep(wait_seconds)
     else:
          logging.info("Target submission time is now or in the past. Proceeding immediately.")
 
@@ -651,4 +709,10 @@ def main():
     # No final summary of success/failure, as results were not checked.
 
 if __name__ == "__main__":
+    # Perform a pre-flight check for internet before doing anything else
+    if not check_internet_connection():
+        # If it fails, log it and exit. The scheduler will try again tomorrow.
+        logging.critical("Exiting script due to lack of internet connectivity.")
+        exit()
+
     main() 
