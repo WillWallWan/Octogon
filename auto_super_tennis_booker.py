@@ -70,11 +70,17 @@ class TennisBooker:
             logging.debug("Attempting to initialize Chrome Service with webdriver-manager...")
             # Use webdriver-manager to handle driver installation and service creation
             service = Service(ChromeDriverManager().install())
-            logging.debug("Chrome Service initialized. Attempting to launch Chrome browser...")
-            # Consider adding options to run headless or manage logs
-            # options = webdriver.ChromeOptions()
-            # options.add_argument("--headless")
-            self.driver = webdriver.Chrome(service=service)
+            logging.debug("Chrome Service initialized. Configuring Chrome options...")
+            options = webdriver.ChromeOptions()
+            # Disabled headless mode so that the Chrome windows are visible for debugging/interaction.
+            # options.add_argument("--headless=new")
+            # Additional flags to improve compatibility in sandboxed environments
+            options.add_argument("--no-sandbox")
+            options.add_argument("--disable-dev-shm-usage")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--remote-allow-origins=*")
+            logging.debug("Launching Chrome browser with configured options...")
+            self.driver = webdriver.Chrome(service=service, options=options)
             logging.debug("Chrome browser launched. Setting up WebDriverWait...")
             self.wait = WebDriverWait(self.driver, 10)
             # Set page load timeout to prevent indefinite waiting
@@ -563,7 +569,7 @@ def main():
                 logging.warning(f"Approaching submission deadline ({PREPARATION_CUTOFF_SECONDS}s buffer). Halting further preparations.")
                 preparation_halted = True
                 break # Break from the while loop over priorities
-
+            
             # Check for available accounts before every attempt
             if account_index >= len(accounts):
                 logging.warning(f"No more accounts available. Stopping preparation for {booking_date_obj.strftime('%m/%d/%Y')}.")
@@ -571,7 +577,8 @@ def main():
 
             priority = COURT_PRIORITIES[priority_index]
             prep_attempt_start_time = datetime.now() # Start timer for this instance
-            
+            # Ensure the variable exists even if setup_driver or login fails before assignment
+            preparation_success = False
             # Get the next account
             username = accounts[account_index]
             user_data = USERS[username]
@@ -619,13 +626,13 @@ def main():
                 except Exception as close_err:
                     logging.error(f"Error closing browser after unexpected error for {username}: {close_err}")
                 account_index += 1 # Consume account so we don't retry with a failed user
-
+            
             # Check duration for this specific attempt
             prep_attempt_duration_seconds = (datetime.now() - prep_attempt_start_time).total_seconds()
             logging.debug(f"Preparation attempt for {username} - {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s.")
             if prep_attempt_duration_seconds > MAX_PREP_TIME_PER_INSTANCE_SECONDS and not preparation_success:
                 logging.warning(f"SLOW PREPARATION TIMEOUT: {username}'s attempt for {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s (max {MAX_PREP_TIME_PER_INSTANCE_SECONDS}s) and failed. Retrying same priority with next account.")
-        
+
         logging.info(f"== Finished preparation attempts for {booking_date_obj.strftime('%m/%d/%Y')} ==")
 
         if preparation_halted:
@@ -645,7 +652,7 @@ def main():
 
     logging.info(f"--- Preparation Complete: {len(prepared_instances)} instances ready for submission ---")
 
-    # --- Waiting Phase ---
+    # --- Waiting Phase --- 
     # Replace simple sleep with an active wait loop that pings browsers
     wait_seconds = (target_submit_time - datetime.now()).total_seconds()
     if wait_seconds > 0:
