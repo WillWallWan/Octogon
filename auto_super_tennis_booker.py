@@ -523,9 +523,9 @@ def main():
 
     # Set SUBMIT_SECOND based on the day of the week
     if today_weekday == 3 or today_weekday == 4:  # Thursday or Friday
-        SUBMIT_SECOND = 12
+        SUBMIT_SECOND = 10
     else:  # Monday, Tuesday, Wednesday
-        SUBMIT_SECOND = 7
+        SUBMIT_SECOND = 5
 
     # Calculate the target_submit_time for today or tomorrow
     target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)

@@ -47,15 +47,15 @@ USERS = {
 COURT_PRIORITIES = [
     #{"court": 3, "time": "18:00"},
     #{"court": 3, "time": "19:00"},
-    {"court": 2, "time": "17:00"},
+    {"court": 6, "time": "17:00"},
+    {"court": 6, "time": "18:00"}, 
+    {"court": 6, "time": "19:00"},
+    {"court": 5, "time": "17:00"},
     {"court": 5, "time": "18:00"},
     {"court": 5, "time": "19:00"},
     {"court": 3, "time": "17:00"},
-    {"court": 6, "time": "18:00"},
-    {"court": 6, "time": "19:00"}, 
-    {"court": 1, "time": "17:00"},
-    {"court": 2, "time": "18:00"},
-    {"court": 2, "time": "19:00"}# 9th priority - may not run if only 8 accounts
+    {"court": 3, "time": "18:00"},
+    {"court": 3, "time": "19:00"}# 9th priority - may not run if only 8 accounts
 ]
 
 # Secondary court priorities (for manual booker)

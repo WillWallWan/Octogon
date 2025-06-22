@@ -2810,3 +2810,7 @@ Stacktrace:
 2025-06-21 07:51:50,631 - INFO - [auto_super_tennis_booker.py:462] - Internet connection check successful.
 2025-06-21 07:51:50,632 - INFO - [auto_super_tennis_booker.py:535] - Actual target submission time: 2025-06-21 08:00:07
 2025-06-21 07:51:50,632 - INFO - [auto_super_tennis_booker.py:545] - No booking rules defined for today (weekday 5). Exiting.
+2025-06-22 08:09:41,560 - INFO - [auto_super_tennis_booker.py:462] - Internet connection check successful.
+2025-06-22 08:09:41,561 - INFO - [auto_super_tennis_booker.py:533] - Configured submit time 08:00:05 has passed for today. Setting target for tomorrow.
+2025-06-22 08:09:41,561 - INFO - [auto_super_tennis_booker.py:535] - Actual target submission time: 2025-06-23 08:00:05
+2025-06-22 08:09:41,561 - INFO - [auto_super_tennis_booker.py:545] - No booking rules defined for today (weekday 6). Exiting.
