@@ -510,7 +510,12 @@ def main():
     
     # --- Heartbeat Thread Setup ---
     stop_pinger_event = threading.Event()
-    pinger_thread = None
+    pinger_thread = threading.Thread(
+        target=keep_alive_pinger,
+        args=(prepared_instances, stop_pinger_event),
+        daemon=True  # Allow main program to exit without waiting
+    )
+    pinger_thread.start()
 
     # --- Determine Target Booking Dates & Actual Submission Time --- 
     now = datetime.now()
@@ -529,9 +534,10 @@ def main():
         target_submit_time += timedelta(days=1)
     logging.info(f"Actual target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Define the absolute cutoff time for preparations
-    preparation_hard_stop_time = target_submit_time - timedelta(seconds=PREPARATION_CUTOFF_SECONDS)
-    logging.info(f"Preparation hard stop time: {preparation_hard_stop_time.strftime('%Y-%m-%d %H:%M:%S')} ({PREPARATION_CUTOFF_SECONDS}s before actual submission)")
+    # Define the absolute cutoff time for preparations. We want all prep work finished by 07:59:30,
+    # i.e. 30 s before the top of the hour plus whatever SUBMIT_SECOND is (7 or 12).
+    PREPARATION_CUTOFF_SECONDS_DYNAMIC = 30 + SUBMIT_SECOND  # 37 s (Mon-Wed) or 42 s (Thu-Fri)
+    preparation_hard_stop_time = target_submit_time - timedelta(seconds=PREPARATION_CUTOFF_SECONDS_DYNAMIC)
 
     days_ahead_to_book = BOOKING_RULES.get(today_weekday, [])
 
@@ -566,7 +572,7 @@ def main():
         while priority_index < len(COURT_PRIORITIES):
             # Check for deadline before every single attempt
             if datetime.now() >= preparation_hard_stop_time:
-                logging.warning(f"Approaching submission deadline ({PREPARATION_CUTOFF_SECONDS}s buffer). Halting further preparations.")
+                logging.warning(f"Approaching submission deadline ({PREPARATION_CUTOFF_SECONDS_DYNAMIC}s buffer). Halting further preparations.")
                 preparation_halted = True
                 break # Break from the while loop over priorities
             
@@ -604,7 +610,11 @@ def main():
                         # If this is the first successful prep, start the heartbeat thread
                         if pinger_thread is None:
                             logging.info("First instance prepared. Starting background keep-alive heartbeat thread.")
-                            pinger_thread = threading.Thread(target=keep_alive_pinger, args=(prepared_instances, stop_pinger_event))
+                            pinger_thread = threading.Thread(
+                                target=keep_alive_pinger,
+                                args=(prepared_instances, stop_pinger_event),
+                                daemon=True  # Allow main program to exit without waiting
+                            )
                             pinger_thread.start()
                             
                     else:
@@ -630,8 +640,28 @@ def main():
             # Check duration for this specific attempt
             prep_attempt_duration_seconds = (datetime.now() - prep_attempt_start_time).total_seconds()
             logging.debug(f"Preparation attempt for {username} - {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s.")
+            # Abort and retry if any single preparation attempt (success or failure) exceeds the time budget.
             if prep_attempt_duration_seconds > MAX_PREP_TIME_PER_INSTANCE_SECONDS and not preparation_success:
-                logging.warning(f"SLOW PREPARATION TIMEOUT: {username}'s attempt for {court_number} at {preferred_time} took {prep_attempt_duration_seconds:.1f}s (max {MAX_PREP_TIME_PER_INSTANCE_SECONDS}s) and failed. Retrying same priority with next account.")
+                logging.warning(
+                    f"PREPARATION TIMEOUT: {username}'s attempt for Court {court_number} at {preferred_time} took "
+                    f"{prep_attempt_duration_seconds:.1f}s (limit {MAX_PREP_TIME_PER_INSTANCE_SECONDS}s). "
+                    f"Discarding this instance and retrying the same priority with next account."
+                )
+
+                # If the page did eventually prepare but took too long, close and remove the instance so it doesn't submit late.
+                try:
+                    booker.close()
+                except Exception as close_err:
+                    logging.error(f"Error closing slow browser instance for {username}: {close_err}")
+
+                # If the (slow) instance had been added to the prepared list, remove it.
+                if booker in prepared_instances:
+                    prepared_instances.remove(booker)
+
+                # Consume the account and retry the same priority with the next user.
+                account_index += 1
+                # Ensure we *do not* advance priority_index so that we retry this court/time.
+                continue
 
         logging.info(f"== Finished preparation attempts for {booking_date_obj.strftime('%m/%d/%Y')} ==")
 
@@ -644,7 +674,7 @@ def main():
     if pinger_thread:
         logging.info("Preparation phase complete. Stopping heartbeat thread.")
         stop_pinger_event.set()
-        pinger_thread.join() # Wait for the thread to finish
+        pinger_thread.join(timeout=5) # Wait for the thread to finish, with a timeout
 
     if not prepared_instances:
         logging.info("No bookings were successfully prepared. Exiting.")

@@ -2372,3 +2372,441 @@ subprocess.TimeoutExpired: Command '['/Users/willwallwan/.wdm/drivers/chromedriv
 2025-06-18 08:00:15,442 - INFO - [auto_super_tennis_booker.py:706] - Closing instance 9/9 (Court 2 on 06/20/2025 at 19:00)
 2025-06-18 08:00:15,537 - INFO - [auto_super_tennis_booker.py:714] - --- Cleanup Phase Complete: 9/9 windows closed. Close errors: 0 ---
 2025-06-18 08:00:15,537 - INFO - [auto_super_tennis_booker.py:715] - --- Script finished. ---
+2025-06-19 07:55:05,996 - INFO - [auto_super_tennis_booker.py:462] - Internet connection check successful.
+2025-06-19 07:55:05,996 - INFO - [auto_super_tennis_booker.py:530] - Actual target submission time: 2025-06-19 08:00:12
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:534] - Preparation hard stop time: 2025-06-19 07:59:57 (15s before actual submission)
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:542] - Today is Thursday. Booking rules active: [2] days ahead.
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:548] - Planning to prepare bookings based on COURT_PRIORITIES:
+  Priority 1: Court 2 at 17:00
+  Priority 2: Court 5 at 18:00
+  Priority 3: Court 5 at 19:00
+  Priority 4: Court 3 at 17:00
+  Priority 5: Court 6 at 18:00
+  Priority 6: Court 6 at 19:00
+  Priority 7: Court 1 at 17:00
+  Priority 8: Court 2 at 18:00
+  Priority 9: Court 2 at 19:00
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:551] - Original configured target submission time for today's rules: 08:00:12
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:554] - --- Starting Preparation Phase ---
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:562] - == Preparing bookings for Saturday, 06/21/2025 (2 days ahead) ==
+2025-06-19 07:55:05,997 - INFO - [auto_super_tennis_booker.py:587] - Priority #1: Assigning dennis to prepare Court 2 at 17:00 for 06/21/2025
+2025-06-19 07:55:05,997 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-19 07:55:10,484 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:10,550 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:10,616 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:10,726 - INFO - [logger.py:11] - WebDriver version 137.0.7151.119 selected
+2025-06-19 07:55:10,728 - INFO - [logger.py:11] - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.119/mac-arm64/chromedriver-mac-arm64.zip
+2025-06-19 07:55:10,728 - INFO - [logger.py:11] - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.119/mac-arm64/chromedriver-mac-arm64.zip
+2025-06-19 07:55:10,802 - INFO - [logger.py:11] - Driver downloading response is 200
+2025-06-19 07:55:10,971 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:11,083 - INFO - [logger.py:11] - Driver has been saved in cache [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119]
+2025-06-19 07:55:13,099 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-19 07:55:14,702 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+dennisw@gmail.com
+2025-06-19 07:55:18,391 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-19 07:55:18,835 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 2 on 06/21/2025 at 17:00
+2025-06-19 07:55:26,365 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 2 on 06/21/2025 at 17:00. Ready for timed submission.
+2025-06-19 07:55:26,368 - INFO - [auto_super_tennis_booker.py:606] - First instance prepared. Starting background keep-alive heartbeat thread.
+2025-06-19 07:55:26,371 - INFO - [auto_super_tennis_booker.py:587] - Priority #2: Assigning ben to prepare Court 5 at 18:00 for 06/21/2025
+2025-06-19 07:55:26,373 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-19 07:55:26,560 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:26,596 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:26,760 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-19 07:55:27,691 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-19 07:55:29,806 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+benk@gmail.com
+2025-06-19 07:55:33,549 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-19 07:55:33,829 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 5 on 06/21/2025 at 18:00
+2025-06-19 07:55:40,385 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 5 on 06/21/2025 at 18:00. Ready for timed submission.
+2025-06-19 07:55:40,386 - INFO - [auto_super_tennis_booker.py:587] - Priority #3: Assigning alex to prepare Court 5 at 19:00 for 06/21/2025
+2025-06-19 07:55:40,387 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-19 07:55:40,591 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:40,633 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-19 07:55:40,667 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-19 07:55:41,608 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-19 07:55:43,174 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+alexm@gmail.com
+2025-06-19 07:55:46,246 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 19:00-20:00
+2025-06-19 07:55:46,530 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 2 prepared instance(s)...
+2025-06-19 07:55:46,548 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 2/2 instances responded.
+2025-06-19 07:55:46,554 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 5 on 06/21/2025 at 19:00
+2025-06-19 08:10:58,329 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 5 on 06/21/2025 at 19:00. Ready for timed submission.
+2025-06-19 08:10:58,330 - WARNING - [auto_super_tennis_booker.py:569] - Approaching submission deadline (15s buffer). Halting further preparations.
+2025-06-19 08:10:58,330 - INFO - [auto_super_tennis_booker.py:636] - == Finished preparation attempts for 06/21/2025 ==
+2025-06-19 08:10:58,330 - INFO - [auto_super_tennis_booker.py:639] - Preparation was halted due to approaching deadline. Moving to waiting/submission phase.
+2025-06-19 08:10:58,330 - INFO - [auto_super_tennis_booker.py:645] - Preparation phase complete. Stopping heartbeat thread.
+2025-06-19 08:27:18,136 - INFO - [auto_super_tennis_booker.py:653] - --- Preparation Complete: 3 instances ready for submission ---
+2025-06-19 08:27:18,137 - INFO - [auto_super_tennis_booker.py:664] - Target submission time is now or in the past. Proceeding immediately.
+2025-06-19 08:27:18,137 - INFO - [auto_super_tennis_booker.py:667] - --- Target time reached! Starting RAPID Submission Phase at 2025-06-19 08:27:18.137190 ---
+2025-06-19 08:27:18,137 - INFO - [auto_super_tennis_booker.py:672] - --- Clicking Submit on all instances (Phase 1) with staggering ---
+2025-06-19 08:27:18,137 - INFO - [auto_super_tennis_booker.py:674] - Clicking submit for instance 1/3 (Court 2 on 06/21/2025 at 17:00)
+2025-06-19 08:27:18,138 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 2 on 06/21/2025 at 17:00
+2025-06-19 08:27:18,367 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 2 on 06/21/2025 at 17:00. No result check performed.
+2025-06-19 08:27:18,374 - INFO - [auto_super_tennis_booker.py:674] - Clicking submit for instance 2/3 (Court 5 on 06/21/2025 at 18:00)
+2025-06-19 08:27:18,375 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 5 on 06/21/2025 at 18:00
+2025-06-19 08:27:18,483 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 5 on 06/21/2025 at 18:00. No result check performed.
+2025-06-19 08:27:18,483 - INFO - [auto_super_tennis_booker.py:674] - Clicking submit for instance 3/3 (Court 5 on 06/21/2025 at 19:00)
+2025-06-19 08:27:18,483 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 5 on 06/21/2025 at 19:00
+2025-06-19 08:27:18,511 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 5 on 06/21/2025 at 19:00. No result check performed.
+2025-06-19 08:27:18,511 - INFO - [auto_super_tennis_booker.py:692] - --- Submit Clicking Phase Complete: 3/3 submit clicks attempted. Submit errors: 0 ---
+2025-06-19 08:27:18,511 - INFO - [auto_super_tennis_booker.py:697] - Waiting 5 seconds before closing browser windows...
+2025-06-19 08:32:13,229 - INFO - [auto_super_tennis_booker.py:701] - --- Starting Cleanup Phase (Closing all browser windows - Phase 2) ---
+2025-06-19 08:32:13,233 - INFO - [auto_super_tennis_booker.py:706] - Closing instance 1/3 (Court 2 on 06/21/2025 at 17:00)
+2025-06-19 08:32:13,449 - INFO - [auto_super_tennis_booker.py:706] - Closing instance 2/3 (Court 5 on 06/21/2025 at 18:00)
+2025-06-19 08:32:13,554 - INFO - [auto_super_tennis_booker.py:706] - Closing instance 3/3 (Court 5 on 06/21/2025 at 19:00)
+2025-06-19 08:32:13,666 - INFO - [auto_super_tennis_booker.py:714] - --- Cleanup Phase Complete: 3/3 windows closed. Close errors: 0 ---
+2025-06-19 08:32:13,666 - INFO - [auto_super_tennis_booker.py:715] - --- Script finished. ---
+2025-06-20 07:54:30,695 - INFO - [auto_super_tennis_booker.py:462] - Internet connection check successful.
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:535] - Actual target submission time: 2025-06-20 08:00:12
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:548] - Today is Friday. Booking rules active: [3, 4] days ahead.
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:554] - Planning to prepare bookings based on COURT_PRIORITIES:
+  Priority 1: Court 2 at 17:00
+  Priority 2: Court 5 at 18:00
+  Priority 3: Court 5 at 19:00
+  Priority 4: Court 3 at 17:00
+  Priority 5: Court 6 at 18:00
+  Priority 6: Court 6 at 19:00
+  Priority 7: Court 1 at 17:00
+  Priority 8: Court 2 at 18:00
+  Priority 9: Court 2 at 19:00
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:557] - Original configured target submission time for today's rules: 08:00:12
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:560] - --- Starting Preparation Phase ---
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:568] - == Preparing bookings for Monday, 06/23/2025 (3 days ahead) ==
+2025-06-20 07:54:30,696 - INFO - [auto_super_tennis_booker.py:593] - Priority #1: Assigning morgan to prepare Court 2 at 17:00 for 06/23/2025
+2025-06-20 07:54:30,697 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:54:35,335 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:54:35,421 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:54:35,465 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:54:35,556 - INFO - [logger.py:11] - WebDriver version 137.0.7151.119 selected
+2025-06-20 07:54:35,558 - INFO - [logger.py:11] - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.119/mac-arm64/chromedriver-mac-arm64.zip
+2025-06-20 07:54:35,558 - INFO - [logger.py:11] - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.119/mac-arm64/chromedriver-mac-arm64.zip
+2025-06-20 07:54:35,606 - INFO - [logger.py:11] - Driver downloading response is 200
+2025-06-20 07:54:35,802 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:54:35,906 - INFO - [logger.py:11] - Driver has been saved in cache [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119]
+2025-06-20 07:54:37,770 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:54:39,594 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+morganb@gmail.com
+2025-06-20 07:54:43,169 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-20 07:54:43,444 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 2 on 06/23/2025 at 17:00
+2025-06-20 07:54:49,712 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 2 on 06/23/2025 at 17:00. Ready for timed submission.
+2025-06-20 07:54:49,713 - INFO - [auto_super_tennis_booker.py:593] - Priority #2: Assigning dennis to prepare Court 5 at 18:00 for 06/23/2025
+2025-06-20 07:54:49,713 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:54:49,867 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:54:50,021 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:54:50,331 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:54:50,844 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 1 prepared instance(s)...
+2025-06-20 07:54:50,865 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 1/1 instances responded.
+2025-06-20 07:54:51,201 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:54:54,740 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+dennisw@gmail.com
+2025-06-20 07:55:03,605 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-20 07:55:03,885 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 5 on 06/23/2025 at 18:00
+2025-06-20 07:55:10,155 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 5 on 06/23/2025 at 18:00. Ready for timed submission.
+2025-06-20 07:55:10,158 - INFO - [auto_super_tennis_booker.py:593] - Priority #3: Assigning ben to prepare Court 5 at 19:00 for 06/23/2025
+2025-06-20 07:55:10,159 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:55:10,364 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:10,431 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:10,484 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:55:10,979 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 2 prepared instance(s)...
+2025-06-20 07:55:11,016 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 2/2 instances responded.
+2025-06-20 07:55:11,449 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:55:14,309 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+benk@gmail.com
+2025-06-20 07:55:22,114 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 19:00-20:00
+2025-06-20 07:55:22,413 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 5 on 06/23/2025 at 19:00
+2025-06-20 07:55:28,712 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 5 on 06/23/2025 at 19:00. Ready for timed submission.
+2025-06-20 07:55:28,715 - INFO - [auto_super_tennis_booker.py:593] - Priority #4: Assigning jordan to prepare Court 3 at 17:00 for 06/23/2025
+2025-06-20 07:55:28,718 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:55:28,906 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:28,943 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:28,973 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:55:29,789 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:55:31,136 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 3 prepared instance(s)...
+2025-06-20 07:55:31,152 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 3/3 instances responded.
+2025-06-20 07:55:31,272 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+jordanr@gmail.com
+2025-06-20 07:55:37,970 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-20 07:55:38,255 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 3 on 06/23/2025 at 17:00
+2025-06-20 07:55:44,564 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 3 on 06/23/2025 at 17:00. Ready for timed submission.
+2025-06-20 07:55:44,565 - INFO - [auto_super_tennis_booker.py:593] - Priority #5: Assigning brian to prepare Court 6 at 18:00 for 06/23/2025
+2025-06-20 07:55:44,566 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:55:44,739 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:44,777 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:44,808 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:55:45,673 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:55:47,753 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+brians@gmail.com
+2025-06-20 07:55:51,003 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-20 07:55:51,289 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 6 on 06/23/2025 at 18:00
+2025-06-20 07:55:51,320 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 4 prepared instance(s)...
+2025-06-20 07:55:51,340 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 4/4 instances responded.
+2025-06-20 07:55:57,547 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 6 on 06/23/2025 at 18:00. Ready for timed submission.
+2025-06-20 07:55:57,547 - INFO - [auto_super_tennis_booker.py:593] - Priority #6: Assigning jamie to prepare Court 6 at 19:00 for 06/23/2025
+2025-06-20 07:55:57,548 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:55:57,706 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:57,739 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:55:57,770 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:55:58,581 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:56:00,055 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+jamies@gmail.com
+2025-06-20 07:56:08,301 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 19:00-20:00
+2025-06-20 07:56:08,580 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 6 on 06/23/2025 at 19:00
+2025-06-20 07:56:11,493 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 5 prepared instance(s)...
+2025-06-20 07:56:11,525 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 5/5 instances responded.
+2025-06-20 07:56:14,925 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 6 on 06/23/2025 at 19:00. Ready for timed submission.
+2025-06-20 07:56:14,926 - INFO - [auto_super_tennis_booker.py:593] - Priority #7: Assigning alex to prepare Court 1 at 17:00 for 06/23/2025
+2025-06-20 07:56:14,927 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:56:15,081 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:56:15,118 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:56:15,150 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:56:15,961 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:56:17,589 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+alexm@gmail.com
+2025-06-20 07:56:31,681 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 6 prepared instance(s)...
+2025-06-20 07:56:31,708 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 6/6 instances responded.
+2025-06-20 07:56:33,251 - ERROR - [auto_super_tennis_booker.py:220] - Error selecting court 1: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000100be5d14 cxxbridge1$str$ptr + 2735276
+1   chromedriver                        0x0000000100bddf88 cxxbridge1$str$ptr + 2703136
+2   chromedriver                        0x000000010072e6f0 cxxbridge1$string$len + 90424
+3   chromedriver                        0x00000001007759e0 cxxbridge1$string$len + 381992
+4   chromedriver                        0x00000001007b70c8 cxxbridge1$string$len + 650000
+5   chromedriver                        0x0000000100769be8 cxxbridge1$string$len + 333360
+6   chromedriver                        0x0000000100ba9598 cxxbridge1$str$ptr + 2487600
+7   chromedriver                        0x0000000100bac830 cxxbridge1$str$ptr + 2500552
+8   chromedriver                        0x0000000100b89c14 cxxbridge1$str$ptr + 2358188
+9   chromedriver                        0x0000000100bad0b8 cxxbridge1$str$ptr + 2502736
+10  chromedriver                        0x0000000100b7adec cxxbridge1$str$ptr + 2297220
+11  chromedriver                        0x0000000100bcd420 cxxbridge1$str$ptr + 2634680
+12  chromedriver                        0x0000000100bcd5ac cxxbridge1$str$ptr + 2635076
+13  chromedriver                        0x0000000100bddbd4 cxxbridge1$str$ptr + 2702188
+14  libsystem_pthread.dylib             0x000000019f6a42e4 _pthread_start + 136
+15  libsystem_pthread.dylib             0x000000019f69f0fc thread_start + 8
+
+2025-06-20 07:56:33,251 - ERROR - [auto_super_tennis_booker.py:369] - Failed to prepare booking for Court 1 on 06/23/2025 at 17:00: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000100be5d14 cxxbridge1$str$ptr + 2735276
+1   chromedriver                        0x0000000100bddf88 cxxbridge1$str$ptr + 2703136
+2   chromedriver                        0x000000010072e6f0 cxxbridge1$string$len + 90424
+3   chromedriver                        0x00000001007759e0 cxxbridge1$string$len + 381992
+4   chromedriver                        0x00000001007b70c8 cxxbridge1$string$len + 650000
+5   chromedriver                        0x0000000100769be8 cxxbridge1$string$len + 333360
+6   chromedriver                        0x0000000100ba9598 cxxbridge1$str$ptr + 2487600
+7   chromedriver                        0x0000000100bac830 cxxbridge1$str$ptr + 2500552
+8   chromedriver                        0x0000000100b89c14 cxxbridge1$str$ptr + 2358188
+9   chromedriver                        0x0000000100bad0b8 cxxbridge1$str$ptr + 2502736
+10  chromedriver                        0x0000000100b7adec cxxbridge1$str$ptr + 2297220
+11  chromedriver                        0x0000000100bcd420 cxxbridge1$str$ptr + 2634680
+12  chromedriver                        0x0000000100bcd5ac cxxbridge1$str$ptr + 2635076
+13  chromedriver                        0x0000000100bddbd4 cxxbridge1$str$ptr + 2702188
+14  libsystem_pthread.dylib             0x000000019f6a42e4 _pthread_start + 136
+15  libsystem_pthread.dylib             0x000000019f69f0fc thread_start + 8
+
+2025-06-20 07:56:33,461 - INFO - [auto_super_tennis_booker.py:396] - Saved screenshot of error to: /Users/willwallwan/Octogon/screenshots/error_20250620_075633_Court_1_on_06-23-2025_at_1700.png
+2025-06-20 07:56:33,461 - WARNING - [auto_super_tennis_booker.py:622] - Closing browser for alex due to FAILED PREPARATION for Court 1 on 06/23/2025 at 17:00 (prepare_booking returned False). Retrying same priority with next account.
+2025-06-20 07:56:33,556 - INFO - [auto_super_tennis_booker.py:593] - Priority #7: Assigning arthur to prepare Court 1 at 17:00 for 06/23/2025
+2025-06-20 07:56:33,556 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:56:33,700 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:56:33,733 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:56:33,765 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:56:34,628 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:56:36,288 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+arthurw@gmail.com
+2025-06-20 07:56:42,884 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-20 07:56:43,169 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 1 on 06/23/2025 at 17:00
+2025-06-20 07:56:49,475 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 1 on 06/23/2025 at 17:00. Ready for timed submission.
+2025-06-20 07:56:49,476 - INFO - [auto_super_tennis_booker.py:593] - Priority #8: Assigning yiting to prepare Court 2 at 18:00 for 06/23/2025
+2025-06-20 07:56:49,477 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:56:49,644 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:56:49,677 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:56:49,712 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:56:50,590 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:56:51,862 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 7 prepared instance(s)...
+2025-06-20 07:56:51,902 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 7/7 instances responded.
+2025-06-20 07:56:52,271 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-06-20 07:56:58,861 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-20 07:56:59,163 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 2 on 06/23/2025 at 18:00
+2025-06-20 07:57:05,445 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 2 on 06/23/2025 at 18:00. Ready for timed submission.
+2025-06-20 07:57:05,446 - WARNING - [auto_super_tennis_booker.py:581] - No more accounts available. Stopping preparation for 06/23/2025.
+2025-06-20 07:57:05,447 - INFO - [auto_super_tennis_booker.py:666] - == Finished preparation attempts for 06/23/2025 ==
+2025-06-20 07:57:05,448 - INFO - [auto_super_tennis_booker.py:568] - == Preparing bookings for Tuesday, 06/24/2025 (4 days ahead) ==
+2025-06-20 07:57:05,448 - INFO - [auto_super_tennis_booker.py:593] - Priority #1: Assigning yiting to prepare Court 2 at 17:00 for 06/24/2025
+2025-06-20 07:57:05,448 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:57:05,630 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:05,668 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:05,698 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:57:06,593 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:57:08,003 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-06-20 07:57:11,103 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-20 07:57:11,370 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 2 on 06/24/2025 at 17:00
+2025-06-20 07:57:12,046 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 8 prepared instance(s)...
+2025-06-20 07:57:12,097 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 8/8 instances responded.
+2025-06-20 07:57:17,720 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 2 on 06/24/2025 at 17:00. Ready for timed submission.
+2025-06-20 07:57:17,723 - INFO - [auto_super_tennis_booker.py:593] - Priority #2: Assigning jordan to prepare Court 5 at 18:00 for 06/24/2025
+2025-06-20 07:57:17,724 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:57:17,919 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:17,955 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:17,988 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:57:18,808 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:57:20,407 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+jordanr@gmail.com
+2025-06-20 07:57:27,885 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-20 07:57:28,189 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 5 on 06/24/2025 at 18:00
+2025-06-20 07:57:32,257 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 9 prepared instance(s)...
+2025-06-20 07:57:32,321 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 9/9 instances responded.
+2025-06-20 07:57:34,530 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 5 on 06/24/2025 at 18:00. Ready for timed submission.
+2025-06-20 07:57:34,531 - INFO - [auto_super_tennis_booker.py:593] - Priority #3: Assigning ben to prepare Court 5 at 19:00 for 06/24/2025
+2025-06-20 07:57:34,532 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:57:34,710 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:34,744 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:34,775 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:57:35,603 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:57:37,130 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+benk@gmail.com
+2025-06-20 07:57:45,009 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 19:00-20:00
+2025-06-20 07:57:45,299 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 5 on 06/24/2025 at 19:00
+2025-06-20 07:57:52,156 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 5 on 06/24/2025 at 19:00. Ready for timed submission.
+2025-06-20 07:57:52,159 - INFO - [auto_super_tennis_booker.py:593] - Priority #4: Assigning jamie to prepare Court 3 at 17:00 for 06/24/2025
+2025-06-20 07:57:52,159 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:57:52,330 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:52,367 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:57:52,400 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:57:52,480 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 11 prepared instance(s)...
+2025-06-20 07:57:52,551 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 11/11 instances responded.
+2025-06-20 07:57:53,184 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:57:54,985 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+jamies@gmail.com
+2025-06-20 07:58:03,316 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-20 07:58:03,626 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 3 on 06/24/2025 at 17:00
+2025-06-20 07:58:10,006 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 3 on 06/24/2025 at 17:00. Ready for timed submission.
+2025-06-20 07:58:10,007 - INFO - [auto_super_tennis_booker.py:593] - Priority #5: Assigning morgan to prepare Court 6 at 18:00 for 06/24/2025
+2025-06-20 07:58:10,008 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:58:10,174 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:10,209 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:10,247 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:58:11,054 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:58:12,695 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 12 prepared instance(s)...
+2025-06-20 07:58:12,755 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+morganb@gmail.com
+2025-06-20 07:58:12,796 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 12/12 instances responded.
+2025-06-20 07:58:16,393 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-20 07:58:16,682 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 6 on 06/24/2025 at 18:00
+2025-06-20 07:58:23,037 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 6 on 06/24/2025 at 18:00. Ready for timed submission.
+2025-06-20 07:58:23,038 - INFO - [auto_super_tennis_booker.py:593] - Priority #6: Assigning brian to prepare Court 6 at 19:00 for 06/24/2025
+2025-06-20 07:58:23,039 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:58:23,224 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:23,261 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:23,293 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:58:24,119 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:58:26,766 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+brians@gmail.com
+2025-06-20 07:58:29,927 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 19:00-20:00
+2025-06-20 07:58:30,206 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 6 on 06/24/2025 at 19:00
+2025-06-20 07:58:32,944 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 13 prepared instance(s)...
+2025-06-20 07:58:33,014 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 13/13 instances responded.
+2025-06-20 07:58:36,519 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 6 on 06/24/2025 at 19:00. Ready for timed submission.
+2025-06-20 07:58:36,521 - INFO - [auto_super_tennis_booker.py:593] - Priority #7: Assigning arthur to prepare Court 1 at 17:00 for 06/24/2025
+2025-06-20 07:58:36,522 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:58:36,690 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:36,728 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:36,759 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:58:37,672 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:58:39,118 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+arthurw@gmail.com
+2025-06-20 07:58:47,403 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 17:00-18:00
+2025-06-20 07:58:47,701 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 1 on 06/24/2025 at 17:00
+2025-06-20 07:58:53,173 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 14 prepared instance(s)...
+2025-06-20 07:58:53,276 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 14/14 instances responded.
+2025-06-20 07:58:53,986 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 1 on 06/24/2025 at 17:00. Ready for timed submission.
+2025-06-20 07:58:53,987 - INFO - [auto_super_tennis_booker.py:593] - Priority #8: Assigning dennis to prepare Court 2 at 18:00 for 06/24/2025
+2025-06-20 07:58:53,987 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:58:54,155 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:54,190 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:58:54,226 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:58:55,037 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:58:56,680 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+dennisw@gmail.com
+2025-06-20 07:59:00,336 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 18:00-19:00
+2025-06-20 07:59:00,658 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 2 on 06/24/2025 at 18:00
+2025-06-20 07:59:06,946 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 2 on 06/24/2025 at 18:00. Ready for timed submission.
+2025-06-20 07:59:06,948 - INFO - [auto_super_tennis_booker.py:593] - Priority #9: Assigning alex to prepare Court 2 at 19:00 for 06/24/2025
+2025-06-20 07:59:06,949 - INFO - [logger.py:11] - ====== WebDriver manager ======
+2025-06-20 07:59:07,101 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:59:07,140 - INFO - [logger.py:11] - Get LATEST chromedriver version for google-chrome
+2025-06-20 07:59:07,172 - INFO - [logger.py:11] - Driver [/Users/willwallwan/.wdm/drivers/chromedriver/mac64/137.0.7151.119/chromedriver-mac-arm64/chromedriver] found in cache
+2025-06-20 07:59:07,959 - INFO - [auto_super_tennis_booker.py:90] - Chrome WebDriver initialized successfully
+2025-06-20 07:59:09,941 - INFO - [auto_super_tennis_booker.py:121] - Successfully logged in as nyuclubtennis+alexm@gmail.com
+2025-06-20 07:59:13,428 - INFO - [auto_super_tennis_booker.py:485] - HEARTBEAT: Pinging 16 prepared instance(s)...
+2025-06-20 07:59:13,566 - INFO - [auto_super_tennis_booker.py:491] - HEARTBEAT: 16/16 instances responded.
+2025-06-20 07:59:18,154 - INFO - [auto_super_tennis_booker.py:235] - Setting time to 19:00-20:00
+2025-06-20 07:59:18,449 - INFO - [auto_super_tennis_booker.py:333] - Continuing to permit questions page for Court 2 on 06/24/2025 at 19:00
+2025-06-20 07:59:24,805 - INFO - [auto_super_tennis_booker.py:360] - Booking preparation complete for Court 2 on 06/24/2025 at 19:00. Ready for timed submission.
+2025-06-20 07:59:24,807 - INFO - [auto_super_tennis_booker.py:666] - == Finished preparation attempts for 06/24/2025 ==
+2025-06-20 07:59:24,807 - INFO - [auto_super_tennis_booker.py:675] - Preparation phase complete. Stopping heartbeat thread.
+2025-06-20 07:59:25,649 - INFO - [auto_super_tennis_booker.py:683] - --- Preparation Complete: 17 instances ready for submission ---
+2025-06-20 07:59:25,650 - INFO - [auto_super_tennis_booker.py:689] - Entering final waiting phase. Target: 2025-06-20 08:00:12 (46.35s from now).
+2025-06-20 08:00:12,027 - INFO - [auto_super_tennis_booker.py:697] - --- Target time reached! Starting RAPID Submission Phase at 2025-06-20 08:00:12.021146 ---
+2025-06-20 08:00:12,035 - INFO - [auto_super_tennis_booker.py:702] - --- Clicking Submit on all instances (Phase 1) with staggering ---
+2025-06-20 08:00:12,041 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 1/17 (Court 2 on 06/23/2025 at 17:00)
+2025-06-20 08:00:12,042 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 2 on 06/23/2025 at 17:00
+2025-06-20 08:00:12,348 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 2 on 06/23/2025 at 17:00. No result check performed.
+2025-06-20 08:00:12,348 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 2/17 (Court 5 on 06/23/2025 at 18:00)
+2025-06-20 08:00:12,348 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 5 on 06/23/2025 at 18:00
+2025-06-20 08:00:12,472 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 5 on 06/23/2025 at 18:00. No result check performed.
+2025-06-20 08:00:12,472 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 3/17 (Court 5 on 06/23/2025 at 19:00)
+2025-06-20 08:00:12,472 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 5 on 06/23/2025 at 19:00
+2025-06-20 08:00:12,611 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 5 on 06/23/2025 at 19:00. No result check performed.
+2025-06-20 08:00:12,611 - INFO - [auto_super_tennis_booker.py:714] - Pausing for 1 second after submitting batch ending with instance 3...
+2025-06-20 08:00:13,616 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 4/17 (Court 3 on 06/23/2025 at 17:00)
+2025-06-20 08:00:13,617 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 3 on 06/23/2025 at 17:00
+2025-06-20 08:00:13,713 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 3 on 06/23/2025 at 17:00. No result check performed.
+2025-06-20 08:00:13,713 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 5/17 (Court 6 on 06/23/2025 at 18:00)
+2025-06-20 08:00:13,713 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 6 on 06/23/2025 at 18:00
+2025-06-20 08:00:13,795 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 6 on 06/23/2025 at 18:00. No result check performed.
+2025-06-20 08:00:13,795 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 6/17 (Court 6 on 06/23/2025 at 19:00)
+2025-06-20 08:00:13,795 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 6 on 06/23/2025 at 19:00
+2025-06-20 08:00:13,852 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 6 on 06/23/2025 at 19:00. No result check performed.
+2025-06-20 08:00:13,852 - INFO - [auto_super_tennis_booker.py:714] - Pausing for 1 second after submitting batch ending with instance 6...
+2025-06-20 08:00:14,856 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 7/17 (Court 1 on 06/23/2025 at 17:00)
+2025-06-20 08:00:14,856 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 1 on 06/23/2025 at 17:00
+2025-06-20 08:00:14,930 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 1 on 06/23/2025 at 17:00. No result check performed.
+2025-06-20 08:00:14,930 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 8/17 (Court 2 on 06/23/2025 at 18:00)
+2025-06-20 08:00:14,930 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 2 on 06/23/2025 at 18:00
+2025-06-20 08:00:15,063 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 2 on 06/23/2025 at 18:00. No result check performed.
+2025-06-20 08:00:15,063 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 9/17 (Court 2 on 06/24/2025 at 17:00)
+2025-06-20 08:00:15,063 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 2 on 06/24/2025 at 17:00
+2025-06-20 08:00:15,122 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 2 on 06/24/2025 at 17:00. No result check performed.
+2025-06-20 08:00:15,122 - INFO - [auto_super_tennis_booker.py:714] - Pausing for 1 second after submitting batch ending with instance 9...
+2025-06-20 08:00:16,130 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 10/17 (Court 5 on 06/24/2025 at 18:00)
+2025-06-20 08:00:16,134 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 5 on 06/24/2025 at 18:00
+2025-06-20 08:00:16,265 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 5 on 06/24/2025 at 18:00. No result check performed.
+2025-06-20 08:00:16,265 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 11/17 (Court 5 on 06/24/2025 at 19:00)
+2025-06-20 08:00:16,271 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 5 on 06/24/2025 at 19:00
+2025-06-20 08:00:16,372 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 5 on 06/24/2025 at 19:00. No result check performed.
+2025-06-20 08:00:16,372 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 12/17 (Court 3 on 06/24/2025 at 17:00)
+2025-06-20 08:00:16,373 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 3 on 06/24/2025 at 17:00
+2025-06-20 08:00:16,523 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 3 on 06/24/2025 at 17:00. No result check performed.
+2025-06-20 08:00:16,523 - INFO - [auto_super_tennis_booker.py:714] - Pausing for 1 second after submitting batch ending with instance 12...
+2025-06-20 08:00:17,526 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 13/17 (Court 6 on 06/24/2025 at 18:00)
+2025-06-20 08:00:17,526 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 6 on 06/24/2025 at 18:00
+2025-06-20 08:00:17,601 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 6 on 06/24/2025 at 18:00. No result check performed.
+2025-06-20 08:00:17,601 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 14/17 (Court 6 on 06/24/2025 at 19:00)
+2025-06-20 08:00:17,602 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 6 on 06/24/2025 at 19:00
+2025-06-20 08:00:17,666 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 6 on 06/24/2025 at 19:00. No result check performed.
+2025-06-20 08:00:17,666 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 15/17 (Court 1 on 06/24/2025 at 17:00)
+2025-06-20 08:00:17,666 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 1 on 06/24/2025 at 17:00
+2025-06-20 08:00:17,718 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 1 on 06/24/2025 at 17:00. No result check performed.
+2025-06-20 08:00:17,718 - INFO - [auto_super_tennis_booker.py:714] - Pausing for 1 second after submitting batch ending with instance 15...
+2025-06-20 08:00:18,720 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 16/17 (Court 2 on 06/24/2025 at 18:00)
+2025-06-20 08:00:18,721 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 2 on 06/24/2025 at 18:00
+2025-06-20 08:00:18,789 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 2 on 06/24/2025 at 18:00. No result check performed.
+2025-06-20 08:00:18,789 - INFO - [auto_super_tennis_booker.py:704] - Clicking submit for instance 17/17 (Court 2 on 06/24/2025 at 19:00)
+2025-06-20 08:00:18,789 - INFO - [auto_super_tennis_booker.py:423] - Clicking final submit button for Court 2 on 06/24/2025 at 19:00
+2025-06-20 08:00:18,831 - INFO - [auto_super_tennis_booker.py:431] - Submit button clicked via JS for Court 2 on 06/24/2025 at 19:00. No result check performed.
+2025-06-20 08:00:18,832 - INFO - [auto_super_tennis_booker.py:722] - --- Submit Clicking Phase Complete: 17/17 submit clicks attempted. Submit errors: 0 ---
+2025-06-20 08:00:18,832 - INFO - [auto_super_tennis_booker.py:727] - Waiting 5 seconds before closing browser windows...
+2025-06-20 08:00:23,838 - INFO - [auto_super_tennis_booker.py:731] - --- Starting Cleanup Phase (Closing all browser windows - Phase 2) ---
+2025-06-20 08:00:23,842 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 1/17 (Court 2 on 06/23/2025 at 17:00)
+2025-06-20 08:00:23,976 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 2/17 (Court 5 on 06/23/2025 at 18:00)
+2025-06-20 08:00:24,096 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 3/17 (Court 5 on 06/23/2025 at 19:00)
+2025-06-20 08:00:24,227 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 4/17 (Court 3 on 06/23/2025 at 17:00)
+2025-06-20 08:00:24,332 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 5/17 (Court 6 on 06/23/2025 at 18:00)
+2025-06-20 08:00:24,474 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 6/17 (Court 6 on 06/23/2025 at 19:00)
+2025-06-20 08:00:24,646 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 7/17 (Court 1 on 06/23/2025 at 17:00)
+2025-06-20 08:00:24,825 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 8/17 (Court 2 on 06/23/2025 at 18:00)
+2025-06-20 08:00:24,936 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 9/17 (Court 2 on 06/24/2025 at 17:00)
+2025-06-20 08:00:25,037 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 10/17 (Court 5 on 06/24/2025 at 18:00)
+2025-06-20 08:00:25,132 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 11/17 (Court 5 on 06/24/2025 at 19:00)
+2025-06-20 08:00:25,227 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 12/17 (Court 3 on 06/24/2025 at 17:00)
+2025-06-20 08:00:25,314 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 13/17 (Court 6 on 06/24/2025 at 18:00)
+2025-06-20 08:00:25,402 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 14/17 (Court 6 on 06/24/2025 at 19:00)
+2025-06-20 08:00:25,498 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 15/17 (Court 1 on 06/24/2025 at 17:00)
+2025-06-20 08:00:25,608 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 16/17 (Court 2 on 06/24/2025 at 18:00)
+2025-06-20 08:00:25,701 - INFO - [auto_super_tennis_booker.py:736] - Closing instance 17/17 (Court 2 on 06/24/2025 at 19:00)
+2025-06-20 08:00:25,787 - INFO - [auto_super_tennis_booker.py:744] - --- Cleanup Phase Complete: 17/17 windows closed. Close errors: 0 ---
+2025-06-20 08:00:25,787 - INFO - [auto_super_tennis_booker.py:745] - --- Script finished. ---
+2025-06-21 07:51:50,631 - INFO - [auto_super_tennis_booker.py:462] - Internet connection check successful.
+2025-06-21 07:51:50,632 - INFO - [auto_super_tennis_booker.py:535] - Actual target submission time: 2025-06-21 08:00:07
+2025-06-21 07:51:50,632 - INFO - [auto_super_tennis_booker.py:545] - No booking rules defined for today (weekday 5). Exiting.
