@@ -525,7 +525,7 @@ def main():
     if today_weekday == 3 or today_weekday == 4:  # Thursday or Friday
         SUBMIT_SECOND = 8
     else:  # Monday, Tuesday, Wednesday
-        SUBMIT_SECOND = 4
+        SUBMIT_SECOND = 3
 
     # Calculate the target_submit_time for today or tomorrow
     target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)
