@@ -14,6 +14,11 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException, ElementNotInteractableException, ElementClickInterceptedException
 from config import USERS, BOOKING_WINDOW_START, BOOKING_WINDOW_END, COURT_IDS, BOOKING_RULES, COURT_PRIORITIES
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.core.os_manager import OperationSystemManager
+import sys
+import subprocess
+import urllib.request, zipfile, tempfile, shutil
+from pathlib import Path
 
 # Set up logging with more detailed format and separate levels for handlers
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s')
@@ -68,19 +73,103 @@ class TennisBooker:
         """Initialize the Chrome WebDriver."""
         try:
             logging.debug("Attempting to initialize Chrome Service with webdriver-manager...")
-            # Use webdriver-manager to handle driver installation and service creation
-            service = Service(ChromeDriverManager().install())
-            logging.debug("Chrome Service initialized. Configuring Chrome options...")
-            options = webdriver.ChromeOptions()
-            # Disabled headless mode so that the Chrome windows are visible for debugging/interaction.
-            # options.add_argument("--headless=new")
-            # Additional flags to improve compatibility in sandboxed environments
-            options.add_argument("--no-sandbox")
-            options.add_argument("--disable-dev-shm-usage")
-            options.add_argument("--disable-gpu")
-            options.add_argument("--remote-allow-origins=*")
-            logging.debug("Launching Chrome browser with configured options...")
-            self.driver = webdriver.Chrome(service=service, options=options)
+            # Resolve local Chrome version so we can fetch an exact-match driver (patch version too).
+            def _detect_chrome_version():
+                """Return installed Chrome full version without launching the app (macOS only)."""
+                if sys.platform != "darwin":
+                    return None
+                plist = "/Applications/Google Chrome.app/Contents/Info.plist"
+                if not os.path.exists(plist):
+                    return None
+                try:
+                    out = subprocess.check_output([
+                        "/usr/libexec/PlistBuddy",
+                        "-c",
+                        "Print :CFBundleShortVersionString",
+                        plist,
+                    ], text=True)
+                    return out.strip()
+                except Exception as e:
+                    logging.debug(f"Could not determine Chrome version: {e}")
+                    return None
+
+            chrome_version = _detect_chrome_version()
+
+            if chrome_version:
+                logging.debug(f"Detected Chrome version: {chrome_version}. Fetching matching driver…")
+                driver_path = ChromeDriverManager(driver_version=chrome_version).install()
+            else:
+                logging.debug("Chrome version could not be detected; falling back to latest driver.")
+                driver_path = ChromeDriverManager().install()
+
+            # macOS Gatekeeper quarantines downloaded executables; if the attribute is present
+            # the chromedriver process will be killed (exit code -9) as soon as it launches.
+            # Clearing the attribute once per download makes every future launch safe.
+            if sys.platform == "darwin":
+                for target in (driver_path, os.path.dirname(driver_path)):
+                    if os.path.exists(target):
+                        try:
+                            subprocess.run(["xattr", "-dr", "com.apple.quarantine", target], check=False)
+                        except Exception as e:
+                            logging.debug(f"Unable to clear quarantine attribute on {target}: {e}")
+
+            def _launch_with(driver_path):
+                """Attempt to create a Chrome Service + WebDriver for the given path."""
+                service_obj = Service(driver_path)
+                opts = webdriver.ChromeOptions()
+                # opts.add_argument("--headless=new")  # keep disabled for visibility
+                opts.add_argument("--no-sandbox")
+                opts.add_argument("--disable-dev-shm-usage")
+                opts.add_argument("--disable-gpu")
+                opts.add_argument("--remote-allow-origins=*")
+                return webdriver.Chrome(service=service_obj, options=opts)
+
+            # First launch attempt with version-matched driver; if it immediately exits with
+            # status –9 fall back to the latest patch available for the same major release.
+            try:
+                logging.debug("Launching Chrome browser with configured options (exact patch)…")
+                self.driver = _launch_with(driver_path)
+            except WebDriverException as e:
+                if "Status code was: -9" in str(e):
+                    logging.warning("Exact-match driver crashed (status –9). Fetching latest patch and retrying…")
+                    # Download latest patch (webdriver-manager default) and clear quarantine again
+                    driver_path_latest = ChromeDriverManager().install()
+                    if sys.platform == "darwin":
+                        for target in (driver_path_latest, os.path.dirname(driver_path_latest)):
+                            if os.path.exists(target):
+                                subprocess.run(["xattr", "-dr", "com.apple.quarantine", target], check=False)
+                    try:
+                        # Second attempt with latest arm64 patch
+                        self.driver = _launch_with(driver_path_latest)
+                    except WebDriverException as e2:
+                        if "Status code was: -9" in str(e2):
+                            logging.warning("Latest arm64 patch also crashed. Trying x64 driver under Rosetta…")
+                            try:
+                                tmp_dir = Path(tempfile.mkdtemp(prefix="chromedriver_x64_"))
+                                zip_path = tmp_dir / "driver.zip"
+                                url = (
+                                    f"https://storage.googleapis.com/chrome-for-testing-public/"
+                                    f"{chrome_version}/mac-x64/chromedriver-mac-x64.zip"
+                                )
+                                urllib.request.urlretrieve(url, zip_path)
+                                with zipfile.ZipFile(zip_path) as zf:
+                                    zf.extractall(tmp_dir)
+                                driver_path_x64 = str(next(tmp_dir.glob("**/chromedriver")))
+                                # Ensure executable permissions
+                                os.chmod(driver_path_x64, 0o755)
+                                if sys.platform == "darwin":
+                                    for target in (driver_path_x64, os.path.dirname(driver_path_x64)):
+                                        if os.path.exists(target):
+                                            subprocess.run(["xattr", "-dr", "com.apple.quarantine", target], check=False)
+                                # Final attempt with x64 driver under Rosetta
+                                self.driver = _launch_with(driver_path_x64)
+                            except Exception as e3:
+                                logging.error(f"Failed to launch x64 driver via Rosetta: {e3}")
+                                raise
+                        else:
+                            raise
+                else:
+                    raise
             logging.debug("Chrome browser launched. Setting up WebDriverWait...")
             self.wait = WebDriverWait(self.driver, 10)
             # Set page load timeout to prevent indefinite waiting
@@ -495,12 +584,28 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    # SUBMIT_SECOND will be set based on the day of the week below
-    PREPARATION_CUTOFF_SECONDS = 15  # Stop preparing this many seconds before submission
-    MAX_PREP_TIME_PER_INSTANCE_SECONDS = 30 # Max 30 seconds for any single prep attempt
+    # SUBMIT_SECOND values can now be configured per weekday (0 = Monday ... 6 = Sunday)
+    # Feel free to tweak individual seconds as desired – only the values in this
+    # dictionary need to be edited.
+    SUBMIT_SECOND_BY_DAY = {
+        0: 1,  # Monday
+        1: 1,  # Tuesday
+        2: 1,  # Wednesday
+        3: 6,  # Thursday
+        4: 6,  # Friday
+        # 5 and 6 (Saturday/Sunday) are not normally used but are provided for completeness.
+        5: 3,
+        6: 3,
+    }
 
-    # Optional: Add a small random delay before each submission click to reduce load?
-    # SUBMIT_DELAY_MAX_SECONDS = 0.5 
+    # The script will look up today's weekday; if it is missing from the map we default to 3 s.
+    SUBMIT_SECOND = SUBMIT_SECOND_BY_DAY.get(datetime.now().weekday(), 3)
+
+    SUBMIT_DELAY_MAX_SECONDS = 0.5 
+
+    # Max time (in seconds) we allow a single prepare_booking() call to run before
+    # we consider it hung and discard the attempt.
+    MAX_PREP_TIME_PER_INSTANCE_SECONDS = 90
 
     # --- Initialization --- 
     prepared_instances = [] # List to hold booker instances ready for submission
@@ -521,11 +626,9 @@ def main():
     now = datetime.now()
     today_weekday = now.weekday()
 
-    # Set SUBMIT_SECOND based on the day of the week
-    if today_weekday == 3 or today_weekday == 4:  # Thursday or Friday
-        SUBMIT_SECOND = 8
-    else:  # Monday, Tuesday, Wednesday
-        SUBMIT_SECOND = 3
+    # SUBMIT_SECOND has already been set via SUBMIT_SECOND_BY_DAY above.
+    # Logging here for clarity.
+    logging.debug(f"SUBMIT_SECOND for weekday {today_weekday} set to {SUBMIT_SECOND} s.")
 
     # Calculate the target_submit_time for today or tomorrow
     target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)
@@ -534,9 +637,8 @@ def main():
         target_submit_time += timedelta(days=1)
     logging.info(f"Actual target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-    # Define the absolute cutoff time for preparations. We want all prep work finished by 07:59:30,
-    # i.e. 30 s before the top of the hour plus whatever SUBMIT_SECOND is (7 or 12).
-    PREPARATION_CUTOFF_SECONDS_DYNAMIC = 30 + SUBMIT_SECOND  # 37 s (Mon-Wed) or 42 s (Thu-Fri)
+    # i.e. 30 s before the top of the hour plus today's SUBMIT_SECOND value.
+    PREPARATION_CUTOFF_SECONDS_DYNAMIC = 30 + SUBMIT_SECOND  # e.g. 33 s (Mon-Wed) or 37 s (Thu/Fri)
     preparation_hard_stop_time = target_submit_time - timedelta(seconds=PREPARATION_CUTOFF_SECONDS_DYNAMIC)
 
     days_ahead_to_book = BOOKING_RULES.get(today_weekday, [])
@@ -704,15 +806,15 @@ def main():
         logging.info(f"Clicking submit for instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging})")
         try:
             # Optional: Add tiny random sleep *before* clicking if desired
-            # time.sleep(random.uniform(0, 0.1)) 
+            time.sleep(random.uniform(0, SUBMIT_DELAY_MAX_SECONDS)) 
             booker_instance.submit_prepared_booking() # Click submit
             submit_attempts += 1
 
             # Staggering logic: Pause for 1 second after every 3rd submission, 
             # but not after the very last one.
-            if (idx + 1) % 3 == 0 and (idx + 1) < len(prepared_instances):
-                logging.info(f"Pausing for 1 second after submitting batch ending with instance {idx+1}...")
-                time.sleep(1) 
+            #if (idx + 1) % 3 == 0 and (idx + 1) < len(prepared_instances):
+            #    logging.info(f"Pausing for 1 second after submitting batch ending with instance {idx+1}...")
+            #    time.sleep(1) 
             # NO close() here
         except Exception as submit_err:
             # Log if the submit method itself had an unexpected error
