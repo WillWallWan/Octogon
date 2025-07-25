@@ -67,6 +67,7 @@ class TennisBooker:
         self.wait = None
         # Store details for logging in submit method if needed
         self.court_info_for_logging = "Unknown"
+        self.user_email: str | None = None  # set on successful login so we can report which account submits
         self.setup_driver()
 
     def setup_driver(self):
@@ -207,6 +208,8 @@ class TennisBooker:
                 WebDriverWait(self.driver, 10).until(
                     EC.presence_of_element_located((By.XPATH, '//a[@href="/Permits/New" and @class="button"]')) # 'New Permit' button
                 )
+                # Remember which account is logged in for later reporting
+                self.user_email = email
                 logging.info(f"Successfully logged in as {email}")
                 return True
             except TimeoutException:
@@ -509,7 +512,9 @@ class TennisBooker:
             logging.warning(f"Attempted to click submit for {self.court_info_for_logging}, but driver was already closed.")
             return # Cannot proceed
             
-        logging.info(f"Clicking final submit button for {self.court_info_for_logging}")
+        # The higher-level submit phase already logs which account/court is submitting.
+        # Downgrade this duplicate log to DEBUG to avoid clutter.
+        logging.debug(f"Clicking final submit button for {self.court_info_for_logging}")
         try:
             # Find the button
             submit_button = self.wait.until(
@@ -588,11 +593,11 @@ def main():
     # Feel free to tweak individual seconds as desired – only the values in this
     # dictionary need to be edited.
     SUBMIT_SECOND_BY_DAY = {
-        0: 1,  # Monday
+        0: 0,  # Monday
         1: 1,  # Tuesday
-        2: 1,  # Wednesday
-        3: 6,  # Thursday
-        4: 6,  # Friday
+        2: 2,  # Wednesday
+        3: 3,  # Thursday
+        4: 3,  # Friday
         # 5 and 6 (Saturday/Sunday) are not normally used but are provided for completeness.
         5: 3,
         6: 3,
@@ -601,7 +606,10 @@ def main():
     # The script will look up today's weekday; if it is missing from the map we default to 3 s.
     SUBMIT_SECOND = SUBMIT_SECOND_BY_DAY.get(datetime.now().weekday(), 3)
 
-    SUBMIT_DELAY_MAX_SECONDS = 0.5 
+    # Max random jitter (seconds) applied *inside each submission thread* to avoid all
+    # requests landing in the exact same millisecond. 50 ms is usually enough to break
+    # perfect synchrony while keeping the whole batch under ~0.3 s.
+    SUBMIT_DELAY_MAX_SECONDS = 0.05 
 
     # Max time (in seconds) we allow a single prepare_booking() call to run before
     # we consider it hung and discard the attempt.
@@ -797,31 +805,51 @@ def main():
 
     # --- Submission Phase --- 
     logging.info(f"--- Target time reached! Starting RAPID Submission Phase at {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')} ---")
-    submit_attempts = 0
+    # -------------------- PARALLEL SUBMISSION PHASE --------------------
     submit_errors = 0
-    
-    # Loop 1: Click Submit on all prepared instances with staggering
-    logging.info("--- Clicking Submit on all instances (Phase 1) with staggering ---")
-    for idx, booker_instance in enumerate(prepared_instances):
-        logging.info(f"Clicking submit for instance {idx+1}/{len(prepared_instances)} ({booker_instance.court_info_for_logging})")
+    submit_errors_lock = threading.Lock()
+
+    def _fire_submit(idx, total, booker_inst):
+        """Worker thread that waits a tiny jitter, logs, then clicks submit."""
+        nonlocal submit_errors
+
+        # Optional tiny jitter to avoid perfect simultaneity
+        time.sleep(random.uniform(0, SUBMIT_DELAY_MAX_SECONDS))
+
+        # Helpful logging: which account & court is submitting
+        user_tag = getattr(booker_inst, "user_email", "unknown-user")
+        logging.info(
+            f"Clicking submit for instance {idx+1}/{total} "
+            f"({booker_inst.court_info_for_logging}) using {user_tag}"
+        )
+
         try:
-            # Optional: Add tiny random sleep *before* clicking if desired
-            time.sleep(random.uniform(0, SUBMIT_DELAY_MAX_SECONDS)) 
-            booker_instance.submit_prepared_booking() # Click submit
-            submit_attempts += 1
-
-            # Staggering logic: Pause for 1 second after every 3rd submission, 
-            # but not after the very last one.
-            #if (idx + 1) % 3 == 0 and (idx + 1) < len(prepared_instances):
-            #    logging.info(f"Pausing for 1 second after submitting batch ending with instance {idx+1}...")
-            #    time.sleep(1) 
-            # NO close() here
+            booker_inst.submit_prepared_booking()
         except Exception as submit_err:
-            # Log if the submit method itself had an unexpected error
-            logging.error(f"Unexpected error during submit click for {booker_instance.court_info_for_logging}: {submit_err}")
-            submit_errors += 1
+            logging.error(
+                f"Unexpected error during submit click for {booker_inst.court_info_for_logging}: {submit_err}"
+            )
+            with submit_errors_lock:
+                submit_errors += 1
 
-    logging.info(f"--- Submit Clicking Phase Complete: {submit_attempts}/{len(prepared_instances)} submit clicks attempted. Submit errors: {submit_errors} ---")
+    logging.info("--- Clicking Submit on all instances (Phase 1) in PARALLEL ---")
+
+    threads = []
+    total_instances = len(prepared_instances)
+    for idx, booker_instance in enumerate(prepared_instances):
+        t = threading.Thread(target=_fire_submit, args=(idx, total_instances, booker_instance), daemon=True)
+        threads.append(t)
+        t.start()
+
+    # Wait for all submission threads to complete
+    for t in threads:
+        t.join()
+
+    submit_attempts = len(prepared_instances)
+    logging.info(
+        f"--- Submit Clicking Phase Complete: {submit_attempts}/{len(prepared_instances)} submit clicks attempted. "
+        f"Submit errors: {submit_errors} ---"
+    )
 
     # Add a pause AFTER all clicks before closing, to allow submissions to register
     # Adjust the sleep duration as needed
