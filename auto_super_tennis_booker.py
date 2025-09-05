@@ -593,11 +593,11 @@ def main():
     # Feel free to tweak individual seconds as desired – only the values in this
     # dictionary need to be edited.
     SUBMIT_SECOND_BY_DAY = {
-        0: 0,  # Monday
-        1: 1,  # Tuesday
-        2: 2,  # Wednesday
-        3: 3,  # Thursday
-        4: 3,  # Friday
+        0: 2,  # Monday
+        1: 2,  # Tuesday
+        2: 3,  # Wednesday
+        3: 4,  # Thursday
+        4: 4,  # Friday
         # 5 and 6 (Saturday/Sunday) are not normally used but are provided for completeness.
         5: 3,
         6: 3,

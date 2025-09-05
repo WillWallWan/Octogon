@@ -1,0 +1,896 @@
+===================================
+Daily booking script started at Thu Apr 24 02:55:11 EDT 2025
+Running tennis booking script...
+2025-04-24 02:55:11,299 - INFO - [tennis_booker.py:344] - Attempting to book for Saturday, 04/26/2025 (2 days ahead)
+2025-04-24 02:55:11,317 - INFO - [tennis_booker.py:368] - Priority #1: Assigning jamie to book court 6 at 18:00
+2025-04-24 02:55:11,319 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:11,319 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:11,531 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:11,531 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:11,533 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 71883 using 0 to output -3
+2025-04-24 02:55:11,620 - DEBUG - [remote_connection.py:403] - POST http://localhost:52508/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:11,621 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52508
+2025-04-24 02:55:12,958 - DEBUG - [connectionpool.py:544] - http://localhost:52508 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:12,960 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.XYR93S"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52515"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"3277f9edc6c32306c790f6c0eb65cf75"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:12,960 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:12,961 - DEBUG - [remote_connection.py:403] - POST http://localhost:52508/session/3277f9edc6c32306c790f6c0eb65cf75/timeouts {'implicit': 3000}
+2025-04-24 02:55:12,962 - DEBUG - [connectionpool.py:544] - http://localhost:52508 "POST /session/3277f9edc6c32306c790f6c0eb65cf75/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:12,962 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:12,963 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:12,963 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:12,963 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:12,964 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:13,109 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:13,109 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:13,109 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:13,109 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:13,109 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:13,110 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:13,110 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:13,110 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:13,110 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:13,112 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 71948 using 0 to output -3
+2025-04-24 02:55:13,157 - DEBUG - [remote_connection.py:403] - POST http://localhost:52521/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:13,158 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52521
+2025-04-24 02:55:13,969 - DEBUG - [connectionpool.py:544] - http://localhost:52521 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:13,969 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.AT4IlZ"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52526"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"5b11bc52342713ab136445b9c31b8b32"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:13,970 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:13,970 - DEBUG - [remote_connection.py:403] - POST http://localhost:52521/session/5b11bc52342713ab136445b9c31b8b32/timeouts {'implicit': 3000}
+2025-04-24 02:55:13,971 - DEBUG - [connectionpool.py:544] - http://localhost:52521 "POST /session/5b11bc52342713ab136445b9c31b8b32/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:13,971 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:13,971 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:13,971 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:13,972 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:13,972 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:14,068 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:14,068 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:14,069 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:14,069 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:14,069 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:14,069 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:14,069 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:14,069 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:14,069 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:14,074 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72006 using 0 to output -3
+2025-04-24 02:55:14,091 - DEBUG - [remote_connection.py:403] - POST http://localhost:52532/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:14,091 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52532
+2025-04-24 02:55:14,886 - DEBUG - [connectionpool.py:544] - http://localhost:52532 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:14,887 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.5F0YYA"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52537"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"40e568c7c61689a4ca751558d1c37532"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:14,887 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:14,888 - DEBUG - [remote_connection.py:403] - POST http://localhost:52532/session/40e568c7c61689a4ca751558d1c37532/timeouts {'implicit': 3000}
+2025-04-24 02:55:14,888 - DEBUG - [connectionpool.py:544] - http://localhost:52532 "POST /session/40e568c7c61689a4ca751558d1c37532/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:14,888 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:14,888 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:14,888 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:14,888 - DEBUG - [remote_connection.py:403] - POST http://localhost:52532/session/40e568c7c61689a4ca751558d1c37532/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:15,273 - DEBUG - [connectionpool.py:544] - http://localhost:52532 "POST /session/40e568c7c61689a4ca751558d1c37532/url HTTP/1.1" 200 0
+2025-04-24 02:55:15,273 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:15,273 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:15,273 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:15,273 - DEBUG - [remote_connection.py:403] - POST http://localhost:52532/session/40e568c7c61689a4ca751558d1c37532/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:15,274 - DEBUG - [connectionpool.py:544] - http://localhost:52532 "POST /session/40e568c7c61689a4ca751558d1c37532/element HTTP/1.1" 404 0
+2025-04-24 02:55:15,274 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x00000001012276c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x000000010121fc9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x0000000100d71e30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x0000000100d4ba00 chromedriver + 129536\n4   chromedriver                        0x0000000100de1418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x0000000100dfa0f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x0000000100dad2fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x00000001011ec6c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x00000001011ef988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x00000001011cc71c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x00000001011f01e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x00000001011bd750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x000000010120ff58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x00000001012100e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x000000010121f910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:15,274 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:15,274 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+jamies@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x00000001012276c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x000000010121fc9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x0000000100d71e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x0000000100d4ba00 chromedriver + 129536
+4   chromedriver                        0x0000000100de1418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x0000000100dfa0f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x0000000100dad2fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x00000001011ec6c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x00000001011ef988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x00000001011cc71c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x00000001011f01e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x00000001011bd750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x000000010120ff58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x00000001012100e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x000000010121f910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:15,274 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52532/session/40e568c7c61689a4ca751558d1c37532 {}
+2025-04-24 02:55:15,327 - DEBUG - [connectionpool.py:544] - http://localhost:52532 "DELETE /session/40e568c7c61689a4ca751558d1c37532 HTTP/1.1" 200 0
+2025-04-24 02:55:15,327 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:15,328 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:15,354 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52521/session/5b11bc52342713ab136445b9c31b8b32 {}
+2025-04-24 02:55:15,408 - DEBUG - [connectionpool.py:544] - http://localhost:52521 "DELETE /session/5b11bc52342713ab136445b9c31b8b32 HTTP/1.1" 200 0
+2025-04-24 02:55:15,408 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:15,408 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:15,424 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:15,425 - INFO - [tennis_booker.py:368] - Priority #2: Assigning ben to book court 3 at 17:00
+2025-04-24 02:55:15,425 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:15,425 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:15,525 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:15,525 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:15,527 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72080 using 0 to output -3
+2025-04-24 02:55:15,544 - DEBUG - [remote_connection.py:403] - POST http://localhost:52551/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:15,544 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52551
+2025-04-24 02:55:16,192 - DEBUG - [connectionpool.py:544] - http://localhost:52551 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:16,192 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.eoFlFG"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52556"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"5fef187f49db3a6c4d112683f828e96d"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:16,192 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:16,193 - DEBUG - [remote_connection.py:403] - POST http://localhost:52551/session/5fef187f49db3a6c4d112683f828e96d/timeouts {'implicit': 3000}
+2025-04-24 02:55:16,193 - DEBUG - [connectionpool.py:544] - http://localhost:52551 "POST /session/5fef187f49db3a6c4d112683f828e96d/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:16,194 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:16,194 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:16,194 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:16,194 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:16,194 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:16,272 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:16,272 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:16,274 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72136 using 0 to output -3
+2025-04-24 02:55:16,290 - DEBUG - [remote_connection.py:403] - POST http://localhost:52562/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:16,290 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52562
+2025-04-24 02:55:17,033 - DEBUG - [connectionpool.py:544] - http://localhost:52562 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:17,033 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.eIHUzh"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52567"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"2f60ebd8192bdaea5be4ea25e40538e9"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:17,033 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:17,034 - DEBUG - [remote_connection.py:403] - POST http://localhost:52562/session/2f60ebd8192bdaea5be4ea25e40538e9/timeouts {'implicit': 3000}
+2025-04-24 02:55:17,034 - DEBUG - [connectionpool.py:544] - http://localhost:52562 "POST /session/2f60ebd8192bdaea5be4ea25e40538e9/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:17,034 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:17,034 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:17,034 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:17,035 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:17,035 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:17,211 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:17,211 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:17,213 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72194 using 0 to output -3
+2025-04-24 02:55:17,227 - DEBUG - [remote_connection.py:403] - POST http://localhost:52574/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:17,228 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52574
+2025-04-24 02:55:17,886 - DEBUG - [connectionpool.py:544] - http://localhost:52574 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:17,886 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.F5JItX"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52579"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"6549f73725250d2386d3c46aa3a209ed"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:17,886 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:17,886 - DEBUG - [remote_connection.py:403] - POST http://localhost:52574/session/6549f73725250d2386d3c46aa3a209ed/timeouts {'implicit': 3000}
+2025-04-24 02:55:17,887 - DEBUG - [connectionpool.py:544] - http://localhost:52574 "POST /session/6549f73725250d2386d3c46aa3a209ed/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:17,887 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:17,888 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:17,888 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:17,888 - DEBUG - [remote_connection.py:403] - POST http://localhost:52574/session/6549f73725250d2386d3c46aa3a209ed/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:18,158 - DEBUG - [connectionpool.py:544] - http://localhost:52574 "POST /session/6549f73725250d2386d3c46aa3a209ed/url HTTP/1.1" 200 0
+2025-04-24 02:55:18,158 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:18,158 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:18,159 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:18,159 - DEBUG - [remote_connection.py:403] - POST http://localhost:52574/session/6549f73725250d2386d3c46aa3a209ed/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:18,160 - DEBUG - [connectionpool.py:544] - http://localhost:52574 "POST /session/6549f73725250d2386d3c46aa3a209ed/element HTTP/1.1" 404 0
+2025-04-24 02:55:18,160 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x00000001006576c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x000000010064fc9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x00000001001a1e30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x000000010017ba00 chromedriver + 129536\n4   chromedriver                        0x0000000100211418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x000000010022a0f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001001dd2fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x000000010061c6c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x000000010061f988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x00000001005fc71c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x00000001006201e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x00000001005ed750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x000000010063ff58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x00000001006400e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x000000010064f910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:18,160 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:18,160 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+benk@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x00000001006576c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x000000010064fc9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x00000001001a1e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x000000010017ba00 chromedriver + 129536
+4   chromedriver                        0x0000000100211418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x000000010022a0f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001001dd2fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x000000010061c6c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x000000010061f988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x00000001005fc71c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x00000001006201e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x00000001005ed750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x000000010063ff58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x00000001006400e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x000000010064f910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:18,160 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52574/session/6549f73725250d2386d3c46aa3a209ed {}
+2025-04-24 02:55:18,215 - DEBUG - [connectionpool.py:544] - http://localhost:52574 "DELETE /session/6549f73725250d2386d3c46aa3a209ed HTTP/1.1" 200 0
+2025-04-24 02:55:18,215 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:18,215 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:18,232 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52562/session/2f60ebd8192bdaea5be4ea25e40538e9 {}
+2025-04-24 02:55:18,288 - DEBUG - [connectionpool.py:544] - http://localhost:52562 "DELETE /session/2f60ebd8192bdaea5be4ea25e40538e9 HTTP/1.1" 200 0
+2025-04-24 02:55:18,288 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:18,289 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:18,304 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:18,304 - INFO - [tennis_booker.py:368] - Priority #3: Assigning arthur to book court 5 at 18:00
+2025-04-24 02:55:18,305 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:18,305 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:18,381 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:18,381 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:18,383 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72265 using 0 to output -3
+2025-04-24 02:55:18,398 - DEBUG - [remote_connection.py:403] - POST http://localhost:52594/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:18,398 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52594
+2025-04-24 02:55:19,125 - DEBUG - [connectionpool.py:544] - http://localhost:52594 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:19,126 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.4csyrS"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52599"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"dd4d11ffe06f80ccdd0534b3dedcb5a0"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:19,126 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:19,127 - DEBUG - [remote_connection.py:403] - POST http://localhost:52594/session/dd4d11ffe06f80ccdd0534b3dedcb5a0/timeouts {'implicit': 3000}
+2025-04-24 02:55:19,130 - DEBUG - [connectionpool.py:544] - http://localhost:52594 "POST /session/dd4d11ffe06f80ccdd0534b3dedcb5a0/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:19,130 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:19,131 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:19,131 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:19,131 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:19,131 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:19,263 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:19,263 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:19,265 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72322 using 0 to output -3
+2025-04-24 02:55:19,279 - DEBUG - [remote_connection.py:403] - POST http://localhost:52606/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:19,280 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52606
+2025-04-24 02:55:20,058 - DEBUG - [connectionpool.py:544] - http://localhost:52606 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:20,060 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.HJug60"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52611"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"6639385d15ba9375e93a9ee684ec5e0a"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:20,060 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:20,060 - DEBUG - [remote_connection.py:403] - POST http://localhost:52606/session/6639385d15ba9375e93a9ee684ec5e0a/timeouts {'implicit': 3000}
+2025-04-24 02:55:20,063 - DEBUG - [connectionpool.py:544] - http://localhost:52606 "POST /session/6639385d15ba9375e93a9ee684ec5e0a/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:20,063 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:20,063 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:20,063 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:20,064 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:20,064 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:20,148 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:20,148 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:20,150 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72380 using 0 to output -3
+2025-04-24 02:55:20,165 - DEBUG - [remote_connection.py:403] - POST http://localhost:52617/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:20,165 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52617
+2025-04-24 02:55:20,825 - DEBUG - [connectionpool.py:544] - http://localhost:52617 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:20,825 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.y0kE3l"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52622"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"0cc158fccc638541d2b3e489225285ad"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:20,825 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:20,826 - DEBUG - [remote_connection.py:403] - POST http://localhost:52617/session/0cc158fccc638541d2b3e489225285ad/timeouts {'implicit': 3000}
+2025-04-24 02:55:20,826 - DEBUG - [connectionpool.py:544] - http://localhost:52617 "POST /session/0cc158fccc638541d2b3e489225285ad/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:20,826 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:20,826 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:20,826 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:20,827 - DEBUG - [remote_connection.py:403] - POST http://localhost:52617/session/0cc158fccc638541d2b3e489225285ad/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:21,121 - DEBUG - [connectionpool.py:544] - http://localhost:52617 "POST /session/0cc158fccc638541d2b3e489225285ad/url HTTP/1.1" 200 0
+2025-04-24 02:55:21,122 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:21,122 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:21,122 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:21,122 - DEBUG - [remote_connection.py:403] - POST http://localhost:52617/session/0cc158fccc638541d2b3e489225285ad/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:21,123 - DEBUG - [connectionpool.py:544] - http://localhost:52617 "POST /session/0cc158fccc638541d2b3e489225285ad/element HTTP/1.1" 404 0
+2025-04-24 02:55:21,123 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x0000000102caf6c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x0000000102ca7c9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x00000001027f9e30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x00000001027d3a00 chromedriver + 129536\n4   chromedriver                        0x0000000102869418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x00000001028820f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001028352fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x0000000102c746c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x0000000102c77988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x0000000102c5471c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x0000000102c781e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x0000000102c45750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x0000000102c97f58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x0000000102c980e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x0000000102ca7910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:21,123 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:21,123 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+arthurw@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x0000000102caf6c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x0000000102ca7c9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x00000001027f9e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x00000001027d3a00 chromedriver + 129536
+4   chromedriver                        0x0000000102869418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x00000001028820f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001028352fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x0000000102c746c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x0000000102c77988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x0000000102c5471c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x0000000102c781e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000102c45750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x0000000102c97f58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x0000000102c980e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x0000000102ca7910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:21,123 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52617/session/0cc158fccc638541d2b3e489225285ad {}
+2025-04-24 02:55:21,179 - DEBUG - [connectionpool.py:544] - http://localhost:52617 "DELETE /session/0cc158fccc638541d2b3e489225285ad HTTP/1.1" 200 0
+2025-04-24 02:55:21,187 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:21,187 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:21,221 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52606/session/6639385d15ba9375e93a9ee684ec5e0a {}
+2025-04-24 02:55:21,277 - DEBUG - [connectionpool.py:544] - http://localhost:52606 "DELETE /session/6639385d15ba9375e93a9ee684ec5e0a HTTP/1.1" 200 0
+2025-04-24 02:55:21,277 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:21,277 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:21,294 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:21,294 - INFO - [tennis_booker.py:368] - Priority #4: Assigning jordan to book court 6 at 17:00
+2025-04-24 02:55:21,294 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:21,294 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:21,386 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:21,388 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:21,388 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:21,391 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72448 using 0 to output -3
+2025-04-24 02:55:21,406 - DEBUG - [remote_connection.py:403] - POST http://localhost:52637/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:21,406 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52637
+2025-04-24 02:55:22,093 - DEBUG - [connectionpool.py:544] - http://localhost:52637 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:22,094 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.Hr0TLB"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52642"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"85046178835beab9f1209675f7e6b03a"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:22,094 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:22,094 - DEBUG - [remote_connection.py:403] - POST http://localhost:52637/session/85046178835beab9f1209675f7e6b03a/timeouts {'implicit': 3000}
+2025-04-24 02:55:22,095 - DEBUG - [connectionpool.py:544] - http://localhost:52637 "POST /session/85046178835beab9f1209675f7e6b03a/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:22,095 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:22,095 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:22,095 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:22,095 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:22,095 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:22,171 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:22,171 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:22,171 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:22,171 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:22,171 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:22,171 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:22,171 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:22,172 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:22,172 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:22,173 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72508 using 0 to output -3
+2025-04-24 02:55:22,188 - DEBUG - [remote_connection.py:403] - POST http://localhost:52648/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:22,189 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52648
+2025-04-24 02:55:22,882 - DEBUG - [connectionpool.py:544] - http://localhost:52648 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:22,884 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.FXy96Y"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52653"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"2a1da078b918ab128cccaf955084f972"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:22,884 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:22,885 - DEBUG - [remote_connection.py:403] - POST http://localhost:52648/session/2a1da078b918ab128cccaf955084f972/timeouts {'implicit': 3000}
+2025-04-24 02:55:22,888 - DEBUG - [connectionpool.py:544] - http://localhost:52648 "POST /session/2a1da078b918ab128cccaf955084f972/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:22,888 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:22,888 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:22,888 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:22,889 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:22,889 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:23,064 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:23,065 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:23,065 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:23,069 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72573 using 0 to output -3
+2025-04-24 02:55:23,087 - DEBUG - [remote_connection.py:403] - POST http://localhost:52659/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:23,088 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52659
+2025-04-24 02:55:23,880 - DEBUG - [connectionpool.py:544] - http://localhost:52659 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:23,881 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.B7fBkt"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52664"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"9227d7a8c5025c6f6d365ad2bb64d270"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:23,881 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:23,881 - DEBUG - [remote_connection.py:403] - POST http://localhost:52659/session/9227d7a8c5025c6f6d365ad2bb64d270/timeouts {'implicit': 3000}
+2025-04-24 02:55:23,882 - DEBUG - [connectionpool.py:544] - http://localhost:52659 "POST /session/9227d7a8c5025c6f6d365ad2bb64d270/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:23,883 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:23,883 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:23,883 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:23,883 - DEBUG - [remote_connection.py:403] - POST http://localhost:52659/session/9227d7a8c5025c6f6d365ad2bb64d270/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:24,239 - DEBUG - [connectionpool.py:544] - http://localhost:52659 "POST /session/9227d7a8c5025c6f6d365ad2bb64d270/url HTTP/1.1" 200 0
+2025-04-24 02:55:24,239 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:24,239 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:24,239 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:24,239 - DEBUG - [remote_connection.py:403] - POST http://localhost:52659/session/9227d7a8c5025c6f6d365ad2bb64d270/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:24,240 - DEBUG - [connectionpool.py:544] - http://localhost:52659 "POST /session/9227d7a8c5025c6f6d365ad2bb64d270/element HTTP/1.1" 404 0
+2025-04-24 02:55:24,240 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x0000000102a936c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x0000000102a8bc9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x00000001025dde30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x00000001025b7a00 chromedriver + 129536\n4   chromedriver                        0x000000010264d418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x00000001026660f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001026192fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x0000000102a586c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x0000000102a5b988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x0000000102a3871c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x0000000102a5c1e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x0000000102a29750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x0000000102a7bf58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x0000000102a7c0e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x0000000102a8b910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:24,240 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:24,241 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+jordanr@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x0000000102a936c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x0000000102a8bc9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x00000001025dde30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x00000001025b7a00 chromedriver + 129536
+4   chromedriver                        0x000000010264d418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x00000001026660f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001026192fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x0000000102a586c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x0000000102a5b988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x0000000102a3871c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x0000000102a5c1e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000102a29750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x0000000102a7bf58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x0000000102a7c0e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x0000000102a8b910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:24,241 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52659/session/9227d7a8c5025c6f6d365ad2bb64d270 {}
+2025-04-24 02:55:24,292 - DEBUG - [connectionpool.py:544] - http://localhost:52659 "DELETE /session/9227d7a8c5025c6f6d365ad2bb64d270 HTTP/1.1" 200 0
+2025-04-24 02:55:24,292 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:24,292 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:24,316 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52648/session/2a1da078b918ab128cccaf955084f972 {}
+2025-04-24 02:55:24,372 - DEBUG - [connectionpool.py:544] - http://localhost:52648 "DELETE /session/2a1da078b918ab128cccaf955084f972 HTTP/1.1" 200 0
+2025-04-24 02:55:24,372 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:24,372 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:24,388 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:24,388 - INFO - [tennis_booker.py:368] - Priority #5: Assigning alex to book court 3 at 18:00
+2025-04-24 02:55:24,388 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:24,388 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:24,485 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:24,485 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:24,485 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:24,485 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:24,485 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:24,486 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:24,486 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:24,486 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:24,486 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:24,487 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72634 using 0 to output -3
+2025-04-24 02:55:24,505 - DEBUG - [remote_connection.py:403] - POST http://localhost:52678/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:24,505 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52678
+2025-04-24 02:55:25,209 - DEBUG - [connectionpool.py:544] - http://localhost:52678 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:25,209 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.grXu2R"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52683"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"36229127796a74538a5ae39b032655fa"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:25,210 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:25,210 - DEBUG - [remote_connection.py:403] - POST http://localhost:52678/session/36229127796a74538a5ae39b032655fa/timeouts {'implicit': 3000}
+2025-04-24 02:55:25,211 - DEBUG - [connectionpool.py:544] - http://localhost:52678 "POST /session/36229127796a74538a5ae39b032655fa/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:25,212 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:25,212 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:25,212 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:25,213 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:25,213 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:25,281 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:25,281 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:25,283 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72694 using 0 to output -3
+2025-04-24 02:55:25,298 - DEBUG - [remote_connection.py:403] - POST http://localhost:52691/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:25,298 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52691
+2025-04-24 02:55:26,011 - DEBUG - [connectionpool.py:544] - http://localhost:52691 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:26,011 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.oUvQ4c"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52696"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"246357e85b1ea206a78d0dc778b4696b"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:26,011 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:26,011 - DEBUG - [remote_connection.py:403] - POST http://localhost:52691/session/246357e85b1ea206a78d0dc778b4696b/timeouts {'implicit': 3000}
+2025-04-24 02:55:26,012 - DEBUG - [connectionpool.py:544] - http://localhost:52691 "POST /session/246357e85b1ea206a78d0dc778b4696b/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:26,012 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:26,013 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:26,013 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:26,014 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:26,015 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:26,114 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:26,114 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:26,114 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:26,115 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:26,115 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:26,115 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:26,115 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:26,115 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:26,115 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:26,116 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72750 using 0 to output -3
+2025-04-24 02:55:26,131 - DEBUG - [remote_connection.py:403] - POST http://localhost:52703/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:26,131 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52703
+2025-04-24 02:55:26,842 - DEBUG - [connectionpool.py:544] - http://localhost:52703 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:26,842 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.DkQfOp"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52708"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"39cbc5b089b722902a1bd06e6287099a"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:26,842 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:26,842 - DEBUG - [remote_connection.py:403] - POST http://localhost:52703/session/39cbc5b089b722902a1bd06e6287099a/timeouts {'implicit': 3000}
+2025-04-24 02:55:26,843 - DEBUG - [connectionpool.py:544] - http://localhost:52703 "POST /session/39cbc5b089b722902a1bd06e6287099a/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:26,843 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:26,843 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:26,843 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:26,843 - DEBUG - [remote_connection.py:403] - POST http://localhost:52703/session/39cbc5b089b722902a1bd06e6287099a/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:27,119 - DEBUG - [connectionpool.py:544] - http://localhost:52703 "POST /session/39cbc5b089b722902a1bd06e6287099a/url HTTP/1.1" 200 0
+2025-04-24 02:55:27,119 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:27,119 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:27,119 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:27,119 - DEBUG - [remote_connection.py:403] - POST http://localhost:52703/session/39cbc5b089b722902a1bd06e6287099a/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:27,121 - DEBUG - [connectionpool.py:544] - http://localhost:52703 "POST /session/39cbc5b089b722902a1bd06e6287099a/element HTTP/1.1" 404 0
+2025-04-24 02:55:27,121 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x00000001049036c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x00000001048fbc9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x000000010444de30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x0000000104427a00 chromedriver + 129536\n4   chromedriver                        0x00000001044bd418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x00000001044d60f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001044892fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x00000001048c86c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x00000001048cb988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x00000001048a871c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x00000001048cc1e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x0000000104899750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x00000001048ebf58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x00000001048ec0e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x00000001048fb910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:27,121 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:27,121 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+alexm@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x00000001049036c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x00000001048fbc9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x000000010444de30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x0000000104427a00 chromedriver + 129536
+4   chromedriver                        0x00000001044bd418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x00000001044d60f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001044892fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x00000001048c86c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x00000001048cb988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x00000001048a871c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x00000001048cc1e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000104899750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x00000001048ebf58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x00000001048ec0e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x00000001048fb910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:27,121 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52703/session/39cbc5b089b722902a1bd06e6287099a {}
+2025-04-24 02:55:27,173 - DEBUG - [connectionpool.py:544] - http://localhost:52703 "DELETE /session/39cbc5b089b722902a1bd06e6287099a HTTP/1.1" 200 0
+2025-04-24 02:55:27,174 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:27,174 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:27,193 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52691/session/246357e85b1ea206a78d0dc778b4696b {}
+2025-04-24 02:55:27,249 - DEBUG - [connectionpool.py:544] - http://localhost:52691 "DELETE /session/246357e85b1ea206a78d0dc778b4696b HTTP/1.1" 200 0
+2025-04-24 02:55:27,249 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:27,249 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:27,267 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:27,267 - INFO - [tennis_booker.py:368] - Priority #6: Assigning yiting to book court 5 at 17:00
+2025-04-24 02:55:27,267 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:27,267 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:27,327 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:27,328 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:27,328 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:27,330 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72814 using 0 to output -3
+2025-04-24 02:55:27,346 - DEBUG - [remote_connection.py:403] - POST http://localhost:52723/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:27,346 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52723
+2025-04-24 02:55:28,095 - DEBUG - [connectionpool.py:544] - http://localhost:52723 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:28,095 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.BFy64U"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52728"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"9848a51c3d137822325aed8de622caff"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:28,095 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:28,096 - DEBUG - [remote_connection.py:403] - POST http://localhost:52723/session/9848a51c3d137822325aed8de622caff/timeouts {'implicit': 3000}
+2025-04-24 02:55:28,099 - DEBUG - [connectionpool.py:544] - http://localhost:52723 "POST /session/9848a51c3d137822325aed8de622caff/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:28,100 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:28,100 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:28,100 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:28,101 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:28,101 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:28,645 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:28,645 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:28,647 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72874 using 0 to output -3
+2025-04-24 02:55:28,661 - DEBUG - [remote_connection.py:403] - POST http://localhost:52734/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:28,661 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52734
+2025-04-24 02:55:29,548 - DEBUG - [connectionpool.py:544] - http://localhost:52734 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:29,550 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.pVsaMO"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52744"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"6ff02a9d5f21e58ad37557843791cec5"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:29,551 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:29,552 - DEBUG - [remote_connection.py:403] - POST http://localhost:52734/session/6ff02a9d5f21e58ad37557843791cec5/timeouts {'implicit': 3000}
+2025-04-24 02:55:29,555 - DEBUG - [connectionpool.py:544] - http://localhost:52734 "POST /session/6ff02a9d5f21e58ad37557843791cec5/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:29,555 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:29,555 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:29,555 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:29,561 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:29,562 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:29,648 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:29,648 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:29,651 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 72931 using 0 to output -3
+2025-04-24 02:55:29,665 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:29,667 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52752
+2025-04-24 02:55:30,393 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:30,393 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.7D7okO"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52757"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"786dbc85e9fcce5a5d02e4319980478e"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:30,393 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:30,393 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/timeouts {'implicit': 3000}
+2025-04-24 02:55:30,394 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:30,394 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:30,394 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:30,394 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:30,394 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:31,281 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/url HTTP/1.1" 200 0
+2025-04-24 02:55:31,282 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,282 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:31,282 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:31,282 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:31,308 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element HTTP/1.1" 200 0
+2025-04-24 02:55:31,312 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.201"}} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,313 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:31,313 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element/f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.201/value {'text': 'nyuclubtennis+yitings@gmail.com', 'value': ['n', 'y', 'u', 'c', 'l', 'u', 'b', 't', 'e', 'n', 'n', 'i', 's', '+', 'y', 'i', 't', 'i', 'n', 'g', 's', '@', 'g', 'm', 'a', 'i', 'l', '.', 'c', 'o', 'm']}
+2025-04-24 02:55:31,482 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element/f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.201/value HTTP/1.1" 200 0
+2025-04-24 02:55:31,482 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,482 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:31,482 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element {'using': 'css selector', 'value': '[id="loginPassword"]'}
+2025-04-24 02:55:31,488 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element HTTP/1.1" 200 0
+2025-04-24 02:55:31,488 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.206"}} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,488 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:31,488 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element/f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.206/value {'text': 'Tennis2025', 'value': ['T', 'e', 'n', 'n', 'i', 's', '2', '0', '2', '5']}
+2025-04-24 02:55:31,514 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element/f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.206/value HTTP/1.1" 200 0
+2025-04-24 02:55:31,514 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,514 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:31,514 - DEBUG - [tennis_booker.py:75] - Clicking login button
+2025-04-24 02:55:31,515 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element {'using': 'xpath', 'value': '//form[@id="login"]/div/table/tbody/tr/td/button'}
+2025-04-24 02:55:31,523 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element HTTP/1.1" 200 0
+2025-04-24 02:55:31,524 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.209"}} | headers=HTTPHeaderDict({'Content-Length': '127', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,524 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:31,524 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element/f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.209/click {}
+2025-04-24 02:55:31,694 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element/f.46A8C5C0A5BA50C97B85FA01F31F85E7.d.65A357043456600656C738A66C0423B5.e.209/click HTTP/1.1" 200 0
+2025-04-24 02:55:31,694 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:31,695 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:32,199 - INFO - [tennis_booker.py:85] - Successfully logged in as nyuclubtennis+yitings@gmail.com
+2025-04-24 02:55:32,199 - DEBUG - [tennis_booker.py:110] - Starting new permit form
+2025-04-24 02:55:32,200 - DEBUG - [remote_connection.py:403] - POST http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/element {'using': 'xpath', 'value': '//a[@href="/Permits/New" and @class="button"]'}
+2025-04-24 02:55:32,201 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "POST /session/786dbc85e9fcce5a5d02e4319980478e/element HTTP/1.1" 200 0
+2025-04-24 02:55:32,201 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:32,201 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:32,201 - ERROR - [tennis_booker.py:269] - Failed to book court 5: 'NoneType' object has no attribute 'is_displayed'
+2025-04-24 02:55:32,201 - DEBUG - [remote_connection.py:403] - GET http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e/url {}
+2025-04-24 02:55:32,202 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "GET /session/786dbc85e9fcce5a5d02e4319980478e/url HTTP/1.1" 404 0
+2025-04-24 02:55:32,202 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x0000000104d0b6c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x0000000104d03c9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x0000000104855e30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x000000010482fa00 chromedriver + 129536\n4   chromedriver                        0x00000001048c5418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x00000001048de0f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001048912fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x0000000104cd06c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x0000000104cd3988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x0000000104cb071c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x0000000104cd41e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x0000000104ca1750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x0000000104cf3f58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x0000000104cf40e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x0000000104d03910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:32,202 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:32,203 - ERROR - [tennis_booker.py:388] - ERROR during booking with yiting: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x0000000104d0b6c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x0000000104d03c9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x0000000104855e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x000000010482fa00 chromedriver + 129536
+4   chromedriver                        0x00000001048c5418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x00000001048de0f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001048912fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x0000000104cd06c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x0000000104cd3988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x0000000104cb071c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x0000000104cd41e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000104ca1750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x0000000104cf3f58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x0000000104cf40e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x0000000104d03910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:32,203 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52752/session/786dbc85e9fcce5a5d02e4319980478e {}
+2025-04-24 02:55:32,259 - DEBUG - [connectionpool.py:544] - http://localhost:52752 "DELETE /session/786dbc85e9fcce5a5d02e4319980478e HTTP/1.1" 200 0
+2025-04-24 02:55:32,259 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:32,259 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:32,283 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:32,283 - INFO - [tennis_booker.py:368] - Priority #7: Assigning morgan to book court 6 at 19:00
+2025-04-24 02:55:32,283 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:32,284 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:32,386 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:32,388 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:32,388 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:32,388 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:32,388 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:32,388 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:32,388 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:32,389 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:32,389 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:32,391 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 73007 using 0 to output -3
+2025-04-24 02:55:32,412 - DEBUG - [remote_connection.py:403] - POST http://localhost:52790/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:32,412 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52790
+2025-04-24 02:55:33,126 - DEBUG - [connectionpool.py:544] - http://localhost:52790 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:33,127 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.nCRCy7"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52795"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"47aaf82f011b0d350862257910fb23e7"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:33,127 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:33,128 - DEBUG - [remote_connection.py:403] - POST http://localhost:52790/session/47aaf82f011b0d350862257910fb23e7/timeouts {'implicit': 3000}
+2025-04-24 02:55:33,129 - DEBUG - [connectionpool.py:544] - http://localhost:52790 "POST /session/47aaf82f011b0d350862257910fb23e7/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:33,129 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:33,129 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:33,129 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:33,130 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:33,130 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:33,196 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:33,196 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:33,198 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 73063 using 0 to output -3
+2025-04-24 02:55:33,213 - DEBUG - [remote_connection.py:403] - POST http://localhost:52801/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:33,625 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52801
+2025-04-24 02:55:34,284 - DEBUG - [connectionpool.py:544] - http://localhost:52801 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:34,285 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.gIfkvE"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52851"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"0d029d141a0d1161caf9c4ac6cf322b0"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:34,285 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:34,285 - DEBUG - [remote_connection.py:403] - POST http://localhost:52801/session/0d029d141a0d1161caf9c4ac6cf322b0/timeouts {'implicit': 3000}
+2025-04-24 02:55:34,286 - DEBUG - [connectionpool.py:544] - http://localhost:52801 "POST /session/0d029d141a0d1161caf9c4ac6cf322b0/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:34,286 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:34,286 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:34,286 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:34,286 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:34,286 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:34,380 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:34,380 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:34,382 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 73120 using 0 to output -3
+2025-04-24 02:55:34,395 - DEBUG - [remote_connection.py:403] - POST http://localhost:52859/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:34,398 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52859
+2025-04-24 02:55:35,159 - DEBUG - [connectionpool.py:544] - http://localhost:52859 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:35,159 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.m4IO61"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52864"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"4df54d4869b32c2e5f6a738e8e520f66"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:35,159 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:35,159 - DEBUG - [remote_connection.py:403] - POST http://localhost:52859/session/4df54d4869b32c2e5f6a738e8e520f66/timeouts {'implicit': 3000}
+2025-04-24 02:55:35,160 - DEBUG - [connectionpool.py:544] - http://localhost:52859 "POST /session/4df54d4869b32c2e5f6a738e8e520f66/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:35,160 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:35,160 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:35,160 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:35,160 - DEBUG - [remote_connection.py:403] - POST http://localhost:52859/session/4df54d4869b32c2e5f6a738e8e520f66/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:35,418 - DEBUG - [connectionpool.py:544] - http://localhost:52859 "POST /session/4df54d4869b32c2e5f6a738e8e520f66/url HTTP/1.1" 200 0
+2025-04-24 02:55:35,419 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:35,419 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:35,419 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:35,419 - DEBUG - [remote_connection.py:403] - POST http://localhost:52859/session/4df54d4869b32c2e5f6a738e8e520f66/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:35,419 - DEBUG - [connectionpool.py:544] - http://localhost:52859 "POST /session/4df54d4869b32c2e5f6a738e8e520f66/element HTTP/1.1" 404 0
+2025-04-24 02:55:35,419 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x00000001009936c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x000000010098bc9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x00000001004dde30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x00000001004b7a00 chromedriver + 129536\n4   chromedriver                        0x000000010054d418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x00000001005660f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001005192fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x00000001009586c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x000000010095b988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x000000010093871c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x000000010095c1e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x0000000100929750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x000000010097bf58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x000000010097c0e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x000000010098b910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:35,419 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:35,420 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+morganb@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x00000001009936c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x000000010098bc9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x00000001004dde30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x00000001004b7a00 chromedriver + 129536
+4   chromedriver                        0x000000010054d418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x00000001005660f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001005192fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x00000001009586c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x000000010095b988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x000000010093871c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x000000010095c1e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000100929750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x000000010097bf58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x000000010097c0e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x000000010098b910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:35,420 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52859/session/4df54d4869b32c2e5f6a738e8e520f66 {}
+2025-04-24 02:55:35,475 - DEBUG - [connectionpool.py:544] - http://localhost:52859 "DELETE /session/4df54d4869b32c2e5f6a738e8e520f66 HTTP/1.1" 200 0
+2025-04-24 02:55:35,476 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:35,476 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:35,496 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52801/session/0d029d141a0d1161caf9c4ac6cf322b0 {}
+2025-04-24 02:55:35,551 - DEBUG - [connectionpool.py:544] - http://localhost:52801 "DELETE /session/0d029d141a0d1161caf9c4ac6cf322b0 HTTP/1.1" 200 0
+2025-04-24 02:55:35,552 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:35,552 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:35,569 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:35,569 - INFO - [tennis_booker.py:368] - Priority #8: Assigning brian to book court 3 at 19:00
+2025-04-24 02:55:35,569 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:35,569 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:35,630 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:35,630 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:35,632 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 73192 using 0 to output -3
+2025-04-24 02:55:35,646 - DEBUG - [remote_connection.py:403] - POST http://localhost:52878/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:35,646 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52878
+2025-04-24 02:55:36,286 - DEBUG - [connectionpool.py:544] - http://localhost:52878 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:36,286 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.G6NrGh"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52883"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"74db916fc2e79d4a6f6bb385736535b2"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:36,286 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:36,286 - DEBUG - [remote_connection.py:403] - POST http://localhost:52878/session/74db916fc2e79d4a6f6bb385736535b2/timeouts {'implicit': 3000}
+2025-04-24 02:55:36,287 - DEBUG - [connectionpool.py:544] - http://localhost:52878 "POST /session/74db916fc2e79d4a6f6bb385736535b2/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:36,287 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:36,287 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:36,287 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:36,288 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:36,288 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:36,384 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:36,384 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:36,386 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 73254 using 0 to output -3
+2025-04-24 02:55:36,400 - DEBUG - [remote_connection.py:403] - POST http://localhost:52890/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:36,400 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52890
+2025-04-24 02:55:37,101 - DEBUG - [connectionpool.py:544] - http://localhost:52890 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:37,101 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.OEPTCG"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52895"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"95ba2930b650bdeae9b0038540eae140"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:37,101 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:37,101 - DEBUG - [remote_connection.py:403] - POST http://localhost:52890/session/95ba2930b650bdeae9b0038540eae140/timeouts {'implicit': 3000}
+2025-04-24 02:55:37,102 - DEBUG - [connectionpool.py:544] - http://localhost:52890 "POST /session/95ba2930b650bdeae9b0038540eae140/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:37,102 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:37,102 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:37,102 - DEBUG - [tennis_booker.py:52] - Chrome WebDriver initialized successfully
+2025-04-24 02:55:37,103 - DEBUG - [selenium_manager.py:101] - Selenium Manager binary found at: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager
+2025-04-24 02:55:37,103 - DEBUG - [selenium_manager.py:114] - Executing process: /Users/willwallwan/Documents/GitHub/Octogon/venv/lib/python3.13/site-packages/selenium/webdriver/common/macos/selenium-manager --browser chrome --debug --language-binding python --output json
+2025-04-24 02:55:37,174 - DEBUG - [selenium_manager.py:140] - Found chromedriver 134.0.6998.165 in PATH: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - chrome detected at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - Running command: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - Output: "Google Chrome 135.0.7049.96 "
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - Detected browser: chrome 135.0.7049.96
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - Required driver: chromedriver 135.0.7049.114
+2025-04-24 02:55:37,175 - WARNING - [selenium_manager.py:138] - The chromedriver version (134.0.6998.165) detected in PATH at /opt/homebrew/bin/chromedriver might not be compatible with the detected chrome version (135.0.7049.96); currently, chromedriver 135.0.7049.114 is recommended for chrome 135.*, so it is advised to delete the driver in PATH and retry
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - Driver path: /opt/homebrew/bin/chromedriver
+2025-04-24 02:55:37,175 - DEBUG - [selenium_manager.py:140] - Browser path: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+2025-04-24 02:55:37,177 - DEBUG - [service.py:230] - Started executable: `/opt/homebrew/bin/chromedriver` in a child process with pid: 73313 using 0 to output -3
+2025-04-24 02:55:37,191 - DEBUG - [remote_connection.py:403] - POST http://localhost:52901/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'browserVersion': None, 'goog:chromeOptions': {'extensions': [], 'binary': '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', 'args': []}}}}
+2025-04-24 02:55:37,192 - DEBUG - [connectionpool.py:241] - Starting new HTTP connection (1): localhost:52901
+2025-04-24 02:55:37,952 - DEBUG - [connectionpool.py:544] - http://localhost:52901 "POST /session HTTP/1.1" 200 0
+2025-04-24 02:55:37,952 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"135.0.7049.96","chrome":{"chromedriverVersion":"134.0.6998.165 (fd886e2cb29dd984c13deec032832dee68d8abe3-refs/branch-heads/6998@{#2122})","userDataDir":"/var/folders/bv/7gdtgnkj6nxf9_jg4q97mldm0000gn/T/.org.chromium.Chromium.XXsNCu"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"localhost:52906"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"c7fb6072966b632283117c5ae9b4a980"}} | headers=HTTPHeaderDict({'Content-Length': '891', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:37,952 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:37,955 - DEBUG - [remote_connection.py:403] - POST http://localhost:52901/session/c7fb6072966b632283117c5ae9b4a980/timeouts {'implicit': 3000}
+2025-04-24 02:55:37,956 - DEBUG - [connectionpool.py:544] - http://localhost:52901 "POST /session/c7fb6072966b632283117c5ae9b4a980/timeouts HTTP/1.1" 200 0
+2025-04-24 02:55:37,956 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:37,956 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:37,956 - DEBUG - [tennis_booker.py:66] - Attempting to navigate to login page
+2025-04-24 02:55:37,957 - DEBUG - [remote_connection.py:403] - POST http://localhost:52901/session/c7fb6072966b632283117c5ae9b4a980/url {'url': 'https://rioc.civicpermits.com/'}
+2025-04-24 02:55:38,194 - DEBUG - [connectionpool.py:544] - http://localhost:52901 "POST /session/c7fb6072966b632283117c5ae9b4a980/url HTTP/1.1" 200 0
+2025-04-24 02:55:38,194 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:38,194 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:38,194 - DEBUG - [tennis_booker.py:70] - Filling login credentials
+2025-04-24 02:55:38,194 - DEBUG - [remote_connection.py:403] - POST http://localhost:52901/session/c7fb6072966b632283117c5ae9b4a980/element {'using': 'css selector', 'value': '[id="loginEmail"]'}
+2025-04-24 02:55:38,195 - DEBUG - [connectionpool.py:544] - http://localhost:52901 "POST /session/c7fb6072966b632283117c5ae9b4a980/element HTTP/1.1" 404 0
+2025-04-24 02:55:38,195 - DEBUG - [remote_connection.py:436] - Remote response: status=404 | data={"value":{"error":"no such window","message":"no such window: target window already closed\nfrom unknown error: web view not found\n  (Session info: chrome=135.0.7049.96)","stacktrace":"0   chromedriver                        0x0000000102bef6c8 cxxbridge1$str$ptr + 2791212\n1   chromedriver                        0x0000000102be7c9c cxxbridge1$str$ptr + 2759936\n2   chromedriver                        0x0000000102739e30 cxxbridge1$string$len + 92928\n3   chromedriver                        0x0000000102713a00 chromedriver + 129536\n4   chromedriver                        0x00000001027a9418 cxxbridge1$string$len + 549096\n5   chromedriver                        0x00000001027c20f8 cxxbridge1$string$len + 650696\n6   chromedriver                        0x00000001027752fc cxxbridge1$string$len + 335820\n7   chromedriver                        0x0000000102bb46c4 cxxbridge1$str$ptr + 2549544\n8   chromedriver                        0x0000000102bb7988 cxxbridge1$str$ptr + 2562540\n9   chromedriver                        0x0000000102b9471c cxxbridge1$str$ptr + 2418560\n10  chromedriver                        0x0000000102bb81e8 cxxbridge1$str$ptr + 2564684\n11  chromedriver                        0x0000000102b85750 cxxbridge1$str$ptr + 2357172\n12  chromedriver                        0x0000000102bd7f58 cxxbridge1$str$ptr + 2695100\n13  chromedriver                        0x0000000102bd80e0 cxxbridge1$str$ptr + 2695492\n14  chromedriver                        0x0000000102be7910 cxxbridge1$str$ptr + 2759028\n15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136\n16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8\n"}} | headers=HTTPHeaderDict({'Content-Length': '1682', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:38,195 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:38,196 - ERROR - [tennis_booker.py:89] - Login failed for nyuclubtennis+brians@gmail.com: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.96)
+Stacktrace:
+0   chromedriver                        0x0000000102bef6c8 cxxbridge1$str$ptr + 2791212
+1   chromedriver                        0x0000000102be7c9c cxxbridge1$str$ptr + 2759936
+2   chromedriver                        0x0000000102739e30 cxxbridge1$string$len + 92928
+3   chromedriver                        0x0000000102713a00 chromedriver + 129536
+4   chromedriver                        0x00000001027a9418 cxxbridge1$string$len + 549096
+5   chromedriver                        0x00000001027c20f8 cxxbridge1$string$len + 650696
+6   chromedriver                        0x00000001027752fc cxxbridge1$string$len + 335820
+7   chromedriver                        0x0000000102bb46c4 cxxbridge1$str$ptr + 2549544
+8   chromedriver                        0x0000000102bb7988 cxxbridge1$str$ptr + 2562540
+9   chromedriver                        0x0000000102b9471c cxxbridge1$str$ptr + 2418560
+10  chromedriver                        0x0000000102bb81e8 cxxbridge1$str$ptr + 2564684
+11  chromedriver                        0x0000000102b85750 cxxbridge1$str$ptr + 2357172
+12  chromedriver                        0x0000000102bd7f58 cxxbridge1$str$ptr + 2695100
+13  chromedriver                        0x0000000102bd80e0 cxxbridge1$str$ptr + 2695492
+14  chromedriver                        0x0000000102be7910 cxxbridge1$str$ptr + 2759028
+15  libsystem_pthread.dylib             0x0000000198cbc2e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x0000000198cb70fc thread_start + 8
+
+2025-04-24 02:55:38,196 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52901/session/c7fb6072966b632283117c5ae9b4a980 {}
+2025-04-24 02:55:38,253 - DEBUG - [connectionpool.py:544] - http://localhost:52901 "DELETE /session/c7fb6072966b632283117c5ae9b4a980 HTTP/1.1" 200 0
+2025-04-24 02:55:38,253 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:38,256 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:38,287 - DEBUG - [remote_connection.py:403] - DELETE http://localhost:52890/session/95ba2930b650bdeae9b0038540eae140 {}
+2025-04-24 02:55:38,341 - DEBUG - [connectionpool.py:544] - http://localhost:52890 "DELETE /session/95ba2930b650bdeae9b0038540eae140 HTTP/1.1" 200 0
+2025-04-24 02:55:38,342 - DEBUG - [remote_connection.py:436] - Remote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})
+2025-04-24 02:55:38,342 - DEBUG - [remote_connection.py:465] - Finished Request
+2025-04-24 02:55:38,362 - INFO - [tennis_booker.py:398] - Moving to next priority court and account...
+2025-04-24 02:55:38,370 - WARNING - [tennis_booker.py:357] - No more accounts available for priority #9
+2025-04-24 02:55:38,378 - INFO - [tennis_booker.py:401] - Booking complete for 04/26/2025 - Used accounts: []
+Scheduling for tomorrow...
+Removed previous job 10
+Current scheduled jobs:
+11	Fri Apr 25 08:00:00 2025
+Daily booking script completed at Thu Apr 24 02:55:41 EDT 2025
+===================================
