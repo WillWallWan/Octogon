@@ -1,0 +1,79 @@
+
+TENNIS BOOKING SUMMARY - 2025-09-19
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 24
+- Submission confirmations received: 24/24 (100.0%)
+- Final decisions received: 24/24 (100.0%)
+- Confirmed successful: 1
+- Confirmed failed: 23 (rejected: 9, canceled: 14)
+- Still pending/unknown: 0
+
+SUBMISSION RESULTS (ordered by time):
+Legend: ✅=Approved ⏰=Too Late ⏩=Too Early 🚫=No confirmation ❓=Pending/Mixed
+
+ 1. 08:00:03.028 ❓    morganb → Court 6 at 18:00 on 09/22/2025
+ 2. 08:00:03.089 ❓     nancyl → Court 6 at 19:00 on 09/22/2025
+ 3. 08:00:03.141 ❓     ethanh → Court 1 at 17:00 on 09/22/2025
+ 4. 08:00:03.191 ❓    andrewk → Court 5 at 18:00 on 09/22/2025
+ 5. 08:00:03.240 ⏩     brians → Court 5 at 19:00 on 09/22/2025
+ 6. 08:00:03.292 ⏩    yitings → Court 4 at 18:00 on 09/22/2025
+ 7. 08:00:03.342 ⏩    jordanr → Court 3 at 18:00 on 09/22/2025
+ 8. 08:00:03.384 ⏩    dennisw → Court 3 at 19:00 on 09/22/2025
+ 9. 08:00:03.442 ⏰     jamies → Court 3 at 17:00 on 09/22/2025
+10. 08:00:03.484 ❓    arthurw → Court 2 at 18:00 on 09/22/2025
+11. 08:00:03.541 ⏰      seans → Court 2 at 19:00 on 09/22/2025
+12. 08:00:03.591 ❓      alexm → Court 2 at 17:00 on 09/22/2025
+13. 08:00:03.640 ⏩    dennisw → Court 6 at 18:00 on 09/23/2025
+14. 08:00:03.693 ⏩     brians → Court 6 at 19:00 on 09/23/2025
+15. 08:00:03.735 ⏩    yitings → Court 1 at 17:00 on 09/23/2025
+16. 08:00:03.785 ❓     nancyl → Court 5 at 18:00 on 09/23/2025
+17. 08:00:03.835 ⏩    jordanr → Court 5 at 19:00 on 09/23/2025
+18. 08:00:03.885 ❓     ethanh → Court 4 at 18:00 on 09/23/2025
+19. 08:00:03.939 ❓      alexm → Court 3 at 18:00 on 09/23/2025
+20. 08:00:03.993 ❓    morganb → Court 3 at 19:00 on 09/23/2025
+21. 08:00:04.034 ❓    arthurw → Court 3 at 17:00 on 09/23/2025
+22. 08:00:04.090 ⏰      seans → Court 2 at 18:00 on 09/23/2025
+23. 08:00:04.141 ❓    andrewk → Court 2 at 19:00 on 09/23/2025
+24. 08:00:04.187 ⏰     jamies → Court 2 at 17:00 on 09/23/2025
+
+ACCOUNT SUMMARY:
+⏰ Submission Confirmed + Unable to Process (too late): jamies, seans
+⏩ Submission Confirmed + Cancelled (too early): brians, dennisw, jordanr, yitings
+❓ Mixed results (multiple outcomes): alexm, andrewk, arthurw, ethanh, morganb, nancyl
+
+BY COURT SUCCESS RATE:
+  Court 1: 0/2 (0%)
+  Court 2: 0/6 (0%)
+  Court 3: 0/6 (0%)
+  Court 4: 0/2 (0%)
+  Court 5: 0/4 (0%)
+  Court 6: 0/4 (0%)
+
+BY TIME SLOT SUCCESS RATE:
+  17:00: 0/6 (0%)
+  18:00: 0/10 (0%)
+  19:00: 0/8 (0%)
+
+
+🎯 TIMING ANALYSIS - FINDING THE SWEET SPOT:
+============================================================
+
+⏩ CANCELLED (Too Early):
+   Earliest: 08:00:03.028 (morganb)
+   Latest:   08:00:04.141 (andrewk)
+   Count:    20 submissions
+
+⏰ REJECTED/Unable to Process (Too Late):
+   Earliest: 08:00:03.442 (jamies)
+   Latest:   08:00:04.187 (jamies)
+   Count:    4 submissions
+
+🎯 SWEET SPOT ANALYSIS:
+   ⚠️  OVERLAP DETECTED - No clear sweet spot!
+   Some submissions were cancelled while others submitted later were rejected.
+   This suggests server readiness varies or other factors are at play.
+
+💡 RECOMMENDATIONS:
+   - Submissions are generally too early. Consider delaying by a few milliseconds.

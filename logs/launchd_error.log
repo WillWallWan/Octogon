@@ -1325,3 +1325,4 @@ Stacktrace:
 2025-06-16 11:37:33,580 - INFO - [auto_super_tennis_booker.py:638] - Preparation phase complete. Stopping heartbeat thread.
 2025-06-16 11:37:34,327 - INFO - [auto_super_tennis_booker.py:646] - --- Preparation Complete: 9 instances ready for submission ---
 2025-06-16 11:37:34,330 - INFO - [auto_super_tennis_booker.py:652] - Entering final waiting phase. Target: 2025-06-17 08:00:07 (73352.67s from now).
+31:265: execution error: Terminal got an error: AppleEvent timed out. (-1712)

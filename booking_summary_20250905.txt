@@ -1,0 +1,57 @@
+
+TENNIS BOOKING SUMMARY - 2025-09-05
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 24
+- Confirmed successful: 0
+- Confirmed failed: 12
+- Unknown outcome: 12
+
+SUBMISSION RESULTS (ordered by time):
+
+ 1. 08:00:04.027 ❌      alexm → Court 6 at 18:00 on 09/08/2025
+ 2. 08:00:04.032 ❌      seans → Court 2 at 18:00 on 09/08/2025
+ 3. 08:00:04.032 ❓     brians → Court 6 at 20:00 on 09/08/2025
+ 4. 08:00:04.039 ❓     nancyl → Court 2 at 20:00 on 09/09/2025
+ 5. 08:00:04.041 ❌    yitings → Court 3 at 18:00 on 09/09/2025
+ 6. 08:00:04.041 ❌     jamies → Court 5 at 20:00 on 09/09/2025
+ 7. 08:00:04.044 ❓     nancyl → Court 5 at 18:00 on 09/08/2025
+ 8. 08:00:04.044 ❌    yitings → Court 3 at 20:00 on 09/08/2025
+ 9. 08:00:04.044 ❓     ethanh → Court 5 at 20:00 on 09/08/2025
+10. 08:00:04.044 ❓    arthurw → Court 2 at 19:00 on 09/09/2025
+11. 08:00:04.044 ❌    dennisw → Court 3 at 19:00 on 09/09/2025
+12. 08:00:04.047 ❓     brians → Court 5 at 18:00 on 09/09/2025
+13. 08:00:04.053 ❓     ethanh → Court 3 at 20:00 on 09/09/2025
+14. 08:00:04.054 ❌    jordanr → Court 6 at 18:00 on 09/09/2025
+15. 08:00:04.055 ❓    andrewk → Court 6 at 19:00 on 09/08/2025
+16. 08:00:04.056 ❓    andrewk → Court 5 at 19:00 on 09/09/2025
+17. 08:00:04.065 ❌    morganb → Court 6 at 20:00 on 09/09/2025
+18. 08:00:04.067 ❌     jamies → Court 2 at 19:00 on 09/08/2025
+19. 08:00:04.067 ❓    arthurw → Court 2 at 20:00 on 09/08/2025
+20. 08:00:04.073 ❌      seans → Court 2 at 18:00 on 09/09/2025
+21. 08:00:04.074 ❌      alexm → Court 6 at 19:00 on 09/09/2025
+22. 08:00:04.074 ❌    dennisw → Court 5 at 19:00 on 09/08/2025
+23. 08:00:04.074 ❌    jordanr → Court 3 at 19:00 on 09/08/2025
+24. 08:00:04.074 ❌    morganb → Court 3 at 18:00 on 09/08/2025
+
+ACCOUNT SUMMARY:
+❓ Mixed results: andrewk, arthurw, brians, ethanh, nancyl
+❌ All failed: alexm, dennisw, jamies, jordanr, morganb, seans, yitings
+
+BY COURT SUCCESS RATE:
+  Court 2: 0/6 (0%)
+  Court 3: 0/6 (0%)
+  Court 5: 0/6 (0%)
+  Court 6: 0/6 (0%)
+
+BY TIME SLOT SUCCESS RATE:
+  18:00: 0/8 (0%)
+  19:00: 0/8 (0%)
+  20:00: 0/8 (0%)
+
+NOTE: Friday booking for multiple days detected (09/08/2025, 09/09/2025).
+      The following accounts had mixed results:
+      brians, nancyl, ethanh, arthurw, andrewk
+      For these accounts, we cannot determine which specific booking succeeded.
+      (On Mon-Thu bookings, each account only books one slot, so results are unambiguous.)

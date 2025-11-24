@@ -1,0 +1,51 @@
+
+TENNIS BOOKING SUMMARY - 2025-09-08
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 12
+- Confirmed successful: 5
+- Confirmed failed: 7
+- Unknown outcome: 0
+
+SUBMISSION RESULTS (ordered by time):
+
+ 1. 08:00:02.043 ❌     nancyl → Court 2 at 18:00 on 09/10/2025
+ 2. 08:00:02.044 ❌    dennisw → Court 5 at 19:00 on 09/10/2025
+ 3. 08:00:02.061 ❌    jordanr → Court 5 at 18:00 on 09/10/2025
+ 4. 08:00:02.061 ✅     brians → Court 6 at 20:00 on 09/10/2025
+ 5. 08:00:02.062 ❌      alexm → Court 2 at 19:00 on 09/10/2025
+ 6. 08:00:02.062 ❌    arthurw → Court 6 at 19:00 on 09/10/2025
+ 7. 08:00:02.064 ✅    yitings → Court 3 at 19:00 on 09/10/2025
+ 8. 08:00:02.072 ❌      seans → Court 3 at 20:00 on 09/10/2025
+ 9. 08:00:02.074 ❓     jamies → Court 3 at 18:00 on 09/10/2025
+10. 08:00:02.076 ❌    andrewk → Court 6 at 18:00 on 09/10/2025
+11. 08:00:02.085 ✅     ethanh → Court 5 at 20:00 on 09/10/2025
+12. 08:00:02.109 ✅    morganb → Court 2 at 20:00 on 09/10/2025
+
+ACCOUNT SUMMARY:
+✅ Fully successful: brians, ethanh, morganb, yitings
+❓ Mixed results: jamies
+❌ All failed: alexm, andrewk, arthurw, dennisw, jordanr, nancyl, seans
+
+BY COURT SUCCESS RATE:
+  Court 2: 1/3 (33%)
+  Court 3: 2/3 (67%)
+  Court 5: 1/3 (33%)
+  Court 6: 1/3 (33%)
+
+BY TIME SLOT SUCCESS RATE:
+  18:00: 1/4 (25%)
+  19:00: 1/4 (25%)
+  20:00: 3/4 (75%)
+
+CONFIRMED BOOKINGS:
+  ✅ brians → Court 6 at 20:00 on 09/10/2025
+  ✅ yitings → Court 3 at 19:00 on 09/10/2025
+  ✅ jamies → Court 3 at 18:00 on 09/10/2025
+  ✅ ethanh → Court 5 at 20:00 on 09/10/2025
+  ✅ morganb → Court 2 at 20:00 on 09/10/2025
+
+NOTE: The following accounts had mixed results (some approved, some rejected):
+      jamies
+      For these accounts, we cannot determine which specific booking succeeded.

@@ -1,0 +1,52 @@
+
+TENNIS BOOKING SUMMARY - 2025-09-16
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 12
+- Submission confirmations received: 5/12 (41.7%)
+- Final decisions received: 5/12 (41.7%)
+- Confirmed successful: 0
+- Confirmed failed: 5 (rejected: 5, canceled: 0)
+- Still pending/unknown: 7
+
+SUBMISSION RESULTS (ordered by time):
+Legend: ✅=Approved ❌=Failed (too late/too early) 🚫=No confirmation ❓=Pending/Mixed
+
+ 1. 08:00:01.527 🚫     brians → Court 6 at 18:00 on 09/18/2025
+ 2. 08:00:01.587 🚫    andrewk → Court 6 at 19:00 on 09/18/2025
+ 3. 08:00:01.637 🚫    arthurw → Court 1 at 17:00 on 09/18/2025
+ 4. 08:00:01.682 ❌     ethanh → Court 5 at 18:00 on 09/18/2025
+ 5. 08:00:01.745 ❌      seans → Court 5 at 19:00 on 09/18/2025
+ 6. 08:00:01.787 ❌      alexm → Court 4 at 18:00 on 09/18/2025
+ 7. 08:00:01.845 🚫    dennisw → Court 3 at 18:00 on 09/18/2025
+ 8. 08:00:01.886 🚫    yitings → Court 3 at 19:00 on 09/18/2025
+ 9. 08:00:01.946 🚫    morganb → Court 3 at 17:00 on 09/18/2025
+10. 08:00:01.986 ❌     nancyl → Court 2 at 18:00 on 09/18/2025
+11. 08:00:02.037 🚫    jordanr → Court 2 at 19:00 on 09/18/2025
+12. 08:00:02.091 ❌     jamies → Court 2 at 17:00 on 09/18/2025
+
+ACCOUNT SUMMARY:
+❌ Submission Confirmed + Unable to Process (too late): alexm, ethanh, jamies, nancyl, seans
+🚫 No Submission Confirmation (technical failure): andrewk, arthurw, brians, dennisw, jordanr, morganb, yitings
+
+BY COURT SUCCESS RATE:
+  Court 1: 0/1 (0%)
+  Court 2: 0/3 (0%)
+  Court 3: 0/3 (0%)
+  Court 4: 0/1 (0%)
+  Court 5: 0/2 (0%)
+  Court 6: 0/2 (0%)
+
+BY TIME SLOT SUCCESS RATE:
+  17:00: 0/3 (0%)
+  18:00: 0/5 (0%)
+  19:00: 0/4 (0%)
+
+EMAIL TRACKING ANALYSIS:
+🚫 No submission confirmation: andrewk, arthurw, brians, dennisw, jordanr, morganb, yitings
+   These accounts likely had technical failures - submissions never reached the server.
+
+TIMING INSIGHTS FROM 5-CATEGORY ANALYSIS:
+🚫 No confirmation = Technical issues or submissions never reached server
+❌ Confirmed + Unable to Process = Submissions were TOO LATE (courts taken)

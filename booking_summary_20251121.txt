@@ -1,0 +1,103 @@
+
+TENNIS BOOKING SUMMARY - 2025-11-21
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 30
+- Submission confirmations received: 46/30 (153.3%)
+- Final decisions received: 8/30 (26.7%)
+- Confirmed successful: 2
+- Confirmed failed: 6 (rejected: 6, canceled: 0)
+- Still pending/unknown: 22
+
+SUBMISSION RESULTS (ordered by time):
+Legend: ✅=Approved ❌=Failed (too late/too early) 🚫=No confirmation ❓=Pending/Mixed
+
+ 1. 08:00:03.516 ❓    jordanr → Court 6 at 16:00 on 11/24/2025
+ 2. 08:00:03.576 ❓    dennisw → Court 6 at 17:00 on 11/24/2025
+ 3. 08:00:03.626 ❓    yitings → Court 1 at 16:00 on 11/24/2025
+ 4. 08:00:03.675 ❓     ethanh → Court 1 at 17:00 on 11/24/2025
+ 5. 08:00:03.719 ❓    andrewk → Court 5 at 16:00 on 11/24/2025
+ 6. 08:00:03.776 ❌    morganb → Court 5 at 17:00 on 11/24/2025
+ 7. 08:00:03.824 ✅      seans → Court 3 at 16:00 on 11/24/2025
+ 8. 08:00:03.876 ✅     jamies → Court 3 at 17:00 on 11/24/2025
+ 9. 08:00:03.927 ❓     brians → Court 4 at 16:00 on 11/24/2025
+10. 08:00:03.972 ❌    arthurw → Court 4 at 17:00 on 11/24/2025
+11. 08:00:04.020 ❌      alexm → Court 2 at 16:00 on 11/24/2025
+12. 08:00:04.071 ❌     nancyl → Court 2 at 17:00 on 11/24/2025
+13. 08:00:04.123 ✅     jamies → Court 6 at 16:00 on 11/25/2025
+14. 08:00:04.180 ❌      alexm → Court 6 at 17:00 on 11/25/2025
+15. 08:00:04.222 ❓    dennisw → Court 1 at 16:00 on 11/25/2025
+16. 08:00:04.280 ❌    arthurw → Court 1 at 17:00 on 11/25/2025
+17. 08:00:04.322 ❓    andrewk → Court 5 at 16:00 on 11/25/2025
+18. 08:00:04.371 ❓     brians → Court 5 at 17:00 on 11/25/2025
+19. 08:00:04.427 ✅      seans → Court 3 at 16:00 on 11/25/2025
+20. 08:00:04.481 ❓     ethanh → Court 3 at 17:00 on 11/25/2025
+21. 08:00:04.524 ❓    yitings → Court 4 at 16:00 on 11/25/2025
+22. 08:00:04.572 ❌    morganb → Court 4 at 17:00 on 11/25/2025
+23. 08:00:04.630 ❓    jordanr → Court 2 at 16:00 on 11/25/2025
+24. 08:00:04.672 ❌     nancyl → Court 2 at 17:00 on 11/25/2025
+25. 09:18:44.899 ✅     jamies → Court 6 at 16:00 on 11/22/2025
+26. 09:18:44.959 ❓    andrewk → Court 6 at 17:00 on 11/22/2025
+27. 09:18:45.015 ❓    yitings → Court 1 at 16:00 on 11/22/2025
+28. 09:18:45.073 ❓    dennisw → Court 1 at 17:00 on 11/22/2025
+29. 09:18:45.124 ✅      seans → Court 5 at 16:00 on 11/22/2025
+30. 09:18:45.174 ❌     nancyl → Court 5 at 17:00 on 11/22/2025
+
+ACCOUNT SUMMARY:
+✅ Submission Confirmed + Approved: jamies, seans
+❌ Submission Confirmed + Unable to Process (too late): alexm, arthurw, morganb, nancyl
+❓ Submission Confirmed + No Decision (pending): andrewk, brians, dennisw, ethanh, jordanr, yitings
+
+BY COURT SUCCESS RATE:
+  Court 1: 0/6 (0%)
+  Court 2: 0/4 (0%)
+  Court 3: 3/4 (75%)
+  Court 4: 0/4 (0%)
+  Court 5: 1/6 (17%)
+  Court 6: 2/6 (33%)
+
+BY TIME SLOT SUCCESS RATE:
+  16:00: 5/15 (33%)
+  17:00: 1/15 (7%)
+
+CONFIRMED BOOKINGS:
+  ✅ seans → Court 3 at 16:00 on 11/24/2025
+  ✅ seans → Court 3 at 16:00 on 11/25/2025
+  ✅ seans → Court 5 at 16:00 on 11/22/2025
+  ✅ jamies → Court 3 at 17:00 on 11/24/2025
+  ✅ jamies → Court 6 at 16:00 on 11/25/2025
+  ✅ jamies → Court 6 at 16:00 on 11/22/2025
+
+EMAIL TRACKING ANALYSIS:
+❓ Confirmed but no decision: andrewk, brians, dennisw, ethanh, jordanr, yitings
+   These submissions were received but no final decision email arrived yet.
+
+TIMING INSIGHTS FROM 5-CATEGORY ANALYSIS:
+❌ Confirmed + Unable to Process = Submissions were TOO LATE (courts taken)
+❓ Confirmed + No Decision = Server received but still processing
+✅ Confirmed + Approved = PERFECT TIMING!
+
+
+🎯 TIMING ANALYSIS - FINDING THE SWEET SPOT:
+============================================================
+
+✅ APPROVED (Perfect Timing):
+   Earliest: 08:00:03.824 (seans)
+   Latest:   09:18:45.124 (seans)
+   Count:    6 submissions
+
+❌ REJECTED/Unable to Process (Too Late):
+   Earliest: 08:00:03.776 (morganb)
+   Latest:   09:18:45.174 (nancyl)
+   Count:    9 submissions
+
+🎯 SWEET SPOT ANALYSIS:
+
+   ✅ Successful timing window:
+   From: 08:00:03.824
+   To:   09:18:45.124
+
+💡 RECOMMENDATIONS:
+   - All failed submissions were too late. Need to submit earlier.
+   - Optimal submission time appears to be 8:00:00 + 3.824 seconds

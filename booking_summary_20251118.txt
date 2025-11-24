@@ -1,0 +1,65 @@
+
+TENNIS BOOKING SUMMARY - 2025-11-18
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 11
+- Submission confirmations received: 11/11 (100.0%)
+- Final decisions received: 11/11 (100.0%)
+- Confirmed successful: 0
+- Confirmed failed: 11 (rejected: 3, canceled: 8)
+- Still pending/unknown: 0
+
+SUBMISSION RESULTS (ordered by time):
+Legend: ✅=Approved ❌=Failed (too late/too early) 🚫=No confirmation ❓=Pending/Mixed
+
+ 1. 08:00:01.554 ❌    andrewk → Court 6 at 16:00 on 11/20/2025
+ 2. 08:00:01.605 ❌     ethanh → Court 6 at 17:00 on 11/20/2025
+ 3. 08:00:01.654 ❌      alexm → Court 1 at 16:00 on 11/20/2025
+ 4. 08:00:01.714 ❌     jamies → Court 1 at 17:00 on 11/20/2025
+ 5. 08:00:01.768 ❌    dennisw → Court 5 at 16:00 on 11/20/2025
+ 6. 08:00:01.816 ❌      seans → Court 5 at 17:00 on 11/20/2025
+ 7. 08:00:01.860 ❌    arthurw → Court 3 at 16:00 on 11/20/2025
+ 8. 08:00:01.921 ❌    morganb → Court 3 at 17:00 on 11/20/2025
+ 9. 08:00:01.966 ❌     brians → Court 4 at 16:00 on 11/20/2025
+10. 08:00:02.025 ❌    jordanr → Court 4 at 17:00 on 11/20/2025
+11. 08:00:02.069 ❌     nancyl → Court 2 at 16:00 on 11/20/2025
+
+ACCOUNT SUMMARY:
+❌ Submission Confirmed + Unable to Process (too late): brians, jordanr, nancyl
+❌ Submission Confirmed + Cancelled (too early): alexm, andrewk, arthurw, dennisw, ethanh, jamies, morganb, seans
+
+BY COURT SUCCESS RATE:
+  Court 1: 0/2 (0%)
+  Court 2: 0/1 (0%)
+  Court 3: 0/2 (0%)
+  Court 4: 0/2 (0%)
+  Court 5: 0/2 (0%)
+  Court 6: 0/2 (0%)
+
+BY TIME SLOT SUCCESS RATE:
+  16:00: 0/6 (0%)
+  17:00: 0/5 (0%)
+
+
+🎯 TIMING ANALYSIS - FINDING THE SWEET SPOT:
+============================================================
+
+❌ CANCELLED (Too Early):
+   Earliest: 08:00:01.554 (andrewk)
+   Latest:   08:00:01.921 (morganb)
+   Count:    8 submissions
+
+❌ REJECTED/Unable to Process (Too Late):
+   Earliest: 08:00:01.966 (brians)
+   Latest:   08:00:02.069 (nancyl)
+   Count:    3 submissions
+
+🎯 SWEET SPOT ANALYSIS:
+   Gap detected between too early and too late:
+   Last cancelled: 08:00:01.921
+   First rejected: 08:00:01.966
+   Sweet spot window: 45ms
+
+💡 RECOMMENDATIONS:
+   - All failed submissions were too early. Need to delay significantly.

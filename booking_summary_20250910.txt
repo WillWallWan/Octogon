@@ -1,0 +1,47 @@
+
+TENNIS BOOKING SUMMARY - 2025-09-10
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 12
+- Confirmed successful: 1
+- Confirmed failed: 7
+- Unknown outcome: 4
+
+SUBMISSION RESULTS (ordered by time):
+
+ 1. 08:00:02.523 🚫    andrewk → Court 6 at 18:00 on 09/12/2025
+ 2. 08:00:02.623 🚫     brians → Court 6 at 19:00 on 09/12/2025
+ 3. 08:00:02.724 🚫    arthurw → Court 6 at 20:00 on 09/12/2025
+ 4. 08:00:02.836 ❌     jamies → Court 5 at 18:00 on 09/12/2025
+ 5. 08:00:02.938 ❌      seans → Court 5 at 19:00 on 09/12/2025
+ 6. 08:00:03.038 ❌     ethanh → Court 2 at 17:00 on 09/12/2025
+ 7. 08:00:03.138 ❌    dennisw → Court 3 at 18:00 on 09/12/2025
+ 8. 08:00:03.238 ❌    morganb → Court 3 at 19:00 on 09/12/2025
+ 9. 08:00:03.338 ❌      alexm → Court 3 at 17:00 on 09/12/2025
+10. 08:00:03.438 ❌     nancyl → Court 2 at 18:00 on 09/12/2025
+11. 08:00:03.538 ✅    jordanr → Court 2 at 19:00 on 09/12/2025
+12. 08:00:03.639 ❌    yitings → Court 2 at 17:00 on 09/12/2025
+
+ACCOUNT SUMMARY:
+✅ Fully successful: jordanr
+❌ All failed: alexm, dennisw, ethanh, jamies, morganb, nancyl, seans, yitings
+🚫 All canceled: andrewk, arthurw, brians
+
+BY COURT SUCCESS RATE:
+  Court 2: 1/4 (25%)
+  Court 3: 0/3 (0%)
+  Court 5: 0/2 (0%)
+  Court 6: 0/3 (0%)
+
+BY TIME SLOT SUCCESS RATE:
+  17:00: 0/3 (0%)
+  18:00: 0/4 (0%)
+  19:00: 1/4 (25%)
+  20:00: 0/1 (0%)
+
+CONFIRMED BOOKINGS:
+  ✅ jordanr → Court 2 at 19:00 on 09/12/2025
+
+NOTE: No email results found for: jamies
+      These bookings are treated as failed/unknown.

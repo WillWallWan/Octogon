@@ -516,6 +516,9 @@ class TennisBooker:
         # Downgrade this duplicate log to DEBUG to avoid clutter.
         logging.debug(f"Clicking final submit button for {self.court_info_for_logging}")
         try:
+            # Store initial URL for later verification (instant operation)
+            self.pre_submit_url = self.driver.current_url
+            
             # Find the button
             submit_button = self.wait.until(
                 EC.element_to_be_clickable((By.XPATH, "//button[@id='cancelNewPermitRequest']/preceding-sibling::button"))
@@ -533,6 +536,32 @@ class TennisBooker:
             # Log any other errors during the find/click process
             logging.error(f"Error clicking submit for {self.court_info_for_logging}: {str(e)}")
             # Note: We don't return True/False as we aren't checking success
+    
+    def verify_submission(self):
+        """Check if submission actually went through by comparing URLs. Called after all submissions."""
+        if not self.driver:
+            return None
+            
+        try:
+            current_url = self.driver.current_url
+            pre_url = getattr(self, 'pre_submit_url', None)
+            
+            if pre_url is None:
+                logging.warning(f"No pre-submit URL stored for {self.court_info_for_logging}")
+                return None
+                
+            url_changed = current_url != pre_url
+            
+            if url_changed:
+                logging.info(f"✅ URL CHANGED for {self.court_info_for_logging}: {pre_url} → {current_url}")
+            else:
+                logging.warning(f"❌ URL UNCHANGED for {self.court_info_for_logging}: Still at {current_url}")
+                
+            return url_changed
+            
+        except Exception as e:
+            logging.error(f"Error verifying submission for {self.court_info_for_logging}: {e}")
+            return None
 
     def close(self):
         """Close the browser."""
@@ -589,27 +618,32 @@ def main():
     # --- Configuration --- 
     SUBMIT_HOUR = 8
     SUBMIT_MINUTE = 0
-    # SUBMIT_SECOND values can now be configured per weekday (0 = Monday ... 6 = Sunday)
-    # Feel free to tweak individual seconds as desired – only the values in this
-    # dictionary need to be edited.
-    SUBMIT_SECOND_BY_DAY = {
-        0: 2,  # Monday
-        1: 2,  # Tuesday
-        2: 3,  # Wednesday
-        3: 4,  # Thursday
-        4: 4,  # Friday
+    # SUBMIT_TIMING values can now be configured per weekday (0 = Monday ... 6 = Sunday)
+    # Each day can have its own second and millisecond values for precise timing
+    # Format: {"second": int, "millisecond": int} where millisecond is 0-999
+    SUBMIT_TIMING_BY_DAY = {
+        0: {"second": 1, "millisecond": 250},  # Monday: 8:00:02.150
+        1: {"second": 1, "millisecond": 750},  # Tuesday: 8:00:02.250
+        2: {"second": 2, "millisecond": 750},  # Wednesday: 8:00:03.100
+        3: {"second": 3, "millisecond": 200},   # Thursday: 8:00:04.050
+        4: {"second": 3, "millisecond": 500},  # Friday: 8:00:04.200
         # 5 and 6 (Saturday/Sunday) are not normally used but are provided for completeness.
-        5: 3,
-        6: 3,
+        5: {"second": 3, "millisecond": 0},
+        6: {"second": 3, "millisecond": 0},
     }
 
-    # The script will look up today's weekday; if it is missing from the map we default to 3 s.
-    SUBMIT_SECOND = SUBMIT_SECOND_BY_DAY.get(datetime.now().weekday(), 3)
+    # The script will look up today's weekday; if it is missing from the map we default to 3s 0ms.
+    default_timing = {"second": 3, "millisecond": 0}
+    timing = SUBMIT_TIMING_BY_DAY.get(datetime.now().weekday(), default_timing)
+    SUBMIT_SECOND = timing["second"]
+    SUBMIT_MILLISECOND = timing["millisecond"]
+    # Convert milliseconds to microseconds for datetime
+    SUBMIT_MICROSECOND = SUBMIT_MILLISECOND * 1000
 
-    # Max random jitter (seconds) applied *inside each submission thread* to avoid all
-    # requests landing in the exact same millisecond. 50 ms is usually enough to break
-    # perfect synchrony while keeping the whole batch under ~0.3 s.
-    SUBMIT_DELAY_MAX_SECONDS = 0.05 
+    # Systematic delay increment (seconds) for A/B testing optimal submission timing
+    # Each booking will be offset by idx * SUBMIT_DELAY_INCREMENT_SECONDS
+    # e.g., 0.1 means: 1st booking at +0ms, 2nd at +100ms, 3rd at +200ms, etc.
+    SUBMIT_DELAY_INCREMENT_SECONDS = 0.05
 
     # Max time (in seconds) we allow a single prepare_booking() call to run before
     # we consider it hung and discard the attempt.
@@ -634,16 +668,16 @@ def main():
     now = datetime.now()
     today_weekday = now.weekday()
 
-    # SUBMIT_SECOND has already been set via SUBMIT_SECOND_BY_DAY above.
+    # SUBMIT_SECOND and SUBMIT_MILLISECOND have already been set via SUBMIT_TIMING_BY_DAY above.
     # Logging here for clarity.
-    logging.debug(f"SUBMIT_SECOND for weekday {today_weekday} set to {SUBMIT_SECOND} s.")
+    logging.debug(f"SUBMIT_TIMING for weekday {today_weekday} set to {SUBMIT_SECOND}s {SUBMIT_MILLISECOND}ms.")
 
     # Calculate the target_submit_time for today or tomorrow
-    target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=0)
+    target_submit_time = now.replace(hour=SUBMIT_HOUR, minute=SUBMIT_MINUTE, second=SUBMIT_SECOND, microsecond=SUBMIT_MICROSECOND)
     if now >= target_submit_time:
-        logging.info(f"Configured submit time {target_submit_time.strftime('%H:%M:%S')} has passed for today. Setting target for tomorrow.")
+        logging.info(f"Configured submit time {target_submit_time.strftime('%H:%M:%S.%f')[:-3]} has passed for today. Setting target for tomorrow.")
         target_submit_time += timedelta(days=1)
-    logging.info(f"Actual target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    logging.info(f"Actual target submission time: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]}")
 
     # i.e. 30 s before the top of the hour plus today's SUBMIT_SECOND value.
     PREPARATION_CUTOFF_SECONDS_DYNAMIC = 30 + SUBMIT_SECOND  # e.g. 33 s (Mon-Wed) or 37 s (Thu/Fri)
@@ -664,7 +698,7 @@ def main():
     logging.info(priority_log.strip()) # Use strip() to remove trailing newline
 
     # Log the originally configured submission time for today for clarity, even if actual is tomorrow
-    logging.info(f"Original configured target submission time for today's rules: {SUBMIT_HOUR:02d}:{SUBMIT_MINUTE:02d}:{SUBMIT_SECOND:02d}")
+    logging.info(f"Original configured target submission time for today's rules: {SUBMIT_HOUR:02d}:{SUBMIT_MINUTE:02d}:{SUBMIT_SECOND:02d}.{SUBMIT_MILLISECOND:03d}")
 
     # --- Preparation Phase --- 
     logging.info("--- Starting Preparation Phase ---")
@@ -796,7 +830,7 @@ def main():
     # Replace simple sleep with an active wait loop that pings browsers
     wait_seconds = (target_submit_time - datetime.now()).total_seconds()
     if wait_seconds > 0:
-        logging.info(f"Entering final waiting phase. Target: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S')} ({wait_seconds:.2f}s from now).")
+        logging.info(f"Entering final waiting phase. Target: {target_submit_time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]} ({wait_seconds:.2f}s from now).")
         # The heartbeat thread handled keep-alives during prep.
         # This final sleep is passive since it should be short.
         time.sleep(wait_seconds)
@@ -804,22 +838,33 @@ def main():
          logging.info("Target submission time is now or in the past. Proceeding immediately.")
 
     # --- Submission Phase --- 
-    logging.info(f"--- Target time reached! Starting RAPID Submission Phase at {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')} ---")
+    logging.info(f"--- Target time reached! Starting RAPID Submission Phase at {datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]} ---")
+    
+    # Log the submission schedule for A/B testing
+    logging.info(f"A/B Testing Schedule - Each booking offset by {SUBMIT_DELAY_INCREMENT_SECONDS*1000:.0f}ms:")
+    for i in range(len(prepared_instances)):
+        delay_ms = i * SUBMIT_DELAY_INCREMENT_SECONDS * 1000
+        logging.info(f"  Instance {i+1}: +{delay_ms:.0f}ms delay")
+    
     # -------------------- PARALLEL SUBMISSION PHASE --------------------
     submit_errors = 0
     submit_errors_lock = threading.Lock()
 
     def _fire_submit(idx, total, booker_inst):
-        """Worker thread that waits a tiny jitter, logs, then clicks submit."""
+        """Worker thread that applies systematic delay for A/B testing, then clicks submit."""
         nonlocal submit_errors
 
-        # Optional tiny jitter to avoid perfect simultaneity
-        time.sleep(random.uniform(0, SUBMIT_DELAY_MAX_SECONDS))
+        # Systematic delay for A/B testing: each instance gets progressively more delay
+        systematic_delay = idx * SUBMIT_DELAY_INCREMENT_SECONDS
+        time.sleep(systematic_delay)
 
-        # Helpful logging: which account & court is submitting
+        # Log the exact timestamp when we're about to click submit
+        submission_timestamp = datetime.now()
         user_tag = getattr(booker_inst, "user_email", "unknown-user")
+        # Format timestamp to show milliseconds (truncate microseconds to 3 digits)
+        timestamp_str = submission_timestamp.strftime('%H:%M:%S.%f')[:-3]
         logging.info(
-            f"Clicking submit for instance {idx+1}/{total} "
+            f"[{timestamp_str}] (+{systematic_delay:.1f}s delay) Clicking submit for instance {idx+1}/{total} "
             f"({booker_inst.court_info_for_logging}) using {user_tag}"
         )
 
@@ -850,12 +895,40 @@ def main():
         f"--- Submit Clicking Phase Complete: {submit_attempts}/{len(prepared_instances)} submit clicks attempted. "
         f"Submit errors: {submit_errors} ---"
     )
-
-    # Add a pause AFTER all clicks before closing, to allow submissions to register
-    # Adjust the sleep duration as needed
-    close_delay_seconds = 5 
-    logging.info(f"Waiting {close_delay_seconds} seconds before closing browser windows...")
-    time.sleep(close_delay_seconds) 
+    
+    # --- Verification Phase ---
+    # Wait a bit to allow page redirects to happen
+    logging.info("--- Starting Verification Phase (checking for URL changes) ---")
+    time.sleep(2)  # Give pages 2 seconds to redirect
+    
+    url_changes_confirmed = 0
+    url_unchanged = 0
+    verification_errors = 0
+    
+    for idx, booker_instance in enumerate(prepared_instances):
+        try:
+            result = booker_instance.verify_submission()
+            if result is True:
+                url_changes_confirmed += 1
+            elif result is False:
+                url_unchanged += 1
+            else:
+                verification_errors += 1
+        except Exception as e:
+            logging.error(f"Error during verification for instance {idx+1}: {e}")
+            verification_errors += 1
+    
+    logging.info(
+        f"--- Verification Phase Complete: "
+        f"{url_changes_confirmed} URL changes confirmed, "
+        f"{url_unchanged} URLs unchanged, "
+        f"{verification_errors} verification errors ---"
+    )
+    
+    # Add remaining pause time before closing
+    remaining_delay = 3  # We already waited 2 seconds, so 3 more = 5 total
+    logging.info(f"Waiting {remaining_delay} more seconds before closing browser windows...")
+    time.sleep(remaining_delay) 
 
     # --- Cleanup Phase ---
     logging.info("--- Starting Cleanup Phase (Closing all browser windows - Phase 2) ---")

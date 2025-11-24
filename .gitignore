@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Gmail API credentials
+credentials.json
+token.pickle
+
+# API Keys and secrets
+.env
+*.key
+
+# Logs
+*.log
+logs/
+archivelogs/
+
+# Screenshots
+screenshots/
+
+# Summaries
+summaries/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+
+
+
+

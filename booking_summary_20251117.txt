@@ -1,0 +1,73 @@
+
+TENNIS BOOKING SUMMARY - 2025-11-17
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 12
+- Submission confirmations received: 12/12 (100.0%)
+- Final decisions received: 12/12 (100.0%)
+- Confirmed successful: 4
+- Confirmed failed: 8 (rejected: 8, canceled: 0)
+- Still pending/unknown: 0
+
+SUBMISSION RESULTS (ordered by time):
+Legend: ✅=Approved ❌=Failed (too late/too early) 🚫=No confirmation ❓=Pending/Mixed
+
+ 1. 08:00:01.557 ✅     ethanh → Court 6 at 16:00 on 11/19/2025
+ 2. 08:00:01.618 ✅    arthurw → Court 6 at 17:00 on 11/19/2025
+ 3. 08:00:01.662 ❌    andrewk → Court 1 at 16:00 on 11/19/2025
+ 4. 08:00:01.716 ✅    yitings → Court 1 at 17:00 on 11/19/2025
+ 5. 08:00:01.761 ✅    morganb → Court 5 at 16:00 on 11/19/2025
+ 6. 08:00:01.814 ❌     nancyl → Court 5 at 17:00 on 11/19/2025
+ 7. 08:00:01.863 ❌      alexm → Court 3 at 16:00 on 11/19/2025
+ 8. 08:00:01.921 ❌     jamies → Court 3 at 17:00 on 11/19/2025
+ 9. 08:00:01.972 ❌     brians → Court 4 at 16:00 on 11/19/2025
+10. 08:00:02.024 ❌      seans → Court 4 at 17:00 on 11/19/2025
+11. 08:00:02.079 ❌    jordanr → Court 2 at 16:00 on 11/19/2025
+12. 08:00:02.126 ❌    dennisw → Court 2 at 17:00 on 11/19/2025
+
+ACCOUNT SUMMARY:
+✅ Submission Confirmed + Approved: arthurw, ethanh, morganb, yitings
+❌ Submission Confirmed + Unable to Process (too late): alexm, andrewk, brians, dennisw, jamies, jordanr, nancyl, seans
+
+BY COURT SUCCESS RATE:
+  Court 1: 1/2 (50%)
+  Court 2: 0/2 (0%)
+  Court 3: 0/2 (0%)
+  Court 4: 0/2 (0%)
+  Court 5: 1/2 (50%)
+  Court 6: 2/2 (100%)
+
+BY TIME SLOT SUCCESS RATE:
+  16:00: 2/6 (33%)
+  17:00: 2/6 (33%)
+
+CONFIRMED BOOKINGS:
+  ✅ ethanh → Court 6 at 16:00 on 11/19/2025
+  ✅ arthurw → Court 6 at 17:00 on 11/19/2025
+  ✅ yitings → Court 1 at 17:00 on 11/19/2025
+  ✅ morganb → Court 5 at 16:00 on 11/19/2025
+
+
+🎯 TIMING ANALYSIS - FINDING THE SWEET SPOT:
+============================================================
+
+✅ APPROVED (Perfect Timing):
+   Earliest: 08:00:01.557 (ethanh)
+   Latest:   08:00:01.761 (morganb)
+   Count:    4 submissions
+
+❌ REJECTED/Unable to Process (Too Late):
+   Earliest: 08:00:01.662 (andrewk)
+   Latest:   08:00:02.126 (dennisw)
+   Count:    8 submissions
+
+🎯 SWEET SPOT ANALYSIS:
+
+   ✅ Successful timing window:
+   From: 08:00:01.557
+   To:   08:00:01.761
+
+💡 RECOMMENDATIONS:
+   - All failed submissions were too late. Need to submit earlier.
+   - Optimal submission time appears to be 8:00:00 + 1.557 seconds

@@ -1,0 +1,65 @@
+
+TENNIS BOOKING SUMMARY - 2025-11-13
+================================================================================
+
+OVERALL RESULTS:
+- Total booking attempts: 12
+- Submission confirmations received: 12/12 (100.0%)
+- Final decisions received: 12/12 (100.0%)
+- Confirmed successful: 0
+- Confirmed failed: 12 (rejected: 2, canceled: 10)
+- Still pending/unknown: 0
+
+SUBMISSION RESULTS (ordered by time):
+Legend: ✅=Approved ❌=Failed (too late/too early) 🚫=No confirmation ❓=Pending/Mixed
+
+ 1. 08:00:02.609 ❌      alexm → Court 6 at 16:00 on 11/15/2025
+ 2. 08:00:02.659 ❌    morganb → Court 6 at 17:00 on 11/15/2025
+ 3. 08:00:02.720 ❌    yitings → Court 1 at 16:00 on 11/15/2025
+ 4. 08:00:02.772 ❌     jamies → Court 1 at 17:00 on 11/15/2025
+ 5. 08:00:02.826 ❌    andrewk → Court 5 at 16:00 on 11/15/2025
+ 6. 08:00:02.873 ❌     brians → Court 5 at 17:00 on 11/15/2025
+ 7. 08:00:02.922 ❌      seans → Court 3 at 16:00 on 11/15/2025
+ 8. 08:00:02.973 ❌    dennisw → Court 3 at 17:00 on 11/15/2025
+ 9. 08:00:03.022 ❌     ethanh → Court 4 at 16:00 on 11/15/2025
+10. 08:00:03.081 ❌    jordanr → Court 4 at 17:00 on 11/15/2025
+11. 08:00:03.122 ❌     nancyl → Court 2 at 16:00 on 11/15/2025
+12. 08:00:03.180 ❌    arthurw → Court 2 at 17:00 on 11/15/2025
+
+ACCOUNT SUMMARY:
+❌ Submission Confirmed + Unable to Process (too late): jamies, yitings
+❌ Submission Confirmed + Cancelled (too early): alexm, andrewk, arthurw, brians, dennisw, ethanh, jordanr, morganb, nancyl, seans
+
+BY COURT SUCCESS RATE:
+  Court 1: 0/2 (0%)
+  Court 2: 0/2 (0%)
+  Court 3: 0/2 (0%)
+  Court 4: 0/2 (0%)
+  Court 5: 0/2 (0%)
+  Court 6: 0/2 (0%)
+
+BY TIME SLOT SUCCESS RATE:
+  16:00: 0/6 (0%)
+  17:00: 0/6 (0%)
+
+
+🎯 TIMING ANALYSIS - FINDING THE SWEET SPOT:
+============================================================
+
+❌ CANCELLED (Too Early):
+   Earliest: 08:00:02.609 (alexm)
+   Latest:   08:00:03.180 (arthurw)
+   Count:    10 submissions
+
+❌ REJECTED/Unable to Process (Too Late):
+   Earliest: 08:00:02.720 (yitings)
+   Latest:   08:00:02.772 (jamies)
+   Count:    2 submissions
+
+🎯 SWEET SPOT ANALYSIS:
+   ⚠️  OVERLAP DETECTED - No clear sweet spot!
+   Some submissions were cancelled while others submitted later were rejected.
+   This suggests server readiness varies or other factors are at play.
+
+💡 RECOMMENDATIONS:
+   - All failed submissions were too early. Need to delay significantly.
